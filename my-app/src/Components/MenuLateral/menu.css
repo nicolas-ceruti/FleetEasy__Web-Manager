@@ -1,0 +1,18 @@
+.pro-sidebar {
+    color: #adadad;
+    height: 100%;
+    width: 270px;
+    min-width: 270px;
+    text-align: left;
+    transition: width, left, right, 0.3s;
+    position: relative;
+    z-index: 1009;
+    height: 100vh;
+    margin-left: -8px;
+    margin-top: -8px !important;
+}
+
+.tituloMenu{
+    font-size: 30px;
+    margin-left: 20px;
+}
