@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
-import DriverRegisterForm from "../../Components/DriverRegisterForm/driverRegisterForm";
+import VechileRegisterForm from "../../Components/VechileRegisterForm/vechileRegisterForm";
 import 'react-pro-sidebar/dist/css/styles.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return(
     <>
     <MenuLateral/>
-    <DriverRegisterForm/>
+    <VechileRegisterForm/>
     </>
   );
 }

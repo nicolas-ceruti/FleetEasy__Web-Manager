@@ -29,6 +29,7 @@ function Form() {
         event.preventDefault();
       }}>
         <TextField
+        
           className="textFields"
           icon={<BsPinMap />}
           id="nomeCompleto"
