@@ -14,7 +14,7 @@ const MenuLateral = () => {
 
   return(
     <>
-    <ProSidebar >
+    <ProSidebar  >
       <SidebarHeader>
         <h2 className='tituloMenu'> {<FaMapMarkerAlt/>} Itracker</h2>
 
@@ -28,7 +28,7 @@ const MenuLateral = () => {
         
         <SubMenu icon={<BsFillPersonPlusFill />} title="Cadastro" >
           <MenuItem icon={<BsPersonFill/>}>Motoristas
-          <Link to="/" />
+          <Link to="/driversRegister" />
           </MenuItem>
           <MenuItem icon={<BsTruck/>}> Veículos
           <Link to="/" />
