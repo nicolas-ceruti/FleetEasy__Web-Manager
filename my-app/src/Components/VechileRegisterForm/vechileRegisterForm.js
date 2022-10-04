@@ -177,8 +177,7 @@ function Form() {
           Cadastrar
         </Button>
       </form>
-
-      <p>{placa}</p>
+      
     </Container>
   );
 }

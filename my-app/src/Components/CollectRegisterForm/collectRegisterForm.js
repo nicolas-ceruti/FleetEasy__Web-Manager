@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./driverRegisterForm.css"
+import "./collectRegisterForm.css"
 import {
   Container,
   Button,
@@ -24,47 +24,61 @@ function Form() {
 
   return (
     <Container maxWidth="sm" component="article" className="form">
-      <h1>Cadastro de Motoristas</h1>
+      <h1>Cadastro de Coletas</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
         <TextField
-          className="nomeCompleto_textField"
+        
+          className="textFields"
           icon={<BsPinMap />}
           id="nomeCompleto"
           label="Nome Completo"
-          variant="standard"
-          margin="dense"
+          variant="standard"    color="success"     margin="dense"
           fullWidth
           value={nomeCompleto}
           onChange={(event) => {setNomecompleto(event.target.value)}}
+        /><TextField
+          className="textFields"
+          id="telefone"
+          label="Telefone"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={telefone}
+          onChange={(event) => {setTelefone(event.target.value)}}
         />
         <TextField
-          className="senha_textField"
+          className="textFields"
+          id="email"
+          label="Email"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        <TextField
+          className="textFields"
           id="senha"
           label="Senha do Usuário"
-          variant="standard"
-          margin="dense"
+          variant="standard"          margin="dense"
           fullWidth
           value={senha}
           onChange={(event) => {setSenha(event.target.value)}}
         />
-          <TextField
-          className="veiculo_textField"
+        <TextField
+          className="textFields"
           id="veiculo"
           label="Veículo"
-          variant="standard"
-          margin="dense"
+          variant="standard"          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
         <TextField
-          className="cpf_textField"
+          className="textFields"
           id="cpf"
           label="CPF"
-          variant="standard"
-          margin="dense"
+          variant="standard"        margin="dense"
           fullWidth
           error={CPFError}
           helperText={CPFError && "Deve conter 11 dígitos. Insira apenas os números."}
@@ -89,11 +103,10 @@ function Form() {
           }
         />
         <TextField
-          className="rg_textField"
+          className="textFields"
           id="rg"
           label="RG"
-          variant="standard"
-          margin="dense"
+          variant="filled"   color="success"          margin="dense"
           fullWidth
           error={RGError}
           helperText={RGError && "Deve conter 7 dígitos. Insira apenas os números."}
@@ -117,28 +130,8 @@ function Form() {
             setRg(event.target.value)}
           }
         />
-        <TextField
-          className="telefone_textField"
-          id="telefone"
-          label="Telefone"
-          variant="standard"
-          margin="dense"
-          fullWidth
-          value={telefone}
-          onChange={(event) => {setTelefone(event.target.value)}}
-        />
-        <TextField
-          className="email_textField"
-          id="email"
-          label="Email"
-          variant="standard"
-          margin="dense"
-          fullWidth
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
-        />    
 
-        <Button className="btn-form_login" variant="contained" color="primary">
+        <Button className="btn-form" variant="contained" color="primary">
           Cadastrar
         </Button>
       </form>

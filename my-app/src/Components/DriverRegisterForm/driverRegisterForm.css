@@ -1,5 +1,5 @@
 .form {
-    margin-top: -51%;
+    margin-top: -46%;
     padding: 2rem 3rem;
     border-radius: 1rem;
     background-color: white;
@@ -28,9 +28,54 @@
     margin-top: 15px !important;
 }
 
-.textFields{
+.nomeCompleto_textField{
+    margin-top: 15px !important;
+    height: 50px !important;  
+    width: 60% !important;  
+}
+
+.senha_textField{
     margin-top: 15px !important;
     height: 50px !important;
-    
-    
+    width: 35% !important;
+    left: 3%; 
+}
+
+.veiculo_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important;
+}
+
+.cpf_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 33% !important;
+    left: 3%;
+}
+
+.rg_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important;
+    left: 5%;
+}
+
+.telefone_textField{
+    margin-top: 15px !important;
+    height: 50px !important; 
+    width: 47% !important;   
+}
+
+.email_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 47% !important;
+    left: 4%;
+}
+
+
+
+.btn-form_login{
+    width: 100% !important;
 }

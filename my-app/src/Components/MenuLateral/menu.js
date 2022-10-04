@@ -34,7 +34,7 @@ const MenuLateral = () => {
           <Link to="/vechileRegister" />
           </MenuItem>
           <MenuItem icon={<FaRoute/>}>Coletas
-          <Link to="/" />
+          <Link to="/collectRegister" />
           </MenuItem>
         </SubMenu>
 
