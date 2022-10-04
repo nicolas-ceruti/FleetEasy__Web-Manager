@@ -34,7 +34,7 @@ function Form() {
           icon={<BsPinMap />}
           id="nomeCompleto"
           label="Nome Completo"
-          variant="standard"    color="success"     margin="dense"
+          variant="filled"    color="success"     margin="dense"
           fullWidth
           value={nomeCompleto}
           onChange={(event) => {setNomecompleto(event.target.value)}}

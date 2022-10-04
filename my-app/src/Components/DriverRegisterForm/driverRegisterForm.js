@@ -33,7 +33,7 @@ function Form() {
           icon={<BsPinMap />}
           id="nomeCompleto"
           label="Nome Completo"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           value={nomeCompleto}
@@ -43,17 +43,17 @@ function Form() {
           className="senha_textField"
           id="senha"
           label="Senha do Usuário"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           value={senha}
           onChange={(event) => {setSenha(event.target.value)}}
         />
-          <TextField
+        <TextField
           className="veiculo_textField"
           id="veiculo"
           label="Veículo"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           value={veiculo}
@@ -63,7 +63,7 @@ function Form() {
           className="cpf_textField"
           id="cpf"
           label="CPF"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           error={CPFError}
@@ -92,7 +92,7 @@ function Form() {
           className="rg_textField"
           id="rg"
           label="RG"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           error={RGError}
@@ -121,7 +121,7 @@ function Form() {
           className="telefone_textField"
           id="telefone"
           label="Telefone"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           value={telefone}
@@ -131,7 +131,7 @@ function Form() {
           className="email_textField"
           id="email"
           label="Email"
-          variant="standard"
+          variant="outlined"
           margin="dense"
           fullWidth
           value={email}
@@ -143,7 +143,6 @@ function Form() {
         </Button>
       </form>
 
-      <p>{nomeCompleto}</p>
     </Container>
   );
 }

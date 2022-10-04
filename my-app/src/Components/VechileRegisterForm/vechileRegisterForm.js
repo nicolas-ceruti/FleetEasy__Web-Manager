@@ -34,7 +34,7 @@ function Form() {
         event.preventDefault();
       }}>
         <TextField
-          className="textFields"
+          className="placa_textFields"
           id="placa"
           label="Placa"
           variant="outlined"
@@ -63,68 +63,7 @@ function Form() {
           }
         />
         <TextField
-          className="textFields"
-          id="cor"
-          label="Cor"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={cor}
-          onChange={(event) => {setCor(event.target.value)}}
-        />
-        <TextField
-          className="textFields"
-          id="ano"
-          label="Ano de Fabricação"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={ano}
-          onChange={(event) => {setAno(event.target.value)}}
-        />
-        <Select 
-          className="textFields" 
-          id="tipo"
-          label="Tipo do Veículo" 
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={tipo}
-          onChange={(event) => {setTipo(event.target.value)}}>
-            <MenuItem disabled value="">
-            <em>Tipo do Veículo</em>
-          </MenuItem>
-            <MenuItem value="veiculoUrbanoDeCarga">Veículo Urbano de Carga</MenuItem>
-            <MenuItem value="cavaloMecanico">Cavalo Mecânico</MenuItem>
-            <MenuItem value="cavaloMecanicoTrucado">Cavalo Mecânico Trucado</MenuItem>
-            <MenuItem value="carreta2Eixos">Carreta 2 Eixos</MenuItem>
-            <MenuItem value="carreta3Eixos">Carreta 3 Eixos</MenuItem>
-            <MenuItem value="carretaCavaloTrucado">Carreta Cavalo Trucado</MenuItem>
-            <MenuItem value="bitrem">Bitrem</MenuItem>
-            <MenuItem value="rodotrem">Rodotrem</MenuItem>
-        </Select>
-        <TextField
-          className="textFields"
-          id="marca"
-          label="Marca"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={marca}
-          onChange={(event) => {setMarca(event.target.value)}}
-        />
-        <TextField
-          className="textFields"
-          id="modelo"
-          label="Modelo"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={modelo}
-          onChange={(event) => {setModelo(event.target.value)}}
-        />
-        <TextField
-          className="textFields"
+          className="chassi_textFields"
           id="chassi"
           label="Número do Chassi"
           variant="outlined"
@@ -153,7 +92,68 @@ function Form() {
           }
         />
         <TextField
-          className="textFields"
+          className="ano_textFields"
+          id="ano"
+          label="Ano de Fabricação"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={ano}
+          onChange={(event) => {setAno(event.target.value)}}
+        />
+        <TextField
+          className="cor_textFields"
+          id="cor"
+          label="Cor"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={cor}
+          onChange={(event) => {setCor(event.target.value)}}
+        />
+        <TextField
+          className="marca_textFields"
+          id="marca"
+          label="Marca"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={marca}
+          onChange={(event) => {setMarca(event.target.value)}}
+        />
+        <TextField
+          className="modelo_textFields"
+          id="modelo"
+          label="Modelo"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={modelo}
+          onChange={(event) => {setModelo(event.target.value)}}
+        />
+        <Select 
+          className="tipo_textFields" 
+          id="tipo"
+          label="Tipo do Veículo" 
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={tipo}
+          onChange={(event) => {setTipo(event.target.value)}}>
+            <MenuItem disabled value="">
+            <em>Tipo do Veículo</em>
+          </MenuItem>
+            <MenuItem value="veiculoUrbanoDeCarga">Veículo Urbano de Carga</MenuItem>
+            <MenuItem value="cavaloMecanico">Cavalo Mecânico</MenuItem>
+            <MenuItem value="cavaloMecanicoTrucado">Cavalo Mecânico Trucado</MenuItem>
+            <MenuItem value="carreta2Eixos">Carreta 2 Eixos</MenuItem>
+            <MenuItem value="carreta3Eixos">Carreta 3 Eixos</MenuItem>
+            <MenuItem value="carretaCavaloTrucado">Carreta Cavalo Trucado</MenuItem>
+            <MenuItem value="bitrem">Bitrem</MenuItem>
+            <MenuItem value="rodotrem">Rodotrem</MenuItem>
+        </Select>
+        <TextField
+          className="capacidadePeso_textFields"
           id="capacidadePeso"
           label="Capacidade de Peso"
           variant="outlined"
@@ -163,7 +163,7 @@ function Form() {
           onChange={(event) => {setCapacidadePeso(event.target.value)}}
         />
         <TextField
-          className="textFields"
+          className="capacidadeVolumetria_textFields"
           id="capacidadeVolumetria"
           label="Capacidade de Volumetria"
           variant="outlined"

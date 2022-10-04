@@ -1,5 +1,5 @@
 .form {
-    margin-top: -46%;
+    margin-top: -47% !important;
     padding: 2rem 3rem;
     border-radius: 1rem;
     background-color: white;
@@ -64,14 +64,14 @@
 .telefone_textField{
     margin-top: 15px !important;
     height: 50px !important; 
-    width: 47% !important;   
+    width: 49% !important;   
 }
 
 .email_textField{
     margin-top: 15px !important;
     height: 50px !important;
     width: 47% !important;
-    left: 4%;
+    left: 2%;
 }
 
 
