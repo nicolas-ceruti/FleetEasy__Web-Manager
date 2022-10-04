@@ -4,14 +4,16 @@ import {
   Container,
   Button,
   TextField,
+  LinearProgress,
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
 import {BsPinMap} from "react-icons/bs";
 
 
+
 function Form() {
-  const [nomeCompleto, setNomecompleto] = useState('');
+   const [nomeCompleto, setNomecompleto] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState();
@@ -21,6 +23,8 @@ function Form() {
 
   const [CPFError, setCPFError] = useState(false);
   const [RGError, setRGError] = useState(false);
+
+
 
   return (
     <Container maxWidth="sm" component="article" className="form">
