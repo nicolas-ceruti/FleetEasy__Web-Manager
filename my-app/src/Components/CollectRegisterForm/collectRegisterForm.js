@@ -7,8 +7,6 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
-import {BsPinMap} from "react-icons/bs";
-
 
 function Form() {
   const [nomeCompleto, setNomecompleto] = useState('');
@@ -29,51 +27,123 @@ function Form() {
         event.preventDefault();
       }}>
         <TextField
-        
           className="textFields"
-          icon={<BsPinMap />}
-          id="nomeCompleto"
-          label="Nome Completo"
-          variant="filled"    color="success"     margin="dense"
-          fullWidth
+          id="motorista"
+          label="Motorista"
+          variant="filled" 
+          margin="dense"
           value={nomeCompleto}
           onChange={(event) => {setNomecompleto(event.target.value)}}
-        /><TextField
-          className="textFields"
-          id="telefone"
-          label="Telefone"
-          variant="standard"          margin="dense"
-          fullWidth
-          value={telefone}
-          onChange={(event) => {setTelefone(event.target.value)}}
-        />
-        <TextField
-          className="textFields"
-          id="email"
-          label="Email"
-          variant="standard"          margin="dense"
-          fullWidth
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
-        />
-        <TextField
-          className="textFields"
-          id="senha"
-          label="Senha do Usuário"
-          variant="standard"          margin="dense"
-          fullWidth
-          value={senha}
-          onChange={(event) => {setSenha(event.target.value)}}
         />
         <TextField
           className="textFields"
           id="veiculo"
           label="Veículo"
+          variant="standard"          
+          margin="dense"
+          value={telefone}
+          onChange={(event) => {setTelefone(event.target.value)}}
+        />
+        <hr></hr>
+        <h2>Local de Coleta</h2>
+        <TextField
+          className="estado_coleta_textFields"
+          id="estado"
+          label="Estado"
+          variant="standard"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        <TextField
+          className="cidade_coleta_textFields"
+          id="cidade"
+          label="Cidade"
+          variant="standard"          
+          margin="dense"
+          fullWidth
+          value={senha}
+          onChange={(event) => {setSenha(event.target.value)}}
+        />
+        <TextField
+          className="bairro_coleta_textFields"
+          id="bairro"
+          label="Bairro"
           variant="standard"          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
+        <TextField
+          className="rua_coleta_textFields"
+          id="rua"
+          label="Rua"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <TextField
+          className="numero_coleta_textFields"
+          id="numero"
+          label="Número"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <hr></hr>
+        <h2>Local de Entrega</h2>
+        <TextField
+          className="estado_entrega_textFields"
+          id="estado"
+          label="Estado"
+          variant="standard"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        <TextField
+          className="cidade_entrega_textFields"
+          id="cidade"
+          label="Cidade"
+          variant="standard"          
+          margin="dense"
+          fullWidth
+          value={senha}
+          onChange={(event) => {setSenha(event.target.value)}}
+        />
+        <TextField
+          className="bairro_entrega_textFields"
+          id="bairro"
+          label="Bairro"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <TextField
+          className="rua_entrega_textFields"
+          id="rua"
+          label="Rua"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <TextField
+          className="numero_entrega_textFields"
+          id="numero"
+          label="Número"
+          variant="standard"          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+
+        <hr></hr>
+        <h2>Cliente</h2>
+
         <TextField
           className="textFields"
           id="cpf"

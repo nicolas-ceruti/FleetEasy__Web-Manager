@@ -9,7 +9,6 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
-import {BsPinMap} from "react-icons/bs";
 
 
 function Form() {
