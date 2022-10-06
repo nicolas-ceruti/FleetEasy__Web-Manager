@@ -34,3 +34,67 @@
     
     
 }
+
+.hr{
+    margin-top: 20px !important;
+}
+.motorista_textFields{
+    width: 30% !important;
+}
+
+.veiculo_textFields{
+    width: 30% !important;
+    left: 20px !important;
+}
+
+.data_coleta_textFields, .data_entrega_textFields{
+    width: 30% !important;
+}
+
+.hora_coleta_textFields, .hora_entrega_textFields{
+    width: 30% !important;
+    left: 20px !important;
+}
+
+.estado_coleta_textFields, .estado_entrega_textFields{
+    width: 40% !important;
+}
+
+.cidade_coleta_textFields, .cidade_entrega_textFields{
+    width: 42% !important;
+    margin-left: 22px !important ;
+}
+
+.bairro_coleta_textFields, .bairro_entrega_textFields{
+    width: 35% !important;
+}
+
+.rua_coleta_textFields, .rua_entrega_textFields{
+    width: 35% !important;
+    margin-left: 20px !important;
+}
+
+.numero_coleta_textFields, .numero_entrega_textFields{
+    width: 11% !important;
+    margin-left: 19px !important;
+
+}
+
+.nomeDoCLiente_textFields{
+    width: 50% !important;
+}
+
+.peso_textFields{
+    width: 25% !important;
+}
+
+.volume_textFields{
+    width: 25% !important;
+    left: 20px !important;
+}
+
+.valor_textFields{
+    width: 25% !important;
+    left: 40px !important;
+}
+

@@ -16,41 +16,71 @@ function Form() {
   const [veiculo, setVeiculo] = useState();
   const [cpf, setCpf] = useState();
   const [rg, setRg] = useState();
+  const [value, setValue] = useState();
 
-  const [CPFError, setCPFError] = useState(false);
-  const [RGError, setRGError] = useState(false);
 
+
+  const [valorError, setValorError] = useState(false);
+  const [pesoError, setPesoError] = useState(false);
+  const [volumeError, setVolumeError] = useState(false);
+ 
+
+  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
   return (
     <Container maxWidth="sm" component="article" className="form">
-      <h1>Cadastro de Coletas</h1>
+      <h1 className="hr">Cadastro de Coletas</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
         <TextField
-          className="textFields"
+          className="motorista_textFields"
           id="motorista"
           label="Motorista"
-          variant="filled" 
+          variant="outlined" 
           margin="dense"
           value={nomeCompleto}
           onChange={(event) => {setNomecompleto(event.target.value)}}
         />
         <TextField
-          className="textFields"
+          className="veiculo_textFields"
           id="veiculo"
           label="Veículo"
-          variant="standard"          
+          variant="outlined"          
           margin="dense"
           value={telefone}
           onChange={(event) => {setTelefone(event.target.value)}}
         />
-        <hr></hr>
-        <h2>Local de Coleta</h2>
+
+        <hr className="hr"></hr>
+        <h2>Coleta</h2>
+        <div fullWidth>
+        <TextField
+          className="data_coleta_textFields"
+          id="data"
+          label="Data de Coleta"
+          placeholder="dd/mm/aaaa"
+          variant="outlined"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        <TextField
+          className="hora_coleta_textFields"
+          id="hora"
+          label="Hora de Coleta"
+          placeholder="hh:mm"
+          variant="outlined"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        </div>
+        <div fullWidth>
         <TextField
           className="estado_coleta_textFields"
           id="estado"
           label="Estado"
-          variant="standard"        
+          variant="outlined"        
           margin="dense"
           value={email}
           onChange={(event) => {setEmail(event.target.value)}}
@@ -59,17 +89,19 @@ function Form() {
           className="cidade_coleta_textFields"
           id="cidade"
           label="Cidade"
-          variant="standard"          
+          variant="outlined"          
           margin="dense"
           fullWidth
           value={senha}
           onChange={(event) => {setSenha(event.target.value)}}
         />
+        </div>
         <TextField
           className="bairro_coleta_textFields"
           id="bairro"
           label="Bairro"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
@@ -78,7 +110,8 @@ function Form() {
           className="rua_coleta_textFields"
           id="rua"
           label="Rua"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
@@ -87,18 +120,43 @@ function Form() {
           className="numero_coleta_textFields"
           id="numero"
           label="Número"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
-        <hr></hr>
-        <h2>Local de Entrega</h2>
+
+        <hr className="hr"></hr>
+        <h2>Entrega</h2>
+        <div fullWidth>
+        <TextField
+          className="data_entrega_textFields"
+          id="data"
+          label="Data de Entrega"
+          placeholder="dd/mm/aaaa"
+          variant="outlined"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        <TextField
+          className="hora_entrega_textFields"
+          id="hora"
+          label="Hora de Entrega"
+          placeholder="hh:mm"
+          variant="outlined"        
+          margin="dense"
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />
+        </div>
+        <div fullWidth>
         <TextField
           className="estado_entrega_textFields"
           id="estado"
           label="Estado"
-          variant="standard"        
+          variant="outlined"        
           margin="dense"
           value={email}
           onChange={(event) => {setEmail(event.target.value)}}
@@ -107,17 +165,19 @@ function Form() {
           className="cidade_entrega_textFields"
           id="cidade"
           label="Cidade"
-          variant="standard"          
+          variant="outlined"          
           margin="dense"
           fullWidth
           value={senha}
           onChange={(event) => {setSenha(event.target.value)}}
         />
+        </div>
         <TextField
           className="bairro_entrega_textFields"
           id="bairro"
           label="Bairro"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
@@ -126,7 +186,8 @@ function Form() {
           className="rua_entrega_textFields"
           id="rua"
           label="Rua"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
@@ -135,71 +196,115 @@ function Form() {
           className="numero_entrega_textFields"
           id="numero"
           label="Número"
-          variant="standard"          margin="dense"
+          variant="outlined"          
+          margin="dense"
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
 
-        <hr></hr>
+        <hr className="hr"></hr>
         <h2>Cliente</h2>
-
+        <div fullWidth>
         <TextField
-          className="textFields"
-          id="cpf"
-          label="CPF"
-          variant="standard"        margin="dense"
+          className="nomeDoCLiente_textFields"
+          id="nomeDoCLiente"
+          label="Nome"
+          variant="outlined"          
+          margin="dense"
           fullWidth
-          error={CPFError}
-          helperText={CPFError && "Deve conter 11 dígitos. Insira apenas os números."}
-          value={cpf}
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        </div>
+        <div fullWidth>
+        <TextField
+          className="peso_textFields"
+          id="peso"
+          label="Peso da Carga (Kg)"
+          variant="outlined"          
+          margin="dense"
+          value={veiculo}
+          error={pesoError}
+          helperText={pesoError && "Digite apenas números. Unidade de Medida (Kg)."}
           onBlur={(event) => {
-            const tmpCPF = event.target.value;
+            const tmpPeso = event.target.value;
 
-            if (tmpCPF.length !== 11) {
-              setCPFError(true);
+            if (regex.test(tmpPeso) == true) {
+              setPesoError(true);
             } else {
-              setCPFError(false);
+              setPesoError(false);
             }
           }}
           onChange={(event) => {
-            const tmpCPF = event.target.value;
+            const tmpPeso = event.target.value;
 
-            if (tmpCPF.length === 11) {
-              setCPFError(false);
+            if (regex.test(tmpPeso) ==false) {
+              setPesoError(false);
             }
 
             setCpf(event.target.value)}
           }
         />
+          <TextField
+            className="volume_textFields"
+            id="volume"
+            label="Volume da Carga (m³)"
+            variant="outlined"          
+            margin="dense"
+            value={veiculo}
+            error={volumeError}
+            helperText={volumeError && "Digite apenas números. Unidade de Medida (m³)."}
+            onBlur={(event) => {
+              const tmpVolume = event.target.value;
+  
+              if (regex.test(tmpVolume) == true) {
+                setVolumeError(true);
+              } else {
+                setVolumeError(false);
+              }
+            }}
+            onChange={(event) => {
+              const tmpVolume = event.target.value;
+  
+              if (regex.test(tmpVolume) ==false) {
+                setVolumeError(false);
+              }
+  
+              setCpf(event.target.value)}
+            }
+          />
         <TextField
-          className="textFields"
-          id="rg"
-          label="RG"
-          variant="filled"   color="success"          margin="dense"
-          fullWidth
-          error={RGError}
-          helperText={RGError && "Deve conter 7 dígitos. Insira apenas os números."}
-          value={rg}
+          className="valor_textFields"
+          id="valor"
+          label="Valor da Carga (R$)"
+          variant="outlined"          
+          margin="dense"
+          value={veiculo}
+          error={valorError}
+          helperText={valorError && "Digite apenas números. Unidade de Medida (R$)."}
           onBlur={(event) => {
-            const tmpRG = event.target.value;
+            const tmpValor = event.target.value;
 
-            if (tmpRG.length !== 7) {
-              setRGError(true);
+            if (regex.test(tmpValor) == true) {
+              setValorError(true);
             } else {
-              setRGError(false);
+              setValorError(false);
             }
           }}
           onChange={(event) => {
-            const tmpRG = event.target.value;
+            const tmpValor = event.target.value;
 
-            if (tmpRG.length === 11) {
-              setRGError(false);
+            if (regex.test(tmpValor) ==false) {
+              setValorError(false);
             }
 
-            setRg(event.target.value)}
+            setCpf(event.target.value)}
           }
         />
+        </div>
+
+        
 
         <Button className="btn-form" variant="contained" color="primary">
           Cadastrar
