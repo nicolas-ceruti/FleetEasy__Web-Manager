@@ -39,7 +39,7 @@ const MenuLateral = () => {
         </SubMenu>
 
         <MenuItem icon={<BsPersonFill />}>Motoristas
-        <Link to="/" />
+        <Link to="/driver" />
         </MenuItem>
 
         <MenuItem icon={<BsPinMap />}>Localizar

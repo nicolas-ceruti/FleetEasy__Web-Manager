@@ -5,6 +5,7 @@ import Localizar from "./Pages/Localizar/localizar";
 import DriversRegister from "./Pages/DriversRegister/driversRegister";
 import VechileRegister from "./Pages/VechileRegister/vechileRegister";
 import CollectRegister from "./Pages/CollectRegister/collectRegister";
+import DriverCard from "./Pages/Driver/driver";
  
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/driversRegister' element={ <DriversRegister/> }/>
           <Route path='/vechileRegister' element={ <VechileRegister/> }/>
           <Route path='/collectRegister' element={ <CollectRegister/> }/>
+          <Route path='/driver' element={ <DriverCard/> }/>
           <Route path="*" element={<p>404 - Página não encontrada</p>} />
         </Routes>
       </BrowserRouter>

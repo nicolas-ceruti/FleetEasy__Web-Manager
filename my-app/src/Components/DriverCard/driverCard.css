@@ -1,0 +1,38 @@
+.form {
+    margin-top: -46%;
+    padding: 2rem 3rem;
+    border-radius: 0 !important;
+    background-color: white;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15) !important;
+    max-width: 1400px !important;
+    margin-left: 15% !important;
+}
+
+.form h1 {
+    margin-bottom: 50px;
+    font-size: 2rem;
+}
+
+.form .checkboxes {
+    margin: 1rem 0.4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.MuiButton-containedPrimary {
+
+    color: #fff;
+    background-color: #1b7e35 !important;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 30px !important;
+}
+
+
+.div-card{
+    width: 50%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.0) !important;
+}
+
