@@ -1,6 +1,6 @@
 .pro-sidebar {
     color: #f1f1f1 !important;
-    height: 100%;
+    height: 110%;
     width: 270px;
     min-width: 270px;
     text-align: left;
@@ -15,4 +15,11 @@
 .tituloMenu{
     font-size: 30px;
     margin-left: 20px;
+}
+
+.pro-sidebar > .pro-sidebar-inner {
+    background: #1d1d1d;
+    height: 115%;
+    position: relative;
+    z-index: 101;
 }
