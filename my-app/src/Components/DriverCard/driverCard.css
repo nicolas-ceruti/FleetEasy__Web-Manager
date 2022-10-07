@@ -1,5 +1,5 @@
 .form {
-    margin-top: -50% !important;
+    margin-top: -54% !important;
     padding: 2rem 3rem;
     border-radius: 0 !important;
     background-color: white;
@@ -21,13 +21,18 @@
 }
 
 
-.MuiButton-containedPrimary {
-
-    color: #fff;
+.whatsapp-button {
+    color: #fff !important;
     background-color: #1b7e35 !important;
-    width: 165px !important;
-    height: 45px !important;
-    margin-top: 30px !important;
+    width: 105px !important;
+    height: 35px !important;
+}
+
+.details-button {
+    color: #fff !important;
+    background-color: #1b567e !important;
+    width: 105px !important;
+    height: 35px !important;
 }
 
 
