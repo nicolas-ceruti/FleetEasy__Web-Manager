@@ -25,7 +25,9 @@ function App() {
     <MenuLateral/>
   
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Motoristas</h1>
+
+      <h1 className="hr">Motoristas<hr></hr></h1>
+
         <form onSubmit={(event) => {
           event.preventDefault();
         }}>
@@ -41,6 +43,7 @@ function App() {
     <DriverCard situacao="Ativo" name="Pereira"/>
     <DriverCard situacao="Ativo" name="Gustavo"/>
     <DriverCard situacao="Ativo" name="Airton"/>
+    <DriverCard situacao="Inativo" name="André"/>
     </form>
     </Container>
     

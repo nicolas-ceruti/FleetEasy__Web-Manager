@@ -27,6 +27,8 @@ function Form() {
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
   return (
+    <>
+
     <Container maxWidth="sm" component="article" className="form">
       <h1 className="hr">Cadastro de Coletas</h1>
       <form onSubmit={(event) => {
@@ -52,7 +54,7 @@ function Form() {
         />
 
         <hr className="hr"></hr>
-        <h2>Coleta</h2>
+        <h2 className="subtitle">Coleta</h2>
         <div fullWidth>
         <TextField
           className="data_coleta_textFields"
@@ -128,7 +130,7 @@ function Form() {
         />
 
         <hr className="hr"></hr>
-        <h2>Entrega</h2>
+        <h2 className="subtitle">Entrega</h2>
         <div fullWidth>
         <TextField
           className="data_entrega_textFields"
@@ -204,7 +206,7 @@ function Form() {
         />
 
         <hr className="hr"></hr>
-        <h2>Cliente</h2>
+        <h2 className="subtitle">Cliente</h2>
         <div fullWidth>
         <TextField
           className="nomeDoCLiente_textFields"
@@ -313,6 +315,7 @@ function Form() {
 
       <p>{nomeCompleto}</p>
     </Container>
+    </>
   );
 }
 
