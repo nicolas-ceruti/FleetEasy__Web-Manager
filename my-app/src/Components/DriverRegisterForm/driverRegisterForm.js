@@ -13,7 +13,8 @@ import {BsPinMap} from "react-icons/bs";
 
 
 function Form() {
-   const [nomeCompleto, setNomecompleto] = useState('');
+  const [nomeCompleto, setNomecompleto] = useState('');
+  const [cnh, setCnh] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState();
@@ -23,7 +24,9 @@ function Form() {
 
   const [CPFError, setCPFError] = useState(false);
   const [RGError, setRGError] = useState(false);
+  const [CNHError, setCNHError] = useState(false);
 
+  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
 
   return (
@@ -44,16 +47,6 @@ function Form() {
           onChange={(event) => {setNomecompleto(event.target.value)}}
         />
         <TextField
-          className="senha_textField"
-          id="senha"
-          label="Senha do Usuário"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={senha}
-          onChange={(event) => {setSenha(event.target.value)}}
-        />
-        <TextField
           className="veiculo_textField"
           id="veiculo"
           label="Veículo"
@@ -62,6 +55,35 @@ function Form() {
           fullWidth
           value={veiculo}
           onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <TextField
+          className="CNH_textField"
+          id="cnh"
+          label="CNH"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          error={CNHError}
+          helperText={CNHError && "Deve conter 11 dígitos. Insira apenas os números."}
+          value={cnh}
+          onBlur={(event) => {
+            const tmpCNH = event.target.value;
+
+            if (tmpCNH.length !== 11) {
+              setCNHError(true);
+            } else {
+              setCNHError(false);
+            }
+          }}
+          onChange={(event) => {
+            const tmpCNH = event.target.value;
+
+            if (tmpCNH.length === 11) {
+              setCNHError(false);
+            }
+
+            setCnh(event.target.value)}
+          }
         />
         <TextField
           className="cpf_textField"
@@ -120,6 +142,16 @@ function Form() {
 
             setRg(event.target.value)}
           }
+        />
+        <TextField
+          className="senha_textField"
+          id="senha"
+          label="Senha do Usuário"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={senha}
+          onChange={(event) => {setSenha(event.target.value)}}
         />
         <TextField
           className="telefone_textField"

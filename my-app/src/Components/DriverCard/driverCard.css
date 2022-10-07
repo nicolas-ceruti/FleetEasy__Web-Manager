@@ -1,5 +1,5 @@
 .form {
-    margin-top: -46%;
+    margin-top: -50% !important;
     padding: 2rem 3rem;
     border-radius: 0 !important;
     background-color: white;
@@ -10,7 +10,7 @@
 
 .form h1 {
     margin-bottom: 50px;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .form .checkboxes {
@@ -32,7 +32,14 @@
 
 
 .div-card{
-    width: 50%;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.0) !important;
+    margin-top: 20px;
+    margin-left: 4%;
+    width: 46% !important;
+    display: inline-block !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.0) !important;
 }
+
+    .MuiPaper-root, .MuiCard-root, .MuiPaper-elevation1, .MuiPaper-rounded{
+        box-shadow: 0px 0px 12px rgb(58 18 26 / 20%) !important;
+    }
 

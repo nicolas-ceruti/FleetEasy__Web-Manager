@@ -25,6 +25,10 @@ function Form() {
 
   const [chassiError, setChassiError] = useState(false);
   const [placaError, setPlacaError] = useState(false);
+  const [capacidadePesoError, setCapacidadePesoError] = useState(false);
+  const [capacidadeVolumetriaError, setCapacidadeVolumetriaError] = useState(false);
+
+  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
   return (
     <Container maxWidth="sm" component="article" className="form">
@@ -159,7 +163,26 @@ function Form() {
           margin="dense"
           fullWidth
           value={capacidadePeso}
-          onChange={(event) => {setCapacidadePeso(event.target.value)}}
+          error={capacidadePesoError}
+          helperText={capacidadePesoError && "Digite apenas números. Unidade de Medida (Kg)."}
+          onBlur={(event) => {
+            const tmpPeso = event.target.value;
+
+            if (regex.test(tmpPeso) == true) {
+              setCapacidadePesoError(true);
+            } else {
+              setCapacidadePesoError(false);
+            }
+          }}
+          onChange={(event) => {
+            const tmpPeso = event.target.value;
+
+            if (regex.test(tmpPeso) ==false) {
+              setCapacidadePesoError(false);
+            }
+
+            setCapacidadePeso(event.target.value)}
+          }
         />
         <TextField
           className="capacidadeVolumetria_textFields"
@@ -169,7 +192,26 @@ function Form() {
           margin="dense"
           fullWidth
           value={capacidadeVolumetria}
-          onChange={(event) => {setCapacidadeVolumetria(event.target.value)}}
+          error={capacidadeVolumetriaError}
+          helperText={capacidadeVolumetriaError && "Digite apenas números. Unidade de Medida (m³)."}
+          onBlur={(event) => {
+            const tmpVolumetria = event.target.value;
+
+            if (regex.test(tmpVolumetria) == true) {
+              setCapacidadeVolumetriaError(true);
+            } else {
+              setCapacidadeVolumetriaError(false);
+            }
+          }}
+          onChange={(event) => {
+            const tmpVolumetria = event.target.value;
+
+            if (regex.test(tmpVolumetria) ==false) {
+              setCapacidadeVolumetriaError(false);
+            }
+
+            setCapacidadeVolumetria(event.target.value)}
+          }
         />
         
         <Button className="btn-form" variant="contained" color="primary">
