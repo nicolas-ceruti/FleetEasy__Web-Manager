@@ -40,7 +40,8 @@ function DriverCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-      <Button className="whatsapp-button" size="small"> WhatsApp</Button>
+      <Link to="/profile/:id"><Button className="whatsapp-button" size="small"> WhatsApp</Button></Link>
+      
         <Button size="small" className="details-button" >Detalhes</Button>
       </CardActions>
     </Card>

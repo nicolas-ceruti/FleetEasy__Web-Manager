@@ -1,0 +1,39 @@
+.perfil-container{
+    margin-top: -52% !important;
+    margin-left: 14%;
+    width: 85%;
+    height: 100vh;
+    margin-right: 5%;
+    background-color: rgb(247, 247, 247);
+    
+}
+
+.driver-form{ 
+
+
+    /* /margin-left: 5px;
+    background-color: white; */
+    margin-top: 3%;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px rgb(0, 0, 0) !important; 
+    margin-left: 5px;
+    width: 30%;
+    height: 100vh !important;
+    background-color: rgb(65, 65, 65) !important;
+    display: inline-block;
+}
+
+.collect-form{
+    /* margin-top: -59% !important;
+    margin-left: 31%; */
+
+    border-radius: 1rem;
+    background-color: rgb(138, 138, 138);
+    box-shadow: 0px 0px 15px rgb(0, 0, 0) !important; 
+    margin-left: 20px;
+    display: inline-block;
+    width: 68%;
+    height: 100vh !important;
+    background-color: rgb(156, 156, 156) !important;
+
+}
