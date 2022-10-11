@@ -1,5 +1,5 @@
 .form {
-    margin-top: -46%;
+    margin-top: -50%;
     padding: 2rem 3rem;
     border-radius: 1rem;
     background-color: white;
@@ -91,6 +91,3 @@
 
 
 
-.btn-form_login{
-    width: 100% !important;
-}

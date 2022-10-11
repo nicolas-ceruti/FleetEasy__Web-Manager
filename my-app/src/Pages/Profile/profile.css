@@ -1,39 +1,70 @@
-.perfil-container{
-    margin-top: -52% !important;
-    margin-left: 14%;
-    width: 85%;
-    height: 100vh;
-    margin-right: 5%;
-    background-color: rgb(247, 247, 247);
-    
+.map-container {
+    width: 100%;
+    background-color: black;
+    height: 100%;
 }
 
-.driver-form{ 
-
-
-    /* /margin-left: 5px;
-    background-color: white; */
-    margin-top: 3%;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 15px rgb(0, 0, 0) !important; 
-    margin-left: 5px;
-    width: 30%;
-    height: 100vh !important;
-    background-color: rgb(65, 65, 65) !important;
-    display: inline-block;
+.map{
+    display: flex;
+    align-items: center;
+    margin-top: -0% !important;
+    margin-left: 330px !important;
+    margin-right: 60px;
+    box-shadow: 4px 0px 35px -19px black;
 }
 
-.collect-form{
-    /* margin-top: -59% !important;
-    margin-left: 31%; */
 
-    border-radius: 1rem;
-    background-color: rgb(138, 138, 138);
-    box-shadow: 0px 0px 15px rgb(0, 0, 0) !important; 
-    margin-left: 20px;
-    display: inline-block;
-    width: 68%;
-    height: 100vh !important;
-    background-color: rgb(156, 156, 156) !important;
-
+.nomeCompleto_textField{
+    margin-top: 15px !important;
+    height: 50px !important;  
+    width: 60% !important;  
 }
+
+.veiculo_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 35% !important;
+    left: 3%; 
+}
+
+.CNH_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important;
+}
+
+.cpf_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 33% !important;
+    left: 3%;
+}
+
+.rg_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important;
+    left: 5%;
+}
+
+.senha_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important; 
+}
+
+.telefone_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 33% !important;
+    left: 3%; 
+}
+
+.email_textField{
+    margin-top: 15px !important;
+    height: 50px !important;
+    width: 30% !important;
+    left: 5%;
+}
+
+
