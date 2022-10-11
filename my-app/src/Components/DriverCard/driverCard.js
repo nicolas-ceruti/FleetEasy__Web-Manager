@@ -40,9 +40,9 @@ function DriverCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-      <Link to="/profile/:id"><Button className="whatsapp-button" size="small"> WhatsApp</Button></Link>
+      <Button className="whatsapp-button" size="small" onClick={<Link to="/profile/:id"></Link>}> WhatsApp</Button>
       
-        <Button size="small" className="details-button" >Detalhes</Button>
+      <Link to="/profile/:id"><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>
     </Card>
     </div>

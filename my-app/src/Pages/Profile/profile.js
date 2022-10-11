@@ -1,22 +1,19 @@
 import React, {useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import CollectCard from "../../Components/CollectCard/collectCard";
+import Mapa from "../../Components/Mapa/mapa";
 
-import {
-  Container,
-  Button,
-  TextField,
-  Checkbox,
-  FormControlLabel,
-} from "@material-ui/core";
-import {BsPinMap} from "react-icons/bs";
-
-import { Form, ContainerForm} from "./profilee.js";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-import Mapa from "../../Components/Mapa/mapa";
-//import ProfileCard from "../../Components/ProfileCard/profileCard";
+import { DivDeshboard, GraphList,  GraphContainer, GraphTitle, InfoCardsList, InfoCard, TitleCard} from "./profilee.js";
+import { Chart } from 'react-google-charts';
+
+import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
+
+import {BsPinMap} from "react-icons/bs";
+
+import { Form, ContainerForm} from "./profilee.js";
 import "./profile.css"
 
 function App() {
@@ -30,9 +27,29 @@ function App() {
   const [cpf, setCpf] = useState();
   const [rg, setRg] = useState();
 
-  const [CPFError, setCPFError] = useState(false);
-  const [RGError, setRGError] = useState(false);
-  const [CNHError, setCNHError] = useState(false);
+  const SalesMonthdata = [
+    ["Meses", "Faturamento(R$)"],
+    ["Janeiro", 1170],
+    ["Fevereiro", 1160],
+    ["Março", 1030],
+    ["Abril", 1970],
+    ["Maio", 660],
+    ["Junho", 1130],
+    ["Julho", 2170],
+    ["Agosto", 960],
+    ["Setembro", 930],
+    ["Outubro", 1070],
+    ["Novembro", 1560],
+    ["Dezembro", 1930],
+  ];
+  
+   const SalesMonthoptions = {
+    chart: {
+      title: "",
+      subtitle: "",
+    },
+  };
+
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
@@ -51,6 +68,7 @@ function App() {
             <Tab>Dados</Tab>
             <Tab>Coletas</Tab>
             <Tab>Localização</Tab>
+            <Tab>Estatísitcas</Tab>
           </TabList>
 
           <TabPanel>
@@ -136,10 +154,6 @@ function App() {
           value={email}
           onChange={(event) => {setEmail(event.target.value)}}
         />     
-              
-            
-              
-            
           </TabPanel>
 
           <TabPanel>
@@ -147,14 +161,30 @@ function App() {
             <CollectCard/>
             </Form>
           </TabPanel>
+
           <TabPanel>
             <Form>
               <div className='map-container'>
                 <Mapa/>
-              
               </div>
             </Form>
           </TabPanel>
+
+          <TabPanel>
+            <Form>
+              <GraphContainer>
+                <GraphTitle PaddBottom={40}>Faturamento 2022</GraphTitle>
+                <Chart
+                  chartType="Bar"
+                  width="100%"
+                  height="250px"
+                  data={SalesMonthdata}
+                  options={SalesMonthoptions}
+                />
+              </GraphContainer>
+            </Form>
+          </TabPanel>
+
         </Tabs>
         </ContainerForm>
         </form>

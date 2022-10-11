@@ -43,7 +43,7 @@ const MenuLateral = () => {
         </MenuItem>
 
         <MenuItem icon={<BsTruck />}>Veículos
-        <Link to="/" />
+        <Link to="/vechile" />
         </MenuItem>
 
         <MenuItem icon={<FaRoute />}>Coletas

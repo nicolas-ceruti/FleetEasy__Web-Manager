@@ -328,7 +328,7 @@ function Form() {
         </Button>
       </form>
 
-      <p>{nomeCompleto}</p>
+      <p>{}</p>
     </Container>
     </>
   );

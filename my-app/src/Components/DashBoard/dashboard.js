@@ -30,10 +30,19 @@ const Dashboard = (  ) => {
   };
 
   const SalesMonthdata = [
-    ["Meses", "Produto A", "Produto B", "Produto C"],
-    ["Junho", 1170, 460, 250],
-    ["Julho", 660, 1120, 300],
-    ["Agosto", 1030, 540, 350],
+    ["Meses", "Faturamento(R$)"],
+    ["Janeiro", 110450],
+    ["Fevereiro", 496000],
+    ["Março", 578000],
+    ["Abril", 465000],
+    ["Maio", 952000],
+    ["Junho", 735415],
+    ["Julho", 826349],
+    ["Agosto", 739851],
+    ["Setembro", 952467],
+    ["Outubro", 756328],
+    ["Novembro", 1125789],
+    ["Dezembro", 520000],
   ];
   
    const SalesMonthoptions = {
@@ -46,41 +55,31 @@ const Dashboard = (  ) => {
 
   return (
     <>
-    <Container>
+    <Container maxWidth="sm" component="article" className="form">
+      <h1 className="hr">Estatísticas<hr style={{"width" : "35%"}}></hr></h1>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+      }}></form>
       <DivDeshboard>
       
         <InfoCardsList>
-          <InfoCard BgColor={'#FE9632'}>
-            <TitleCard BgColorTitle={'#c37225'}>TOTAL DE PEDIDOS:</TitleCard>
-            <p><span><FaShoppingCart/></span><span>+186</span></p>
-          </InfoCard>
           <InfoCard BgColor={'#34A75B'}>
-            <TitleCard BgColorTitle={'#1e8140'}>TOTAL VENDIDO:</TitleCard>
-            <p><span><FaMoneyCheck/></span><span>250K</span></p>
-          </InfoCard>
-          <InfoCard BgColor={'#FF2F2F'}>
-            <TitleCard BgColorTitle={'#c12121'}>PEDIDOS CANCELADOS:</TitleCard>
-            <p><span><GiCancel/></span><span>7</span></p>
+            <TitleCard BgColorTitle={'#1e8140'}>ENTREGAS FINALIZADAS:</TitleCard>
+            <p><span><FaMoneyCheck/></span><span>3.137</span></p>
           </InfoCard>
           <InfoCard BgColor={'#64A4C9'}>
-            <TitleCard BgColorTitle={'#206187'}>TOTAL DE CLIENTES:</TitleCard>
+            <TitleCard BgColorTitle={'#206187'}>VEÍCULOS FUNCIONAIS</TitleCard>
             <p><span><FaUserPlus/></span><span>97</span></p>
+          </InfoCard>
+          <InfoCard BgColor={'#eeba30'}>
+            <TitleCard BgColorTitle={'#d3a625'}>MOTORISTAS ATIVOS</TitleCard>
+            <p><span><FaShoppingCart/></span><span>87</span></p>
           </InfoCard>
         </InfoCardsList>
         
         <GraphList>
           <GraphContainer>
-            <GraphTitle PaddBottom={0}>Número De Vendas Nos Últimos Dois Anos</GraphTitle>
-            <Chart
-              chartType="BarChart"
-              width="100%"
-              height="250px"
-              data={SalesYearsdata}
-              options={SalesYearsoptions}
-            />
-          </GraphContainer>
-          <GraphContainer>
-            <GraphTitle PaddBottom={40}>Vendas Nos Ultimos Três Mêses</GraphTitle>
+            <GraphTitle PaddBottom={40}>Faturamento 2022</GraphTitle>
             <Chart
               chartType="Bar"
               width="100%"
