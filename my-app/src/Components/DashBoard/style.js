@@ -21,7 +21,7 @@ export const GraphList = styled.div`
 `;
 
 export const GraphContainer = styled.div`
-    width: 40%;
+    width: 100%;
     border: 1px solid #eceae9;
     border-radius: 5px;
     box-shadow: 0px 0px 12px 0px #3e3e407d;
@@ -40,7 +40,7 @@ export const GraphContainer = styled.div`
 `;
 
 export const GraphTitle = styled.h1`
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     margin-bottom: 0px;
     font-weight: 200;

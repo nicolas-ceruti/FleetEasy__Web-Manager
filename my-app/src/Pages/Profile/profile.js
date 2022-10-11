@@ -1,24 +1,197 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
-import DriverRegisterForm from "../../Components/DriverRegisterForm/driverRegisterForm";
-//import Mapa from "../../Components/Mapa/mapa";
-//import ProfileCard from "../../Components/ProfileCard/profileCard";
-import "./profile.css"
-import 'react-pro-sidebar/dist/css/styles.css';
+import CollectCard from "../../Components/CollectCard/collectCard";
+import Mapa from "../../Components/Mapa/mapa";
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
+import { DivDeshboard, GraphList,  GraphContainer, GraphTitle, InfoCardsList, InfoCard, TitleCard} from "./profilee.js";
+import { Chart } from 'react-google-charts';
+
+import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
+
+import {BsPinMap} from "react-icons/bs";
+
+import { Form, ContainerForm} from "./profilee.js";
+import "./profile.css"
 
 function App() {
 
+  const [nomeCompleto, setNomecompleto] = useState('');
+  const [cnh, setCnh] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState();
+  const [veiculo, setVeiculo] = useState();
+  const [cpf, setCpf] = useState();
+  const [rg, setRg] = useState();
+
+  const SalesMonthdata = [
+    ["Meses", "Faturamento(R$)"],
+    ["Janeiro", 1170],
+    ["Fevereiro", 1160],
+    ["Março", 1030],
+    ["Abril", 1970],
+    ["Maio", 660],
+    ["Junho", 1130],
+    ["Julho", 2170],
+    ["Agosto", 960],
+    ["Setembro", 930],
+    ["Outubro", 1070],
+    ["Novembro", 1560],
+    ["Dezembro", 1930],
+  ];
+  
+   const SalesMonthoptions = {
+    chart: {
+      title: "",
+      subtitle: "",
+    },
+  };
+
+
+  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
   return(
     <>  
     <MenuLateral/>
-    <div className='perfil-container'>
 
-        <div className="driver-form"></div>
-        <div className='collect-form'></div>
-    </div> 
-    </>
+    <Container maxWidth="sm" component="article" className="form">
+      <h1 className="hr">Perfil do Motorista<hr style={{"width" : "35%"}}></hr></h1>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+      }}>
+    <ContainerForm>
+        <Tabs>
+          <TabList>
+            <Tab>Dados</Tab>
+            <Tab>Coletas</Tab>
+            <Tab>Localização</Tab>
+            <Tab>Estatísitcas</Tab>
+          </TabList>
+
+          <TabPanel>
+  
+          <TextField
+          className="nomeCompleto_textField"
+          icon={<BsPinMap />}
+          id="nomeCompleto"
+          label="Nome Completo"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={nomeCompleto}
+          onChange={(event) => {setNomecompleto(event.target.value)}}
+        />
+        <TextField
+          className="veiculo_textField"
+          id="veiculo"
+          label="Veículo"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
+        />
+        <TextField
+          className="CNH_textField"
+          id="cnh"
+          label="CNH"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={cnh}
+          onChange={(event) => {setCnh(event.target.value)}}
+        />
+        <TextField
+          className="cpf_textField"
+          id="cpf"
+          label="CPF"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={cpf}
+          onChange={(event) => {setCpf(event.target.value)}}
+        />
+        <TextField
+          className="rg_textField"
+          id="rg"
+          label="RG"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={rg}
+          onChange={(event) => {setRg(event.target.value)}}
+        />
+        <TextField
+          className="senha_textField"
+          id="senha"
+          label="Senha do Usuário"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={senha}
+          onChange={(event) => {setSenha(event.target.value)}}
+        />
+        <TextField
+          className="telefone_textField"
+          id="telefone"
+          label="Telefone"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={telefone}
+          onChange={(event) => {setTelefone(event.target.value)}}
+        />
+        <TextField
+          className="email_textField"
+          id="email"
+          label="Email"
+          variant="outlined"
+          margin="dense"
+          fullWidth
+          value={email}
+          onChange={(event) => {setEmail(event.target.value)}}
+        />     
+          </TabPanel>
+
+          <TabPanel>
+            <Form>
+            <CollectCard/>
+            </Form>
+          </TabPanel>
+
+          <TabPanel>
+            <Form>
+              <div className='map-container'>
+                <Mapa/>
+              </div>
+            </Form>
+          </TabPanel>
+
+          <TabPanel>
+            <Form>
+              <GraphContainer>
+                <GraphTitle PaddBottom={40}>Faturamento 2022</GraphTitle>
+                <Chart
+                  chartType="Bar"
+                  width="100%"
+                  height="250px"
+                  data={SalesMonthdata}
+                  options={SalesMonthoptions}
+                />
+              </GraphContainer>
+            </Form>
+          </TabPanel>
+
+        </Tabs>
+        </ContainerForm>
+        </form>
+        </Container> 
+
+ 
+        </>
 
   );
 
@@ -26,40 +199,3 @@ function App() {
 
 export default App;
 
-{/* <Tabs>
-<TabList>
-  <Tab>Dados</Tab>
-  <Tab>Ambientes</Tab>
-  <Tab>Chamados</Tab>
-</TabList>
-
-<TabPanel>
-  <h3>Dados</h3>
-  <Form>
-    <InputForm Width={"300px"} Text="Nome:" placeholder="Nome do Atentende" type="text" value={nmClerks} onChange={e => setNmClerks(e.target.value)} />
-    <InputForm Width={"300px"} Text="Senha:" placeholder="Senha do Atentende" type="password" value={passClerks} onChange={e => setPassClerks(e.target.value)} />
-  </Form>
-  <hr/>
-  <h3>Configurações</h3>
-  <Form>
-    <SelectForm Type="AI" Width={"250px"} Text="Situação:" onChange={e => setSituationClerks(e.target.value)}/>
-    <SelectForm Type="SN" Width={"250px"} Text="Permite Abertura de Conta:" onChange={e=> setAccountStatus(e.target.value)} />
-    <SelectForm Type="SN" Width={"250px"} Text="Permite Baixar Pedidos Web:" onChange={e=> setWebOrders(e.target.value)}/>
-    <SelectForm Type="SN" Width={"250px"} Text="Exibe Câmera no Aplicativo:" onChange={e=> setAppCam(e.target.value)}/>
-    <SelectForm Type="SN" Width={"250px"} Text="Notificações Chamada:" onChange={e=> setNotifCall(e.target.value)}/>
-  </Form>
-</TabPanel>
-
-<TabPanel>
-  <h3>Ambientes</h3>
-  <Form>
-      {/*  Busca e cadastro de ambientes */}
-//   </Form>
-// </TabPanel>
-// <TabPanel>
-//   <h2>Chamadas</h2>
-//   <Form>
-//     {/* Consulta de chamadas */}
-//   </Form>
-// </TabPanel>
-// </Tabs> */}

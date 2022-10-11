@@ -9,14 +9,29 @@ import {
 } from "@material-ui/core";
 
 function Form() {
-  const [nomeCompleto, setNomecompleto] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState();
-  const [veiculo, setVeiculo] = useState();
-  const [cpf, setCpf] = useState();
-  const [rg, setRg] = useState();
-  const [value, setValue] = useState();
+  const [motorista, setMotorista] = useState('');
+  const [veiculo, setVeiculo] = useState('');
+
+  const [dataColeta, setDataColeta] = useState();
+  const [horaColeta, setHoraColeta] = useState();
+  const [estadoColeta, setEstadoColeta] = useState();
+  const [cidadeColeta, setCidadeColeta] = useState();
+  const [bairroColeta, setBairroColeta] = useState();
+  const [ruaColeta, setRuaColeta] = useState();
+  const [numeroColeta, setNumeroColeta] = useState();
+
+  const [dataEntrega, setDataEntrega] = useState();
+  const [horaEntrega, setHoraEntrega] = useState();
+  const [estadoEntrega, setEstadoEntrega] = useState();
+  const [cidadeEntrega, setCidadeEntrega] = useState();
+  const [bairroEntrega, setBairroEntrega] = useState();
+  const [ruaEntrega, setRuaEntrega] = useState();
+  const [numeroEntrega, setNumeroEntrega] = useState();
+
+  const [nomeCliente, setNomeCliente] = useState();
+  const [pesoColeta, setPesoColeta] = useState();
+  const [volumeColeta, setVolumeColeta] = useState();
+  const [valorColeta, setValorColeta] = useState();
 
 
 
@@ -30,7 +45,7 @@ function Form() {
     <>
 
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Cadastro de Coletas</h1>
+      <h1 className="hr">Cadastro de Coletas<hr style={{"width" : "35%"}}></hr></h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
@@ -40,8 +55,8 @@ function Form() {
           label="Motorista"
           variant="outlined" 
           margin="dense"
-          value={nomeCompleto}
-          onChange={(event) => {setNomecompleto(event.target.value)}}
+          value={motorista}
+          onChange={(event) => {setMotorista(event.target.value)}}
         />
         <TextField
           className="veiculo_textFields"
@@ -49,8 +64,8 @@ function Form() {
           label="Veículo"
           variant="outlined"          
           margin="dense"
-          value={telefone}
-          onChange={(event) => {setTelefone(event.target.value)}}
+          value={veiculo}
+          onChange={(event) => {setVeiculo(event.target.value)}}
         />
 
         <hr className="hr"></hr>
@@ -63,8 +78,8 @@ function Form() {
           placeholder="dd/mm/aaaa"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={dataColeta}
+          onChange={(event) => {setDataColeta(event.target.value)}}
         />
         <TextField
           className="hora_coleta_textFields"
@@ -73,8 +88,8 @@ function Form() {
           placeholder="hh:mm"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={horaColeta}
+          onChange={(event) => {setHoraColeta(event.target.value)}}
         />
         </div>
         <div fullWidth>
@@ -84,8 +99,8 @@ function Form() {
           label="Estado"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={estadoColeta}
+          onChange={(event) => {setEstadoColeta(event.target.value)}}
         />
         <TextField
           className="cidade_coleta_textFields"
@@ -94,8 +109,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={senha}
-          onChange={(event) => {setSenha(event.target.value)}}
+          value={cidadeColeta}
+          onChange={(event) => {setCidadeColeta(event.target.value)}}
         />
         </div>
         <TextField
@@ -105,8 +120,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          value={bairroColeta}
+          onChange={(event) => {setBairroColeta(event.target.value)}}
         />
         <TextField
           className="rua_coleta_textFields"
@@ -115,9 +130,9 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
+          value={ruaColeta}
           onChange={(event) => {setVeiculo(event.target.value)}}
-        />
+        />setRuaColeta
         <TextField
           className="numero_coleta_textFields"
           id="numero"
@@ -125,8 +140,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          value={numeroColeta}
+          onChange={(event) => {setNumeroColeta(event.target.value)}}
         />
 
         <hr className="hr"></hr>
@@ -139,8 +154,8 @@ function Form() {
           placeholder="dd/mm/aaaa"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={dataEntrega}
+          onChange={(event) => {setDataEntrega(event.target.value)}}
         />
         <TextField
           className="hora_entrega_textFields"
@@ -149,8 +164,8 @@ function Form() {
           placeholder="hh:mm"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={horaEntrega}
+          onChange={(event) => {setHoraEntrega(event.target.value)}}
         />
         </div>
         <div fullWidth>
@@ -160,8 +175,8 @@ function Form() {
           label="Estado"
           variant="outlined"        
           margin="dense"
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
+          value={estadoEntrega}
+          onChange={(event) => {setEstadoEntrega(event.target.value)}}
         />
         <TextField
           className="cidade_entrega_textFields"
@@ -170,8 +185,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={senha}
-          onChange={(event) => {setSenha(event.target.value)}}
+          value={cidadeEntrega}
+          onChange={(event) => {setCidadeEntrega(event.target.value)}}
         />
         </div>
         <TextField
@@ -181,8 +196,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          value={bairroEntrega}
+          onChange={(event) => {setBairroEntrega(event.target.value)}}
         />
         <TextField
           className="rua_entrega_textFields"
@@ -191,8 +206,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          value={ruaEntrega}
+          onChange={(event) => {setRuaEntrega(event.target.value)}}
         />
         <TextField
           className="numero_entrega_textFields"
@@ -201,8 +216,8 @@ function Form() {
           variant="outlined"          
           margin="dense"
           fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          value={numeroEntrega}
+          onChange={(event) => {setNumeroEntrega(event.target.value)}}
         />
 
         <hr className="hr"></hr>
@@ -214,9 +229,9 @@ function Form() {
           label="Nome"
           variant="outlined"          
           margin="dense"
-          fullWidth
+          nomeCliente
           value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
+          onChange={(event) => {setNomeCliente(event.target.value)}}
         />
         </div>
         <div fullWidth>
@@ -226,7 +241,7 @@ function Form() {
           label="Peso da Carga (Kg)"
           variant="outlined"          
           margin="dense"
-          value={veiculo}
+          value={pesoColeta}
           error={pesoError}
           helperText={pesoError && "Digite apenas números. Unidade de Medida (Kg)."}
           onBlur={(event) => {
@@ -245,7 +260,7 @@ function Form() {
               setPesoError(false);
             }
 
-            setCpf(event.target.value)}
+            setPesoColeta(event.target.value)}
           }
         />
           <TextField
@@ -254,7 +269,7 @@ function Form() {
             label="Volume da Carga (m³)"
             variant="outlined"          
             margin="dense"
-            value={veiculo}
+            value={volumeColeta}
             error={volumeError}
             helperText={volumeError && "Digite apenas números. Unidade de Medida (m³)."}
             onBlur={(event) => {
@@ -273,7 +288,7 @@ function Form() {
                 setVolumeError(false);
               }
   
-              setCpf(event.target.value)}
+              setVolumeColeta(event.target.value)}
             }
           />
         <TextField
@@ -282,7 +297,7 @@ function Form() {
           label="Valor da Carga (R$)"
           variant="outlined"          
           margin="dense"
-          value={veiculo}
+          value={valorColeta}
           error={valorError}
           helperText={valorError && "Digite apenas números. Unidade de Medida (R$)."}
           onBlur={(event) => {
@@ -301,7 +316,7 @@ function Form() {
               setValorError(false);
             }
 
-            setCpf(event.target.value)}
+            setValorColeta(event.target.value)}
           }
         />
         </div>
@@ -313,7 +328,7 @@ function Form() {
         </Button>
       </form>
 
-      <p>{nomeCompleto}</p>
+      <p>{}</p>
     </Container>
     </>
   );

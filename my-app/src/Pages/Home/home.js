@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
+import Dashboard from "../../Components/DashBoard/dashboard.js";
 import DriverRegisterForm from "../../Components/DriverRegisterForm/driverRegisterForm";
 //import Mapa from "../../Components/Mapa/mapa";
 //import ProfileCard from "../../Components/ProfileCard/profileCard";
@@ -12,6 +13,7 @@ function App() {
   return(
     <>  
     <MenuLateral/> 
+    <Dashboard/>
     </>
 
   );

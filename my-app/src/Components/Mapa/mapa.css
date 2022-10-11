@@ -1,11 +1,9 @@
 
 .entradas {
-    display: flex;
-    align-items: center;
-    margin-top: -44%;
-    margin-left: 330px !important;
-    margin-right: 60px;
-    box-shadow: 4px 0px 35px -19px black;
+  margin-top: 25px;
+  height: 80vh;
+  position:absolute;
+  box-shadow: 4px 0px 35px -19px black;
 }
 
 .App {
@@ -49,9 +47,11 @@
   }
   
   .leaflet-container {
+    
     border-radius: 7px;
     width: 80vw;
-    height: 70vh;
+    height: 80vh;
+
   }
   
   .sidebar {

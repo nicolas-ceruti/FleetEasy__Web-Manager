@@ -6,6 +6,7 @@ import DriversRegister from "./Pages/DriversRegister/driversRegister";
 import VechileRegister from "./Pages/VechileRegister/vechileRegister";
 import CollectRegister from "./Pages/CollectRegister/collectRegister";
 import DriverCard from "./Pages/Driver/driver";
+import Vechile from "./Pages/Vechiles/vechiles";
 import Profile from "./Pages/Profile/profile";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/vechileRegister' element={ <VechileRegister/> }/>
           <Route path='/collectRegister' element={ <CollectRegister/> }/>
           <Route path='/driver' element={ <DriverCard/> }/>
+          <Route path='/vechile' element={ <Vechile/> }/>
           <Route path='/profile/:id' element={ <Profile/> }/>
           <Route path="*" element={<p>404 - Página não encontrada</p>} />
         </Routes>

@@ -42,12 +42,8 @@ const MenuLateral = () => {
         <Link to="/driver" />
         </MenuItem>
 
-        <MenuItem icon={<BsPinMap />}>Localizar
-        <Link to="/map" />
-        </MenuItem>
-
         <MenuItem icon={<BsTruck />}>Veículos
-        <Link to="/" />
+        <Link to="/vechile" />
         </MenuItem>
 
         <MenuItem icon={<FaRoute />}>Coletas
