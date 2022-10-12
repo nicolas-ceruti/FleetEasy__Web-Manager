@@ -158,7 +158,7 @@ function App() {
 
           <TabPanel>
             <Form>
-            <CollectCard/>
+            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
             </Form>
           </TabPanel>
 

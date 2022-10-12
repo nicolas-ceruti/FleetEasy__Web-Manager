@@ -131,8 +131,8 @@ function Form() {
           margin="dense"
           fullWidth
           value={ruaColeta}
-          onChange={(event) => {setVeiculo(event.target.value)}}
-        />setRuaColeta
+          onChange={(event) => {setRuaColeta(event.target.value)}}
+        />
         <TextField
           className="numero_coleta_textFields"
           id="numero"
