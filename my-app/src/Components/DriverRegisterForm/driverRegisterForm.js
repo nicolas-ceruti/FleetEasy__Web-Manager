@@ -29,39 +29,19 @@ function Form() {
 
   return (
     <Container maxWidth="sm" component="article" className="form">
-      <h1>Cadastro de Motoristas<hr style={{"width" : "35%"}}></hr></h1>
+      <h1>Cadastro de Motoristas<hr style={{"width" : "40%"}}></hr></h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
-        <TextField
-          className="nomeCompleto_textField"
-          icon={<BsPinMap />}
-          id="nomeCompleto"
-          label="Nome Completo"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={nomeCompleto}
-          onChange={(event) => {setNomecompleto(event.target.value)}}
-        />
-        <TextField
-          className="veiculo_textField"
-          id="veiculo"
-          label="Veículo"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
-        />
-        <TextField
-          className="CNH_textField"
-          id="cnh"
-          label="CNH"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          error={CNHError}
+
+        <TextField className="nomeCompleto_textField" icon={<BsPinMap />} id="nomeCompleto" label="Nome Completo"
+          variant="outlined" margin="dense" fullWidth value={nomeCompleto} onChange={(event) => {setNomecompleto(event.target.value)}}/>
+
+        <TextField className="veiculo_textField" id="veiculo" label="Veículo"
+          variant="outlined" margin="dense" fullWidth value={veiculo} onChange={(event) => {setVeiculo(event.target.value)}}/>
+
+        <TextField className="CNH_textField" id="cnh" label="CNH"
+          variant="outlined" margin="dense" fullWidth error={CNHError}
           helperText={CNHError && "Deve conter 11 dígitos. Insira apenas os números."}
           value={cnh}
           onBlur={(event) => {
@@ -83,14 +63,8 @@ function Form() {
             setCnh(event.target.value)}
           }
         />
-        <TextField
-          className="cpf_textField"
-          id="cpf"
-          label="CPF"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          error={CPFError}
+        <TextField className="cpf_textField" id="cpf" label="CPF"
+          variant="outlined" margin="dense" fullWidth error={CPFError}
           helperText={CPFError && "Deve conter 11 dígitos. Insira apenas os números."}
           value={cpf}
           onBlur={(event) => {
@@ -112,14 +86,8 @@ function Form() {
             setCpf(event.target.value)}
           }
         />
-        <TextField
-          className="rg_textField"
-          id="rg"
-          label="RG"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          error={RGError}
+        <TextField className="rg_textField" id="rg" label="RG"
+          variant="outlined" margin="dense" fullWidth error={RGError}
           helperText={RGError && "Deve conter 7 dígitos. Insira apenas os números."}
           value={rg}
           onBlur={(event) => {
@@ -141,36 +109,15 @@ function Form() {
             setRg(event.target.value)}
           }
         />
-        <TextField
-          className="senha_textField"
-          id="senha"
-          label="Senha do Usuário"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={senha}
-          onChange={(event) => {setSenha(event.target.value)}}
-        />
-        <TextField
-          className="telefone_textField"
-          id="telefone"
-          label="Telefone"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={telefone}
-          onChange={(event) => {setTelefone(event.target.value)}}
-        />
-        <TextField
-          className="email_textField"
-          id="email"
-          label="Email"
-          variant="outlined"
-          margin="dense"
-          fullWidth
-          value={email}
-          onChange={(event) => {setEmail(event.target.value)}}
-        />    
+
+        <TextField className="senha_textField" id="senha" label="Senha do Usuário"
+          variant="outlined"  margin="dense" fullWidth value={senha} onChange={(event) => {setSenha(event.target.value)}}/>
+
+        <TextField className="telefone_textField" id="telefone" label="Telefone"
+          variant="outlined" margin="dense" fullWidth value={telefone} onChange={(event) => {setTelefone(event.target.value)}}/>
+
+        <TextField className="email_textField" id="email" label="Email"
+          variant="outlined" margin="dense" fullWidth value={email} onChange={(event) => {setEmail(event.target.value)}}/>    
 
         <Button className="btn-form_login" variant="contained" color="primary">
           Cadastrar
