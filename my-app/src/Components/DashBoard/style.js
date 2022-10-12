@@ -85,6 +85,8 @@ export const InfoCard = styled.div`
     }
 `
 
+
+
 export const TitleCard = styled.h2`
         margin: 0PX;
         font-size: 15px;
