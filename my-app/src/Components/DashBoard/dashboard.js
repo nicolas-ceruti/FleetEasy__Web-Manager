@@ -71,8 +71,8 @@ const Dashboard = (  ) => {
             <TitleCard BgColorTitle={'#206187'}>VEÍCULOS FUNCIONAIS</TitleCard>
             <p><span><FaUserPlus/></span><span>97</span></p>
           </InfoCard>
-          <InfoCard BgColor={'#eeba30'}>
-            <TitleCard BgColorTitle={'#d3a625'}>MOTORISTAS ATIVOS</TitleCard>
+          <InfoCard BgColor={'#933CD5'}>
+            <TitleCard BgColorTitle={'#7130A2'}>MOTORISTAS ATIVOS</TitleCard>
             <p><span><FaShoppingCart/></span><span>87</span></p>
           </InfoCard>
         </InfoCardsList>
