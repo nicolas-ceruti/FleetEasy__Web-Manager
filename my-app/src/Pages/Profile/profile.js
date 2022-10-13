@@ -3,6 +3,7 @@ import MenuLateral from "../../Components/MenuLateral/menu";
 import CollectCard from "../../Components/CollectCard/collectCard";
 import Mapa from "../../Components/Mapa/mapa";
 
+
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -15,6 +16,7 @@ import {BsPinMap} from "react-icons/bs";
 
 import { Form, ContainerForm} from "./profilee.js";
 import "./profile.css"
+import ButtonBack from '../../Components/ButtonBack/buttonBack';
 
 function App() {
 
@@ -56,7 +58,7 @@ function App() {
   return(
     <>  
     <MenuLateral/>
-
+    <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
       <h1 className="hr">Perfil do Motorista<hr style={{"width" : "35%"}}></hr></h1>
       <form onSubmit={(event) => {
@@ -158,7 +160,9 @@ function App() {
 
           <TabPanel>
             <Form>
-            <CollectCard/>
+            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
+            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
+            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
             </Form>
           </TabPanel>
 

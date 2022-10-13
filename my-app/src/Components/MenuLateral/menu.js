@@ -7,7 +7,6 @@ import { BsTruck, BsFillPersonPlusFill, BsPersonFill } from 'react-icons/bs';
 import {FaRoute, FaMapMarkerAlt} from "react-icons/fa";
 import {AiFillHome} from "react-icons/ai";
 import {BiLogOut} from "react-icons/bi";
-import {BsPinMap} from "react-icons/bs";
 
 const MenuLateral = () => {
 
@@ -42,12 +41,12 @@ const MenuLateral = () => {
         <Link to="/driver" />
         </MenuItem>
 
-        <MenuItem icon={<BsTruck />}>Veículos
+        {/* <MenuItem icon={<BsTruck />}>Veículos
         <Link to="/vechile" />
-        </MenuItem>
+        </MenuItem> */}
 
         <MenuItem icon={<FaRoute />}>Coletas
-        <Link to="/" />
+        <Link to="/collect" />
         </MenuItem>
 
         <MenuItem icon={<BiLogOut />}>Sair

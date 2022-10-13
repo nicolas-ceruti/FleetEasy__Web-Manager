@@ -1,5 +1,39 @@
 import styled from "styled-components"
 
+//Map
+export const ContainerForm = styled.div`
+margin-top: -2%;
+width: 80vw;
+height: 100vh !important;
+background-color: rgb(255, 255, 255) !important;
+
+    h1{
+        font-size: 30px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 1180px) {
+        width: 100%;
+        padding-top: 70px;
+
+        h1{
+            font-size: 20px;
+        }
+    }
+`;
+
+export const Form = styled.form`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+`;
+
+
+//Chart
 export const Container = styled.div`
     width: 85%;
     height: 100vh;
@@ -26,7 +60,7 @@ export const GraphContainer = styled.div`
     border-radius: 5px;
     box-shadow: 0px 0px 12px 0px #3e3e407d;
     background: #fff;
-    margin: 3% 0% 1% 4%;
+    margin: 3% 0% 0% 0%;
     padding: 10px;
 
     svg{
@@ -40,7 +74,7 @@ export const GraphContainer = styled.div`
 `;
 
 export const GraphTitle = styled.h1`
-    text-align: left;
+    text-align: center;
     font-size: 20px;
     margin-bottom: 0px;
     font-weight: 200;
@@ -84,8 +118,6 @@ export const InfoCard = styled.div`
         margin: 10px;
     }
 `
-
-
 
 export const TitleCard = styled.h2`
         margin: 0PX;

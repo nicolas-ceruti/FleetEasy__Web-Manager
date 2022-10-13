@@ -112,20 +112,21 @@
 }
 
 .nomeDoCLiente_textFields{
-    width: 50% !important;
+
+    width: 20% !important;
 }
 
 .peso_textFields{
-    width: 25% !important;
+    width: 20% !important;
 }
 
 .volume_textFields{
-    width: 25% !important;
+    width: 20% !important;
     left: 20px !important;
 }
 
 .valor_textFields{
-    width: 25% !important;
+    width: 20% !important;
     left: 40px !important;
 }
 

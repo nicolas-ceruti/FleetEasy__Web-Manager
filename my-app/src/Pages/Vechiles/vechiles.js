@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
-import DriverCard from "../../Components/DriverCard/driverCard";
-import ButtonBack from "../../Components/ButtonBack/buttonBack";
+import VechileCard from "../../Components/VechileCard/vechileCard";
 import {Container} from "@material-ui/core";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Form } from 'react-router-dom';
@@ -24,10 +23,10 @@ function App() {
   return(
     <>
     <MenuLateral/>
-    <ButtonBack/>
+  
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">Motoristas<hr style={{"width" : "30%"}}></hr></h1>
+      <h1 className="hr">Veículos<hr style={{"width" : "20%"}}></hr></h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();
@@ -36,15 +35,13 @@ function App() {
       {/* {drivers.map((user) => (
         <DriverCard name={user}/>
       ))} */}
-    <DriverCard situacao="Inativo" name="Isaak"/>
-    <DriverCard situacao="Inativo" name="Nicolas"/>
-    <DriverCard situacao="Inativo" name="Eduardo"/>
-    <DriverCard situacao="Inativo" name="Thiago"/>
-    <DriverCard situacao="Ativo" name="Pereira"/>
-    <DriverCard situacao="Ativo" name="Pereira"/>
-    <DriverCard situacao="Ativo" name="Gustavo"/>
-    <DriverCard situacao="Ativo" name="Airton"/>
-    <DriverCard situacao="Inativo" name="André"/>
+    <VechileCard/>
+    <VechileCard/>
+    <VechileCard />
+    <VechileCard />
+    <VechileCard />
+    <VechileCard />
+    <VechileCard />
     </form>
     </Container>
     

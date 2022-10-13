@@ -1,0 +1,15 @@
+.subtitle{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.goProfile-button{
+    color: #fff !important;
+    background-color: #1b567e !important;
+    width: 20% !important;
+    height: 50% !important;
+    margin-left: 75% !important;
+    display: inline-block;
+    margin-top: -10% !important;
+
+}

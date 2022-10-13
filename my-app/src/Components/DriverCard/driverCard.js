@@ -11,8 +11,9 @@ import {
   CardMedia,
   Typography
 } from "@material-ui/core";
-import {Link} from "react-router-dom"
-import "./driverCard.css"
+import {Link} from "react-router-dom";
+import "./driverCard.css";
+
 
 function DriverCard(props) {
   // const [drivers, setDrivers] = useState([{}]);
@@ -25,12 +26,6 @@ function DriverCard(props) {
 
       <div className="div-card">
       <Card sx={{ maxWidth: 345 }}>
-      {/* <CardMedia
-        component="img"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
-      /> */}
       <CardContent>
         <Typography gutterBottom variant="h5" className="typolography" component="div">
           {props.name}

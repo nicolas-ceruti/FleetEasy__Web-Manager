@@ -49,59 +49,28 @@ function Form() {
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
-        <TextField
-          className="motorista_textFields"
-          id="motorista"
-          label="Motorista"
-          variant="outlined" 
-          margin="dense"
-          value={motorista}
-          onChange={(event) => {setMotorista(event.target.value)}}
-        />
-        <TextField
-          className="veiculo_textFields"
-          id="veiculo"
-          label="Veículo"
-          variant="outlined"          
-          margin="dense"
-          value={veiculo}
-          onChange={(event) => {setVeiculo(event.target.value)}}
-        />
+
+        <TextField className="motorista_textFields" id="motorista" label="Motorista"
+          variant="outlined" margin="dense" value={motorista} onChange={(event) => {setMotorista(event.target.value)}}/>
+
+        <TextField className="veiculo_textFields" id="veiculo" label="Veículo"
+          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setVeiculo(event.target.value)}}/>
 
         <hr className="hr"></hr>
         <h2 className="subtitle">Coleta</h2>
+
         <div fullWidth>
-        <TextField
-          className="data_coleta_textFields"
-          id="data"
-          label="Data de Coleta"
-          placeholder="dd/mm/aaaa"
-          variant="outlined"        
-          margin="dense"
-          value={dataColeta}
-          onChange={(event) => {setDataColeta(event.target.value)}}
-        />
-        <TextField
-          className="hora_coleta_textFields"
-          id="hora"
-          label="Hora de Coleta"
-          placeholder="hh:mm"
-          variant="outlined"        
-          margin="dense"
-          value={horaColeta}
-          onChange={(event) => {setHoraColeta(event.target.value)}}
-        />
+        <TextField className="data_coleta_textFields" id="data" label="Data de Coleta" placeholder="dd/mm/aaaa"
+          variant="outlined" margin="dense" value={dataColeta} onChange={(event) => {setDataColeta(event.target.value)}}/>
+
+        <TextField className="hora_coleta_textFields" id="hora" label="Hora de Coleta" placeholder="hh:mm" 
+          variant="outlined" margin="dense" value={horaColeta} onChange={(event) => {setHoraColeta(event.target.value)}}/>
         </div>
+
         <div fullWidth>
-        <TextField
-          className="estado_coleta_textFields"
-          id="estado"
-          label="Estado"
-          variant="outlined"        
-          margin="dense"
-          value={estadoColeta}
-          onChange={(event) => {setEstadoColeta(event.target.value)}}
-        />
+        <TextField className="estado_coleta_textFields" id="estado" label="Estado" 
+          variant="outlined" margin="dense"value={estadoColeta}onChange={(event) => {setEstadoColeta(event.target.value)}}/>
+
         <TextField
           className="cidade_coleta_textFields"
           id="cidade"
@@ -110,139 +79,57 @@ function Form() {
           margin="dense"
           fullWidth
           value={cidadeColeta}
-          onChange={(event) => {setCidadeColeta(event.target.value)}}
-        />
+          onChange={(event) => {setCidadeColeta(event.target.value)}}/>
         </div>
-        <TextField
-          className="bairro_coleta_textFields"
-          id="bairro"
-          label="Bairro"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={bairroColeta}
-          onChange={(event) => {setBairroColeta(event.target.value)}}
-        />
-        <TextField
-          className="rua_coleta_textFields"
-          id="rua"
-          label="Rua"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={ruaColeta}
-          onChange={(event) => {setVeiculo(event.target.value)}}
-        />setRuaColeta
-        <TextField
-          className="numero_coleta_textFields"
-          id="numero"
-          label="Número"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={numeroColeta}
-          onChange={(event) => {setNumeroColeta(event.target.value)}}
-        />
+
+        <TextField className="bairro_coleta_textFields" id="bairro" label="Bairro"
+          variant="outlined"  margin="dense" fullWidth value={bairroColeta} onChange={(event) => {setBairroColeta(event.target.value)}}/>
+
+        <TextField className="rua_coleta_textFields" id="rua" label="Rua"
+          variant="outlined" margin="dense" fullWidth value={ruaColeta} onChange={(event) => {setRuaColeta(event.target.value)}}/>
+
+        <TextField className="numero_coleta_textFields" id="numero" label="Número"
+          variant="outlined" margin="dense" fullWidth value={numeroColeta} onChange={(event) => {setNumeroColeta(event.target.value)}}/>
 
         <hr className="hr"></hr>
         <h2 className="subtitle">Entrega</h2>
+
         <div fullWidth>
-        <TextField
-          className="data_entrega_textFields"
-          id="data"
-          label="Data de Entrega"
-          placeholder="dd/mm/aaaa"
-          variant="outlined"        
-          margin="dense"
-          value={dataEntrega}
-          onChange={(event) => {setDataEntrega(event.target.value)}}
-        />
-        <TextField
-          className="hora_entrega_textFields"
-          id="hora"
-          label="Hora de Entrega"
-          placeholder="hh:mm"
-          variant="outlined"        
-          margin="dense"
-          value={horaEntrega}
-          onChange={(event) => {setHoraEntrega(event.target.value)}}
-        />
+        <TextField className="data_entrega_textFields" id="data" label="Data de Entrega" placeholder="dd/mm/aaaa"
+          variant="outlined" margin="dense" value={dataEntrega} onChange={(event) => {setDataEntrega(event.target.value)}}/>
+
+        <TextField className="hora_entrega_textFields" id="hora" label="Hora de Entrega" placeholder="hh:mm"
+          variant="outlined" margin="dense" value={horaEntrega} onChange={(event) => {setHoraEntrega(event.target.value)}}/>
         </div>
+
         <div fullWidth>
-        <TextField
-          className="estado_entrega_textFields"
-          id="estado"
-          label="Estado"
-          variant="outlined"        
-          margin="dense"
-          value={estadoEntrega}
-          onChange={(event) => {setEstadoEntrega(event.target.value)}}
-        />
-        <TextField
-          className="cidade_entrega_textFields"
-          id="cidade"
-          label="Cidade"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={cidadeEntrega}
-          onChange={(event) => {setCidadeEntrega(event.target.value)}}
-        />
+        <TextField className="estado_entrega_textFields" id="estado" label="Estado"
+          variant="outlined" margin="dense" value={estadoEntrega} onChange={(event) => {setEstadoEntrega(event.target.value)}}/>
+
+        <TextField className="cidade_entrega_textFields" id="cidade" label="Cidade" 
+          variant="outlined" margin="dense" fullWidth value={cidadeEntrega} onChange={(event) => {setCidadeEntrega(event.target.value)}}/>
         </div>
-        <TextField
-          className="bairro_entrega_textFields"
-          id="bairro"
-          label="Bairro"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={bairroEntrega}
-          onChange={(event) => {setBairroEntrega(event.target.value)}}
-        />
-        <TextField
-          className="rua_entrega_textFields"
-          id="rua"
-          label="Rua"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={ruaEntrega}
-          onChange={(event) => {setRuaEntrega(event.target.value)}}
-        />
-        <TextField
-          className="numero_entrega_textFields"
-          id="numero"
-          label="Número"
-          variant="outlined"          
-          margin="dense"
-          fullWidth
-          value={numeroEntrega}
-          onChange={(event) => {setNumeroEntrega(event.target.value)}}
-        />
+
+        <TextField className="bairro_entrega_textFields" id="bairro" label="Bairro"
+          variant="outlined" margin="dense" fullWidth value={bairroEntrega} onChange={(event) => {setBairroEntrega(event.target.value)}}/>
+
+        <TextField className="rua_entrega_textFields" id="rua" label="Rua" 
+          variant="outlined" margin="dense" fullWidth value={ruaEntrega} onChange={(event) => {setRuaEntrega(event.target.value)}} />
+          
+        <TextField className="numero_entrega_textFields" id="numero" label="Número"
+          variant="outlined" margin="dense" fullWidth value={numeroEntrega} onChange={(event) => {setNumeroEntrega(event.target.value)}}/>
 
         <hr className="hr"></hr>
         <h2 className="subtitle">Cliente</h2>
+
         <div fullWidth>
-        <TextField
-          className="nomeDoCLiente_textFields"
-          id="nomeDoCLiente"
-          label="Nome"
-          variant="outlined"          
-          margin="dense"
-          nomeCliente
-          value={veiculo}
-          onChange={(event) => {setNomeCliente(event.target.value)}}
-        />
+        <TextField className="nomeDoCLiente_textFields" id="nomeDoCLiente" label="Nome"
+          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setNomeCliente(event.target.value)}}/>
         </div>
+
         <div fullWidth>
-        <TextField
-          className="peso_textFields"
-          id="peso"
-          label="Peso da Carga (Kg)"
-          variant="outlined"          
-          margin="dense"
-          value={pesoColeta}
-          error={pesoError}
+        <TextField className="peso_textFields" id="peso" label="Peso da Carga (Kg)"
+          variant="outlined"  margin="dense" value={pesoColeta} error={pesoError}
           helperText={pesoError && "Digite apenas números. Unidade de Medida (Kg)."}
           onBlur={(event) => {
             const tmpPeso = event.target.value;
@@ -263,14 +150,8 @@ function Form() {
             setPesoColeta(event.target.value)}
           }
         />
-          <TextField
-            className="volume_textFields"
-            id="volume"
-            label="Volume da Carga (m³)"
-            variant="outlined"          
-            margin="dense"
-            value={volumeColeta}
-            error={volumeError}
+          <TextField className="volume_textFields" id="volume" label="Volume da Carga (m³)"
+            variant="outlined" margin="dense" value={volumeColeta} error={volumeError}
             helperText={volumeError && "Digite apenas números. Unidade de Medida (m³)."}
             onBlur={(event) => {
               const tmpVolume = event.target.value;
@@ -291,14 +172,8 @@ function Form() {
               setVolumeColeta(event.target.value)}
             }
           />
-        <TextField
-          className="valor_textFields"
-          id="valor"
-          label="Valor da Carga (R$)"
-          variant="outlined"          
-          margin="dense"
-          value={valorColeta}
-          error={valorError}
+        <TextField className="valor_textFields" id="valor" label="Valor da Carga (R$)"
+          variant="outlined" margin="dense" value={valorColeta} error={valorError}
           helperText={valorError && "Digite apenas números. Unidade de Medida (R$)."}
           onBlur={(event) => {
             const tmpValor = event.target.value;
@@ -321,14 +196,10 @@ function Form() {
         />
         </div>
 
-        
-
         <Button className="btn-form" variant="contained" color="primary">
           Cadastrar
         </Button>
       </form>
-
-      <p>{}</p>
     </Container>
     </>
   );
