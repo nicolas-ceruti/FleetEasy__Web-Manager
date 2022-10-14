@@ -60,7 +60,7 @@ function App() {
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Perfil do Motorista<hr style={{"width" : "35%"}}></hr></h1>
+      <h1 className="hr">Perfil do Motorista<hr style={{"width" : "30%"}}></hr></h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
@@ -160,6 +160,7 @@ function App() {
 
           <TabPanel>
             <Form>
+            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
             <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
             <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
             <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
