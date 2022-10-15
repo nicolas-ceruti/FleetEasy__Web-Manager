@@ -1,22 +1,38 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import api from "../../services/api"
 import "./login.css";
 
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { parametro } = useParams();
   const navigate = useNavigate();
+  const [loginResponse, setLoginResponse] = useState([]);
+
+
+
+    useEffect(() => {
+      api
+      .get("/getMotoristas")
+      .then((response) => setLoginResponse(response.data), console.log(loginResponse))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+    }, []);
+  
+
 
   function login () {
-    if (email == "nicolas" && password == "12345"){
-        navigate('/home')
-    }else{
-    }
-
+   
+      toast.error("Wow so easy!");
+      console.log("eeeeeee")
+  
   }
-
+  
   return (
     <div className="container">
       <div className="container-login">
