@@ -31,6 +31,9 @@ function App() {
     const [numeroEntrega, setNumeroEntrega] = useState();
 
     const [nomeCliente, setNomeCliente] = useState();
+    const [cnpjCliente, setCnpjCliente] = useState();
+    const [telefoneCliente, setTelefoneCliente] = useState();
+    const [emailCliente, setEmailCliente] = useState();
     const [pesoColeta, setPesoColeta] = useState();
     const [volumeColeta, setVolumeColeta] = useState();
     const [valorColeta, setValorColeta] = useState();
@@ -58,9 +61,7 @@ function App() {
           <TextField className="motorista" id="motorista" label="Motorista" 
                 variant="outlined" margin="dense" value={motorista}/> 
                 <TextField className="veiculo" id="veiculo" label="Veículo" 
-                variant="outlined" margin="dense" value={veiculo} />
-                <TextField className="nomeDoCliente" id="cliente" label="Cliente" 
-                variant="outlined" margin="dense" value={nomeCliente} />  
+                variant="outlined" margin="dense" value={veiculo} /> 
                 <div style={{"width" : "100%"}}/>  
                 <TextField className="peso" id="peso" label="Peso da Carga" 
                 variant="outlined" margin="dense" value={pesoColeta} />  
@@ -68,7 +69,8 @@ function App() {
                 variant="outlined" margin="dense" value={volumeColeta} />  
                 <TextField className="valor" id="valor" label="Valor da Carga" 
                 variant="outlined" margin="dense" value={valorColeta} />  
-
+                
+                <hr className="hr"></hr>
                 <h2 className="subtitle">Coleta</h2>
                 <TextField className="data_coleta" id="data" label="Data de Coleta" placeholder="dd/mm/aaaa"
                 variant="outlined" margin="dense" value={dataColeta}/>
@@ -86,6 +88,7 @@ function App() {
                 <TextField className="numero_coleta" id="data" label="Número" placeholder="dd/mm/aaaa"
                 variant="outlined" margin="dense" value={dataColeta}/>
 
+                <hr className="hr"></hr>
                 <h2 className="subtitle">Entrega</h2>
                 <TextField className="data_entrega" id="data" label="Data de Entrega" placeholder="dd/mm/aaaa"
                 variant="outlined" margin="dense" value={dataColeta}/>
@@ -102,6 +105,21 @@ function App() {
                 variant="outlined" margin="dense" value={dataColeta}/>
                 <TextField className="numero_entrega" id="data" label="Número" placeholder="dd/mm/aaaa"
                 variant="outlined" margin="dense" value={dataColeta}/>
+
+
+                <hr className="hr"></hr>
+                <h2 className="subtitle">Cliente</h2>
+                <div fullWidth>
+                <TextField className="nomeDoCLiente_textFields" id="nomeDoCLiente" label="Nome"
+                  variant="outlined" margin="dense" value={veiculo} />
+                </div>
+                <TextField className="cnpjDoCLiente_textFields" id="cnpjDoCLiente" label="CNPJ"
+                  variant="outlined" margin="dense" value={veiculo} />            
+                <TextField className="telefoneDoCLiente_textFields" id="telefoneDoCLiente" label="Telefone"
+                  variant="outlined" margin="dense" value={veiculo}/>
+                <TextField className="emailDoCLiente_textFields" id="emailDoCLiente" label="Email"
+                  variant="outlined" margin="dense" value={veiculo}/>
+
 
           </TabPanel>
         </Tabs>

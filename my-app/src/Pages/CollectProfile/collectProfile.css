@@ -69,3 +69,26 @@
     left: 40px !important;
 }
 
+.nomeDoCLiente_textFields{
+
+    width: 50% !important;
+}
+
+.cnpjDoCLiente_textFields{
+    width: 25% !important;
+}
+
+.telefoneDoCLiente_textFields{
+    width: 25% !important;
+    left: 20px !important;
+}
+
+.emailDoCLiente_textFields{
+    width: 40% !important;
+    left: 40px !important;
+}
+
+.hr{
+    margin-top: 20px !important;
+}
+
