@@ -103,7 +103,13 @@ CREATE TABLE IF NOT EXISTS `itracker`.`RegistroColeta` (
   `bairroEntrega` VARCHAR(45) NOT NULL,
   `ruaEntrega` VARCHAR(45) NOT NULL,
   `numeroEntrega` VARCHAR(45) NOT NULL,
-  `valorCarga` VARCHAR(45) NOT NULL,
+  `nomeCliente` VARCHAR(45) NOT NULL,
+  `cnpjCliente` VARCHAR(45) NOT NULL,
+  `emailCliente` VARCHAR(45) NULL,
+  `telefoneCliente` VARCHAR(45) NULL, 
+  `pesoCarga` VARCHAR(45) NOT NULL,
+  `volumeCarga` VARCHAR(45) NOT NULL,
+   `valorCarga` VARCHAR(45) NOT NULL,
   `Ocorrencia_idOcorrencia` INT NOT NULL,
   `Motoristas_idMotorista` INT NOT NULL,
   PRIMARY KEY (`idRegistroColeta`),
@@ -120,7 +126,6 @@ CREATE TABLE IF NOT EXISTS `itracker`.`RegistroColeta` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Motoristas_Veiculo`
