@@ -113,7 +113,7 @@
 
 .nomeDoCLiente_textFields{
 
-    width: 20% !important;
+    width: 50% !important;
 }
 
 .peso_textFields{
@@ -127,6 +127,20 @@
 
 .valor_textFields{
     width: 20% !important;
+    left: 40px !important;
+}
+
+.cnpjDoCLiente_textFields{
+    width: 25% !important;
+}
+
+.telefoneDoCLiente_textFields{
+    width: 25% !important;
+    left: 20px !important;
+}
+
+.emailDoCLiente_textFields{
+    width: 40% !important;
     left: 40px !important;
 }
 

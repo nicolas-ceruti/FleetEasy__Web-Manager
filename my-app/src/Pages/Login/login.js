@@ -15,19 +15,20 @@ function App() {
 
 
 
-    useEffect(() => {
-      api
-      .get("/getMotoristas")
-      .then((response) => setLoginResponse(response.data), console.log(loginResponse))
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-    }, []);
+  useEffect(() => {
+    api
+    .get("/getMotoristas")
+    .then((response) => setLoginResponse(response.data), console.log(loginResponse))
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }, []);
   
 
 
   function login () {
    
+
       toast.error("Wow so easy!");
       console.log("eeeeeee")
   

@@ -21,7 +21,7 @@ const MenuLateral = () => {
 
       <Menu iconShape="circle">
         
-        <MenuItem icon={<AiFillHome />}>Home
+        <MenuItem icon={<AiFillHome />} >Home
         <Link to="/home" />
         </MenuItem>
         

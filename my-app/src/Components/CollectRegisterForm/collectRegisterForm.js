@@ -11,6 +11,9 @@ import {
 function Form() {
   const [motorista, setMotorista] = useState('');
   const [veiculo, setVeiculo] = useState('');
+  const [pesoColeta, setPesoColeta] = useState();
+  const [volumeColeta, setVolumeColeta] = useState();
+  const [valorColeta, setValorColeta] = useState();
 
   const [dataColeta, setDataColeta] = useState();
   const [horaColeta, setHoraColeta] = useState();
@@ -29,15 +32,17 @@ function Form() {
   const [numeroEntrega, setNumeroEntrega] = useState();
 
   const [nomeCliente, setNomeCliente] = useState();
-  const [pesoColeta, setPesoColeta] = useState();
-  const [volumeColeta, setVolumeColeta] = useState();
-  const [valorColeta, setValorColeta] = useState();
+  const [cnpjCliente, setCnpjCliente] = useState();
+  const [telefoneCliente, setTelefoneCliente] = useState();
+  const [emailCliente, setEmailCliente] = useState();
+
 
 
 
   const [valorError, setValorError] = useState(false);
   const [pesoError, setPesoError] = useState(false);
   const [volumeError, setVolumeError] = useState(false);
+  const [cnpjError, setCNPJError] = useState(false);
  
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
@@ -55,6 +60,75 @@ function Form() {
 
         <TextField className="veiculo_textFields" id="veiculo" label="Veículo"
           variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setVeiculo(event.target.value)}}/>
+
+<div fullWidth>
+        <TextField className="peso_textFields" id="peso" label="Peso da Carga (Kg)"
+          variant="outlined"  margin="dense" value={pesoColeta} error={pesoError}
+          helperText={pesoError && "Digite apenas números. Unidade de Medida (Kg)."}
+          onBlur={(event) => {
+            const tmpPeso = event.target.value;
+
+            if (regex.test(tmpPeso) == true) {
+              setPesoError(true);
+            } else {
+              setPesoError(false);
+            }
+          }}
+          onChange={(event) => {
+            const tmpPeso = event.target.value;
+
+            if (regex.test(tmpPeso) ==false) {
+              setPesoError(false);
+            }
+
+            setPesoColeta(event.target.value)}
+          }
+        />
+          <TextField className="volume_textFields" id="volume" label="Volume da Carga (m³)"
+            variant="outlined" margin="dense" value={volumeColeta} error={volumeError}
+            helperText={volumeError && "Digite apenas números. Unidade de Medida (m³)."}
+            onBlur={(event) => {
+              const tmpVolume = event.target.value;
+  
+              if (regex.test(tmpVolume) == true) {
+                setVolumeError(true);
+              } else {
+                setVolumeError(false);
+              }
+            }}
+            onChange={(event) => {
+              const tmpVolume = event.target.value;
+  
+              if (regex.test(tmpVolume) ==false) {
+                setVolumeError(false);
+              }
+  
+              setVolumeColeta(event.target.value)}
+            }
+          />
+        <TextField className="valor_textFields" id="valor" label="Valor da Carga (R$)"
+          variant="outlined" margin="dense" value={valorColeta} error={valorError}
+          helperText={valorError && "Digite apenas números. Unidade de Medida (R$)."}
+          onBlur={(event) => {
+            const tmpValor = event.target.value;
+
+            if (regex.test(tmpValor) == true) {
+              setValorError(true);
+            } else {
+              setValorError(false);
+            }
+          }}
+          onChange={(event) => {
+            const tmpValor = event.target.value;
+
+            if (regex.test(tmpValor) ==false) {
+              setValorError(false);
+            }
+
+            setValorColeta(event.target.value)}
+          }
+        />
+        </div>
 
         <hr className="hr"></hr>
         <h2 className="subtitle">Coleta</h2>
@@ -126,79 +200,40 @@ function Form() {
         <TextField className="nomeDoCLiente_textFields" id="nomeDoCLiente" label="Nome"
           variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setNomeCliente(event.target.value)}}/>
         </div>
-
-        <div fullWidth>
-        <TextField className="peso_textFields" id="peso" label="Peso da Carga (Kg)"
-          variant="outlined"  margin="dense" value={pesoColeta} error={pesoError}
-          helperText={pesoError && "Digite apenas números. Unidade de Medida (Kg)."}
+        
+        <TextField className="cnpjDoCLiente_textFields" id="cnpjDoCLiente" label="CNPJ"
+          variant="outlined" margin="dense" value={veiculo} 
           onBlur={(event) => {
-            const tmpPeso = event.target.value;
+            const tmpCnpj = event.target.value;
 
-            if (regex.test(tmpPeso) == true) {
-              setPesoError(true);
+            if (tmpCnpj.length !== 11) {
+              setCNPJError(true);
             } else {
-              setPesoError(false);
+              setCNPJError(false);
             }
           }}
           onChange={(event) => {
-            const tmpPeso = event.target.value;
+            const tmpCnpj = event.target.value;
 
-            if (regex.test(tmpPeso) ==false) {
-              setPesoError(false);
+            if (tmpCnpj.length === 11) {
+              setCNPJError(false);
             }
 
-            setPesoColeta(event.target.value)}
-          }
-        />
-          <TextField className="volume_textFields" id="volume" label="Volume da Carga (m³)"
-            variant="outlined" margin="dense" value={volumeColeta} error={volumeError}
-            helperText={volumeError && "Digite apenas números. Unidade de Medida (m³)."}
-            onBlur={(event) => {
-              const tmpVolume = event.target.value;
+            setCnpjCliente(event.target.value)}
+          }/>
   
-              if (regex.test(tmpVolume) == true) {
-                setVolumeError(true);
-              } else {
-                setVolumeError(false);
-              }
-            }}
-            onChange={(event) => {
-              const tmpVolume = event.target.value;
-  
-              if (regex.test(tmpVolume) ==false) {
-                setVolumeError(false);
-              }
-  
-              setVolumeColeta(event.target.value)}
-            }
-          />
-        <TextField className="valor_textFields" id="valor" label="Valor da Carga (R$)"
-          variant="outlined" margin="dense" value={valorColeta} error={valorError}
-          helperText={valorError && "Digite apenas números. Unidade de Medida (R$)."}
-          onBlur={(event) => {
-            const tmpValor = event.target.value;
+     
+        <TextField className="telefoneDoCLiente_textFields" id="telefoneDoCLiente" label="Telefone"
+          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setTelefoneCliente(event.target.value)}}/>
+      
+        <TextField className="emailDoCLiente_textFields" id="emailDoCLiente" label="Email"
+          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setEmailCliente(event.target.value)}}/>
 
-            if (regex.test(tmpValor) == true) {
-              setValorError(true);
-            } else {
-              setValorError(false);
-            }
-          }}
-          onChange={(event) => {
-            const tmpValor = event.target.value;
-
-            if (regex.test(tmpValor) ==false) {
-              setValorError(false);
-            }
-
-            setValorColeta(event.target.value)}
-          }
-        />
-        </div>
-
+          <div fullWidth>
         <Button className="btn-form" variant="contained" color="primary">
           Cadastrar
         </Button>
+        </div>
       </form>
     </Container>
     </>
