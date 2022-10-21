@@ -20,7 +20,7 @@
 .pro-sidebar > .pro-sidebar-inner {
     box-shadow: 0px 0px 50px rgba(2, 2, 2, 30%) !important;
     background: #1d1d1d;
-    height: 115%;
+    height: 135%;
     position: relative;
     z-index: 101;
 }

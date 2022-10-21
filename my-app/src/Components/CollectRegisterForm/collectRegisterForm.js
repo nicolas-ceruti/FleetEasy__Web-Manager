@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import "./collectRegisterForm.css"
-import {
-  Container,
-  Button,
-  TextField,
-  Checkbox,
-  FormControlLabel,
-} from "@material-ui/core";
+import {Container, Button, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Form() {
   const [motorista, setMotorista] = useState('');
@@ -36,14 +32,16 @@ function Form() {
   const [telefoneCliente, setTelefoneCliente] = useState();
   const [emailCliente, setEmailCliente] = useState();
 
-
-
-
   const [valorError, setValorError] = useState(false);
   const [pesoError, setPesoError] = useState(false);
   const [volumeError, setVolumeError] = useState(false);
   const [cnpjError, setCNPJError] = useState(false);
  
+  const notify = () => {
+    toast.success('Coleta Cadastrada!', {
+        transition: toast.Flip, position: toast.POSITION.TOP_RIGHT
+    });
+  };
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
   return (
@@ -198,11 +196,11 @@ function Form() {
 
         <div fullWidth>
         <TextField className="nomeDoCLiente_textFields" id="nomeDoCLiente" label="Nome"
-          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setNomeCliente(event.target.value)}}/>
+          variant="outlined" margin="dense" value={nomeCliente} onChange={(event) => {setNomeCliente(event.target.value)}}/>
         </div>
         
         <TextField className="cnpjDoCLiente_textFields" id="cnpjDoCLiente" label="CNPJ"
-          variant="outlined" margin="dense" value={veiculo} 
+          variant="outlined" margin="dense" value={cnpjCliente} 
           onBlur={(event) => {
             const tmpCnpj = event.target.value;
 
@@ -224,15 +222,16 @@ function Form() {
   
      
         <TextField className="telefoneDoCLiente_textFields" id="telefoneDoCLiente" label="Telefone"
-          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setTelefoneCliente(event.target.value)}}/>
+          variant="outlined" margin="dense" value={telefoneCliente} onChange={(event) => {setTelefoneCliente(event.target.value)}}/>
       
         <TextField className="emailDoCLiente_textFields" id="emailDoCLiente" label="Email"
-          variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setEmailCliente(event.target.value)}}/>
+          variant="outlined" margin="dense" value={emailCliente} onChange={(event) => {setEmailCliente(event.target.value)}}/>
 
           <div fullWidth>
-        <Button className="btn-form" variant="contained" color="primary">
+        <Button className="btn-form" variant="contained" color="primary" onClick={notify}>
           Cadastrar
         </Button>
+        <ToastContainer/>
         </div>
       </form>
     </Container>

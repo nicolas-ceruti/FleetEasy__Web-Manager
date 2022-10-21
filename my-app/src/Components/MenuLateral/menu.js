@@ -4,9 +4,10 @@ import { ProSidebar, MenuItem, SubMenu, Menu, SidebarFooter, SidebarHeader } fro
 import 'react-pro-sidebar/dist/css/styles.css';
 import './menu.css';
 import { BsTruck, BsFillPersonPlusFill, BsPersonFill } from 'react-icons/bs';
-import {FaRoute, FaMapMarkerAlt} from "react-icons/fa";
+import {FaRoute, FaMapMarkerAlt, FaTruck} from "react-icons/fa";
 import {AiFillHome} from "react-icons/ai";
 import {BiLogOut} from "react-icons/bi";
+import {GoGlobe} from "react-icons/go";
 
 const MenuLateral = () => {
 
@@ -15,7 +16,7 @@ const MenuLateral = () => {
     <>
     <ProSidebar  >
       <SidebarHeader>
-        <h2 className='tituloMenu'> {<FaMapMarkerAlt/>} Itracker</h2>
+        <h2 className='tituloMenu'> {<GoGlobe/>} Itracker</h2>
 
       </SidebarHeader>
 
@@ -25,7 +26,7 @@ const MenuLateral = () => {
         <Link to="/home" />
         </MenuItem>
         
-        <SubMenu icon={<BsFillPersonPlusFill />} title="Cadastro" >
+        <SubMenu defaultOpen="True" icon={<BsFillPersonPlusFill />} title="Cadastro" >
           <MenuItem icon={<BsPersonFill/>}>Motoristas
           <Link to="/driversRegister" />
           </MenuItem>
