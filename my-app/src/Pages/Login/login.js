@@ -18,21 +18,25 @@ function App() {
   useEffect(() => {
     api
     .get("/getMotoristas")
-    .then((response) => setLoginResponse(response.data), console.log(loginResponse))
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    });
-  }, []);
+    // .post("/login", {
+    //   "email" : "nicolas@gmail.com", 
+    //   "senha" : "12345"})
+    .then((response) => console.log(response.data))
+    .catch(error => console.log("ops! ocorreu um erro" + error));
+    }, []);
   
-
-
+  
   function login () {
-   
-
       toast.error("Wow so easy!");
       console.log("eeeeeee")
-  
   }
+
+  function teste ()  {
+    api
+    .post("/login", {"email" : "nicolas@gmail.com", "senha" : "12345"})
+    .then((response) => console.log(response.data))
+    .catch(error => console.log("ops! ocorreu um erro" + error));};
+  
   
   return (
     <div className="container">
@@ -62,7 +66,7 @@ function App() {
             </div>
 
             <div className="container-login-form-btn">
-              <button className="login-form-btn"  onClick={login}>Login</button>
+              <button className="login-form-btn"  onClick={teste()}>Login</button>
             </div>
 
           </form>
