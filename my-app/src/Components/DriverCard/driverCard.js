@@ -31,11 +31,11 @@ function DriverCard(props) {
           {props.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {props.situacao} no Momento
+          ID: {props.id}, {props.situacao} no Momento
         </Typography>
       </CardContent>
       <CardActions>
-      <Button className="whatsapp-button" size="small" onClick={<Link to="/profile/:id"></Link>}> WhatsApp</Button>
+      <Button className="whatsapp-button" size="small" onClick={<Link to="/profile/:id" ></Link>}> WhatsApp</Button>
       
       <Link to="/profile/:id"><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>

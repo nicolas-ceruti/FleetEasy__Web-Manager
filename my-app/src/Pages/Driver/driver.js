@@ -24,14 +24,17 @@ function App() {
   
   
   const drivers = [{
+    "id" : 1,
     "nome" : "joão",
     "número" : "99 1254-2466"
   },
   {
+    "id" : 2,
     "nome" : "Pedro",
     "número" : "91 7547-5409"
   },
   {
+    "id" : 3,
     "nome" : "joão",
     "número" : "89 0457-7890"
   },];
@@ -42,7 +45,7 @@ function App() {
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">{driversResponse}<hr style={{"width" : "30%"}}></hr></h1>
+      <h1 className="hr">Motoristas<hr style={{"width" : "18%"}}></hr></h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();
@@ -50,19 +53,13 @@ function App() {
 
      
 
+     
+
    
-      {/* {driversResponse.map((user) => (
-        <DriverCard name={user.nome}/>
-      ))} */}
-    {/* <DriverCard situacao="Inativo" name="Isaak"/>
-    <DriverCard situacao="Inativo" name="Nicolas"/>
-    <DriverCard situacao="Inativo" name="Eduardo"/>
-    <DriverCard situacao="Inativo" name="Thiago"/>
-    <DriverCard situacao="Ativo" name="Pereira"/>
-    <DriverCard situacao="Ativo" name="Pereira"/>
-    <DriverCard situacao="Ativo" name="Gustavo"/>
-    <DriverCard situacao="Ativo" name="Airton"/>
-    <DriverCard situacao="Inativo" name="André"/> */}
+      {drivers.map((user) => (
+        <DriverCard name={user.nome} id={user.id}/>
+      ))}
+
     </form>
     </Container>
     
