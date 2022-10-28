@@ -6,21 +6,37 @@ import {Container} from "@material-ui/core";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Form } from 'react-router-dom';
 import api from "../../services/api";
+import { ToastContainer, toast, Flip } from 'react-toastify';
 
 function App() {
 
-  const [driversResponse, setDriversResponse] = useState([]);
+  const [driversResponse, setDriversResponse] =  useState([])
+  const [driversList, setDriverList] =  useState([])
 
   useEffect(() => {
     api
     .get("/getMotoristas")
-    .then((response) =>  setDriversResponse(JSON.stringify(response.data)))
+    .then((response) =>  console.log(JSON.stringify(response.data)))
     .catch(error => console.log("ops! ocorreu um erro" + error));
     }, []);
 
-  // function card () {
-  //     for (i = 0; i < driversResponse.length;i++)
-  // }
+   
+  // useEffect(() => {
+  //   api
+  //   .get('/getMotoristas')
+  //   .then((response) => {
+      
+  //     setDriversResponse(JSON.parse(response.data))
+
+  //   }, (err) => {
+  //     if(err.response.status == 401){
+  //       toast.error('Erro, saia e entre novamente no sistema!')
+  //     }else{
+  //       toast.error('Erro, tente novamente mais tarde!')
+  //     }
+  //   });
+  // }, []); 
+
   
   
   const drivers = [{
@@ -45,7 +61,7 @@ function App() {
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">Motoristas<hr style={{"width" : "18%"}}></hr></h1>
+      <h1 className="hr">{driversResponse}<hr style={{"width" : "18%"}}></hr></h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();
@@ -56,10 +72,10 @@ function App() {
      
 
    
-      {drivers.map((user) => (
+      {/* {driversResponse.map((user) => (
         <DriverCard name={user.nome} id={user.id}/>
-      ))}
-
+      ))} */}
+    <ToastContainer/>
     </form>
     </Container>
     
