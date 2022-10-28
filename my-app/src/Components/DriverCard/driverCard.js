@@ -16,11 +16,10 @@ import "./driverCard.css";
 
 
 function DriverCard(props) {
-  // const [drivers, setDrivers] = useState([{}]);
-  const [nomeCompleto, setNomecompleto] = useState('');
-  const [volumeError, setVolumeError] = useState(false);
-  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
 
@@ -35,7 +34,7 @@ function DriverCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-      <Button className="whatsapp-button" size="small" onClick={<Link to="/profile/:id" ></Link>}> WhatsApp</Button>
+      <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=554788220837&text=----------Itracker----------' + props.nome)}> WhatsApp</Button>
       
       <Link to="/profile/:id"><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>
