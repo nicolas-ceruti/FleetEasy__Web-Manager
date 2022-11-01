@@ -16,11 +16,14 @@ function App() {
   useEffect(() => {
     api
     .get("/getMotoristas")
-    .then((response) =>  console.log(JSON.stringify(response.data)))
+    .then((response) =>  setDriversResponse(response.data))
     .catch(error => console.log("ops! ocorreu um erro" + error));
     }, []);
 
-   
+    const result  = Array.from(driversResponse).map(motor =>(
+      <DriverCard name={motor.nomeCompleto}/>
+    ))
+    
   // useEffect(() => {
   //   api
   //   .get('/getMotoristas')
@@ -61,20 +64,18 @@ function App() {
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">{driversResponse}<hr style={{"width" : "18%"}}></hr></h1>
+      <h1 className="hr">Motoristas<hr style={{"width" : "18%"}}></hr></h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();
         }}>
 
+    
+        {result}
      
-
-     
-
+        
    
-      {/* {driversResponse.map((user) => (
-        <DriverCard name={user.nome} id={user.id}/>
-      ))} */}
+      
     <ToastContainer/>
     </form>
     </Container>
