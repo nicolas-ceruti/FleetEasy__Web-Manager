@@ -17,7 +17,7 @@ function App() {
     api
     .get("/getMotoristas")
     .then((response) =>  setDriversResponse(response.data))
-    .catch(error => console.log("ops! ocorreu um erro" + error));
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
     }, []);
 
     const result  = Array.from(driversResponse).map(motor =>(

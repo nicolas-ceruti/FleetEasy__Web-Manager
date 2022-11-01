@@ -17,9 +17,20 @@ function App() {
   function teste ()  {
     api
     .post("/login", {"email" : "nicolas@gmail.com", "senha" : "12345"})
-    .then((response) => setLoginResponse(response.data))
-    .catch(error => console.log("ops! ocorreu um erro" + error));};
+    .then((response) => console.log(JSON.stringify(response.data)))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
   
+    setLoginResponse("ok")
+    // console.log(loginResponse)
+    // if (loginResponse = "ok"){
+    //   <Link to="/home" />
+    // } else {
+    //   <Link to="/home" />
+    //   toast.error("Nenhum usuário encontrado!")
+    // }
+  };
+  
+
   
   return (
     <div className="container">
@@ -49,7 +60,7 @@ function App() {
             </div>
 
             <div className="container-login-form-btn">
-              <button className="login-form-btn"  onClick={teste()}>Login</button>
+              <button className="login-form-btn" onClick={teste()}>Login</button>
             </div>
 
           </form>
