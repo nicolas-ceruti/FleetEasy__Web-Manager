@@ -61,7 +61,7 @@ function CollectCard(props) {
     return (
         <Card className={classes.root}>
         <CardHeader
-            title="Coleta"
+            title="Coleta" 
             subheader=""
             
         />

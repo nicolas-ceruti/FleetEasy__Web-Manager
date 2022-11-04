@@ -14,9 +14,12 @@ function App() {
   const [loginResponse, setLoginResponse] = useState([]);
 
 
-  function teste ()  {
+  const teste = () => {
     api
-    .post("/login", {"email" : "nicolas@gmail.com", "senha" : "12345"})
+    .post("/login",[{
+      "email" : "jose@gmail.com",
+      "senha" : "12345"
+  }])
     .then((response) => console.log(JSON.stringify(response.data)))
     .catch(error => toast.error("ops! ocorreu um erro" + error));
   

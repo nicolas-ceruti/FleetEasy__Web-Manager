@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./driverRegisterForm.css"
 import {Container, Button, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
 import { ToastContainer, toast, Flip } from 'react-toastify';
@@ -28,26 +28,39 @@ function Form() {
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
-  // function teste ()  {
-  //   var data = {
-  //       "nomeCompleto" : "Douglas2",
-  //       "senha" : "12345",
-  //       "email" : "douglas@gmail.com",
-  //       "cpf" : "10610660630",
-  //       "rg" : "6576000",
-  //       "telefone" : "47991915405",
-  //       "latitude" : "gggg",
-  //       "longitude" : "ggggg",
-  //       "cnh" : "12451403131"
-  //     };
-  //   var dtaJSON = JSON.stringify(data);
+  
+  useEffect(() => {
 
-  //   console.log(dtaJSON)
-  //   api
-  //   .post("/createMotorista", dtaJSON)
-  //   .then((response) =>  console.log((response.data)))
-  //   .catch(error => console.log("ops! ocorreu um erro" + error));
-  //   };
+
+
+    // {
+    //   nomeCompleto : 'Douglas2',
+    //   senha : '12345',
+    //   email : 'douglas@gmail.com',
+    //   cpf : '10610660630',
+    //   rg : '6576000',
+    //   telefone : '47991915405',
+    //   latitude : 'gggg',
+    //   longitude : 'ggggg',
+    //   cnh : '12451403131'
+    // }
+
+    api
+    .post("/createMotorista",{
+        nomeCompleto : 'Douglas2',
+        senha : '12345',
+        email : 'douglas@gmail.com',
+        cpf : '10610660630',
+        rg : '6576000',
+        telefone : '47991915405',
+        latitude : 'gggg',
+        longitude : 'ggggg',
+        cnh : '12451403131'
+      })
+    .then((response) =>  console.log((response.data)))
+    .catch(error => console.log("ops! ocorreu um erro" + error));
+  
+}, []);
 
 
 
@@ -145,7 +158,7 @@ function Form() {
         <TextField className="email_textField" id="email" label="Email"
           variant="outlined" margin="dense" fullWidth value={email} onChange={(event) => {setEmail(event.target.value)}}/>    
 
-        <Button className="btn-form_login" variant="contained" color="primary" >
+        <Button className="btn-form_login" variant="contained" color="primary"  >
           Cadastrar
         </Button>
         <ToastContainer/>
