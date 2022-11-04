@@ -13,13 +13,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `itracker` DEFAULT CHARACTER SET utf8 ;
 USE `itracker` ;
 
--- -----------------------------------------------------
--- Table `mydb`.`table1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`table1` (
-)
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Motoristas`
@@ -75,10 +68,10 @@ CREATE TABLE IF NOT EXISTS `itracker`.`Ocorrencia` (
   `hora` DATETIME NOT NULL,
   `tipoOcorrencia_idtipoOcorrencia` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Ocorrencia_tipoOcorrencia1_idx` (`tipoOcorrencia_idtipoOcorrencia` ASC) VISIBLE,
+  INDEX `fk_Ocorrencia_tipoOcorrencia1_idx` (`tipoOcorrencia_idtipoOcorrencia` ASC),
   CONSTRAINT `fk_Ocorrencia_tipoOcorrencia1`
     FOREIGN KEY (`tipoOcorrencia_idtipoOcorrencia`)
-    REFERENCES `mydb`.`tipoOcorrencia` (`idtipoOcorrencia`)
+    REFERENCES `itracker`.`tipoOcorrencia` (`idtipoOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -113,16 +106,16 @@ CREATE TABLE IF NOT EXISTS `itracker`.`RegistroColeta` (
   `Ocorrencia_idOcorrencia` INT NOT NULL,
   `Motoristas_idMotorista` INT NOT NULL,
   PRIMARY KEY (`idRegistroColeta`),
-  INDEX `fk_RegistroColeta_Ocorrencia1_idx` (`Ocorrencia_idOcorrencia` ASC) VISIBLE,
-  INDEX `fk_RegistroColeta_Motoristas1_idx` (`Motoristas_idMotorista` ASC) VISIBLE,
+  INDEX `fk_RegistroColeta_Ocorrencia1_idx` (`Ocorrencia_idOcorrencia` ASC) ,
+  INDEX `fk_RegistroColeta_Motoristas1_idx` (`Motoristas_idMotorista` ASC) ,
   CONSTRAINT `fk_RegistroColeta_Ocorrencia1`
     FOREIGN KEY (`Ocorrencia_idOcorrencia`)
-    REFERENCES `mydb`.`Ocorrencia` (`id`)
+    REFERENCES `itracker`.`Ocorrencia` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_RegistroColeta_Motoristas1`
     FOREIGN KEY (`Motoristas_idMotorista`)
-    REFERENCES `mydb`.`Motoristas` (`idMotorista`)
+    REFERENCES `itracker`.`Motoristas` (`idMotorista`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -134,16 +127,16 @@ CREATE TABLE IF NOT EXISTS `itracker`.`Motoristas_Veiculo` (
   `Motoristas_idMotorista` INT NOT NULL,
   `Veiculo_idveiculo` INT NOT NULL,
   PRIMARY KEY (`Motoristas_idMotorista`, `Veiculo_idveiculo`),
-  INDEX `fk_Motoristas_has_Veiculo_Veiculo1_idx` (`Veiculo_idveiculo` ASC) VISIBLE,
-  INDEX `fk_Motoristas_has_Veiculo_Motoristas_idx` (`Motoristas_idMotorista` ASC) VISIBLE,
+  INDEX `fk_Motoristas_has_Veiculo_Veiculo1_idx` (`Veiculo_idveiculo` ASC),
+  INDEX `fk_Motoristas_has_Veiculo_Motoristas_idx` (`Motoristas_idMotorista` ASC),
   CONSTRAINT `fk_Motoristas_has_Veiculo_Motoristas`
     FOREIGN KEY (`Motoristas_idMotorista`)
-    REFERENCES `mydb`.`Motoristas` (`idMotorista`)
+    REFERENCES `itracker`.`Motoristas` (`idMotorista`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Motoristas_has_Veiculo_Veiculo1`
     FOREIGN KEY (`Veiculo_idveiculo`)
-    REFERENCES `mydb`.`Veiculo` (`idVeiculo`)
+    REFERENCES `itracker`.`Veiculo` (`idVeiculo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -152,7 +145,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`user` (
+CREATE TABLE IF NOT EXISTS `itracker`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
@@ -174,10 +167,10 @@ INSERT INTO tipoocorrencia values (4, "Pneu Furou");
 INSERT INTO tipoocorrencia values (5, "Engarrafamento");
 INSERT INTO tipoocorrencia values (100, "Coleta Finalizada");
 
-INSERT INTO user (email, senha, nome) VALUES ("paulo@gmail.com", "12345", "paulo");
-INSERT INTO user (email, senha, nome) VALUES ("pedro@gmail.com", "12345", "pedro");
-INSERT INTO user (email, senha, nome) VALUES ("jose@gmail.com", "12345", "jose");
-INSERT INTO user (email, senha, nome) VALUES ("nicolas@gmail.com", "12345", "nicolas");
+INSERT INTO usuario (email, senha, nome) VALUES ("paulo@gmail.com", "12345", "paulo");
+INSERT INTO usuario (email, senha, nome) VALUES ("pedro@gmail.com", "12345", "pedro");
+INSERT INTO usuario (email, senha, nome) VALUES ("jose@gmail.com", "12345", "jose");
+INSERT INTO usuario (email, senha, nome) VALUES ("nicolas@gmail.com", "12345", "nicolas");
 
 SELECT * FROM user WHERE email="nicolas@gmail.com" AND senha="12345";
 
