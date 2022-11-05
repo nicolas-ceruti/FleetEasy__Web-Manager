@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -13,24 +13,39 @@ function App() {
   const navigate = useNavigate();
   const [loginResponse, setLoginResponse] = useState([]);
 
+  const go = useCallback(() => navigate('/home', {replace: true}), [navigate]);
 
-  const teste = () => {
+  document.title = "Itracker | Login"
+
+
+  const teste = (e) => {
+
+
+    let dataAuth = {}
+
+    dataAuth = {
+      "email" : email,
+      "senha" : password
+    }
+    
     api
-    .post("/login",[{
-      "email" : "jose@gmail.com",
-      "senha" : "12345"
-  }])
-    .then((response) => console.log(JSON.stringify(response.data)))
+    .post("/login", dataAuth)
+    .then((response) => setLoginResponse(response.data))
     .catch(error => toast.error("ops! ocorreu um erro" + error));
   
-    setLoginResponse("ok")
-    // console.log(loginResponse)
-    // if (loginResponse = "ok"){
-    //   <Link to="/home" />
-    // } else {
-    //   <Link to="/home" />
-    //   toast.error("Nenhum usuário encontrado!")
-    // }
+    console.log(loginResponse["mensagem"])
+    if (loginResponse["mensagem"] == "Existe"){
+      console.log("ok");
+      toast.success("Login Efetuado!");
+      navigate('/home', {replace: true});
+
+      
+    
+    } else {
+      // <Link to="/home" />
+      toast.error("Nenhum usuário encontrado!")
+    }
+    e.preventDefault();
   };
   
 
@@ -63,11 +78,15 @@ function App() {
             </div>
 
             <div className="container-login-form-btn">
-              <button className="login-form-btn" onClick={teste()}>Login</button>
+              <button className="login-form-btn" onClick={teste}>Login</button>
             </div>
 
+            
+
           </form>
+          
         </div>
+        <ToastContainer/>
       </div>
     </div>
   );

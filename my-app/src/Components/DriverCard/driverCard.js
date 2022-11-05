@@ -21,6 +21,7 @@ function DriverCard(props) {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  
   return (
 
       <div className="div-card">

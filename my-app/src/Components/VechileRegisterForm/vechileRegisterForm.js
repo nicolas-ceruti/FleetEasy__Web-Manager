@@ -3,6 +3,7 @@ import "./vechileRegisterForm.css"
 import {Container, Button, TextField, Select, MenuItem, Checkbox, FormControlLabel} from "@material-ui/core";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import api from "../../services/api";
 
 
 
@@ -22,13 +23,50 @@ function Form() {
   const [capacidadePesoError, setCapacidadePesoError] = useState(false);
   const [capacidadeVolumetriaError, setCapacidadeVolumetriaError] = useState(false);
 
-  const notify = () => {
-    toast.success('Veículo Cadastrado!', {
-        transition: toast.Flip, position: toast.POSITION.TOP_RIGHT
-    });
-  };
+  const [registerRespone, setRegisterRespone] = useState([]);
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
+
+
+
+  const cadastrarVeiculo = (e) => {
+    let dataAuth = {}
+
+    dataAuth = {
+
+        "placa" : placa,
+        "cor" : cor,
+        "ano" : ano,
+        "marca" : marca,
+        "tipo" : tipo,
+        "modelo" : modelo,
+        "chassi" : chassi,
+        "capacidadePeso" : capacidadePeso,
+        "capacidadeVolumetria" : capacidadeVolumetria 
+      
+    }
+    
+    api
+    .post("/createVeiculo", dataAuth)
+    .then((response) => setRegisterRespone(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
+  
+    console.log(registerRespone["mensagem"])
+    if (registerRespone["mensagem"] == "Cadastrado"){
+      console.log("ok");
+      toast.success("Veículo Cadastrado!");
+
+      setPlaca(""); setCor(""); setAno(""); setMarca(""); setTipo(""); setModelo(""); setChassi(""); setCapacidadePeso(""); setCapacidadeVolumetria("");
+
+    } else {
+      // <Link to="/home" />
+      
+    }
+    e.preventDefault();
+  };
+
+
+
 
   return (
     <Container maxWidth="sm" component="article" className="form">
@@ -214,7 +252,7 @@ function Form() {
           }
         />
         
-        <Button className="btn-form" variant="contained" color="primary" onClick={notify}>
+        <Button className="btn-form" variant="contained" color="primary" onClick={cadastrarVeiculo}>
           Cadastrar
         </Button>
         <ToastContainer/>

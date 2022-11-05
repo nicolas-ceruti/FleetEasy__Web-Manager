@@ -20,6 +20,8 @@ function Form() {
   const [RGError, setRGError] = useState(false);
   const [CNHError, setCNHError] = useState(false);
 
+  const [registerRespone, setRegisterRespone] = useState([]);
+
   const notify = () => {
     toast.success('Motorista Cadastrado!', {
         transition: toast.Flip, position: toast.POSITION.TOP_RIGHT
@@ -29,38 +31,45 @@ function Form() {
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
   
-  useEffect(() => {
 
+  const cadastrarMotorista = (e) => {
+    let dataAuth = {}
 
-
-    // {
-    //   nomeCompleto : 'Douglas2',
-    //   senha : '12345',
-    //   email : 'douglas@gmail.com',
-    //   cpf : '10610660630',
-    //   rg : '6576000',
-    //   telefone : '47991915405',
-    //   latitude : 'gggg',
-    //   longitude : 'ggggg',
-    //   cnh : '12451403131'
-    // }
-
+    dataAuth = {
+      "nomeCompleto" : nomeCompleto,
+      "senha" : senha,
+      "email" : email ,
+      "cpf" : cpf,
+      "rg" : rg,
+      "telefone" : telefone,
+      "latitude" : "",
+      "longitude" : "",
+      "cnh" : cnh
+    }
+    
     api
-    .post("/createMotorista",{
-        nomeCompleto : 'Douglas2',
-        senha : '12345',
-        email : 'douglas@gmail.com',
-        cpf : '10610660630',
-        rg : '6576000',
-        telefone : '47991915405',
-        latitude : 'gggg',
-        longitude : 'ggggg',
-        cnh : '12451403131'
-      })
-    .then((response) =>  console.log((response.data)))
-    .catch(error => console.log("ops! ocorreu um erro" + error));
+    .post("/createMotorista", dataAuth)
+    .then((response) => setRegisterRespone(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
   
-}, []);
+    console.log(registerRespone["mensagem"])
+    if (registerRespone["mensagem"] == "Cadastrado"){
+      console.log("ok");
+      toast.success("Motorista Cadastrado!");
+
+      setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo("");
+
+    } else {
+      // <Link to="/home" />
+      
+    }
+    e.preventDefault();
+  };
+
+
+
+
+
 
 
 
@@ -158,7 +167,7 @@ function Form() {
         <TextField className="email_textField" id="email" label="Email"
           variant="outlined" margin="dense" fullWidth value={email} onChange={(event) => {setEmail(event.target.value)}}/>    
 
-        <Button className="btn-form_login" variant="contained" color="primary"  >
+        <Button className="btn-form_login" variant="contained" color="primary" onClick={cadastrarMotorista} >
           Cadastrar
         </Button>
         <ToastContainer/>
