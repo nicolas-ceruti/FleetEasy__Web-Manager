@@ -57,8 +57,10 @@ function Form() {
       toast.success("Veículo Cadastrado!");
 
       setPlaca(""); setCor(""); setAno(""); setMarca(""); setTipo(""); setModelo(""); setChassi(""); setCapacidadePeso(""); setCapacidadeVolumetria("");
+      setPlacaError(false); setCapacidadePesoError(false); setCapacidadeVolumetriaError(false); setChassiError(false);
 
     } else {
+      console.log(registerRespone["mensagem"])
       // <Link to="/home" />
       
     }
