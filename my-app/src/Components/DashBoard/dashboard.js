@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaShoppingCart, FaMoneyCheck, FaUserPlus } from "react-icons/fa";
-import { GiCancel } from "react-icons/gi";
+import { FaTruckMoving, FaShoppingCart, FaMoneyCheck, FaUserPlus } from "react-icons/fa";
+import { BsPersonCheckFill } from "react-icons/bs";
+
 
 import {Container, DivDeshboard, GraphList,  GraphContainer, GraphTitle, InfoCardsList, InfoCard, TitleCard} from "./style.js";
 import { Chart } from 'react-google-charts';
@@ -56,7 +57,7 @@ const Dashboard = (  ) => {
   return (
     <>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Estatísticas<hr style={{"width" : "35%"}}></hr></h1>
+      <h1 className="hr">Estatísticas<hr style={{"width" : "20%"}}></hr></h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}></form>
@@ -69,11 +70,11 @@ const Dashboard = (  ) => {
           </InfoCard>
           <InfoCard BgColor={'#64A4C9'}>
             <TitleCard BgColorTitle={'#206187'}>VEÍCULOS FUNCIONAIS</TitleCard>
-            <p><span><FaUserPlus/></span><span>97</span></p>
+            <p><span><FaTruckMoving/></span><span>97</span></p>
           </InfoCard>
           <InfoCard BgColor={'#933CD5'}>
             <TitleCard BgColorTitle={'#7130A2'}>MOTORISTAS ATIVOS</TitleCard>
-            <p><span><FaShoppingCart/></span><span>87</span></p>
+            <p><span><BsPersonCheckFill/></span><span>87</span></p>
           </InfoCard>
         </InfoCardsList>
         

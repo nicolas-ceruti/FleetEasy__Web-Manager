@@ -4,6 +4,8 @@ import {Container, Button, TextField, Checkbox, FormControlLabel} from "@materia
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import api from "../../services/api";
+
 function Form() {
   const [motorista, setMotorista] = useState('');
   const [veiculo, setVeiculo] = useState('');
@@ -36,11 +38,65 @@ function Form() {
   const [pesoError, setPesoError] = useState(false);
   const [volumeError, setVolumeError] = useState(false);
   const [cnpjError, setCNPJError] = useState(false);
+  const [registerRespone, setRegisterRespone] = useState([]);
  
   const notify = () => {
     toast.success('Coleta Cadastrada!', {
         transition: toast.Flip, position: toast.POSITION.TOP_RIGHT
     });
+  };
+
+  const cadastrarColeta = (e) => {
+    let dataAuth = {}
+
+    dataAuth = {
+      "dataColeta" : dataColeta,
+      "horaColeta" : horaColeta,
+      "estadoColeta" : estadoColeta,
+      "cidadeColeta" : cidadeColeta,
+      "bairroColeta" : bairroColeta,
+      "ruaColeta" : ruaColeta,
+      "numeroColeta" : numeroColeta,
+      "dataEntrega" : dataEntrega,
+      "horaEntrega" : horaEntrega,
+      "estadoEntrega" : estadoEntrega,
+      "cidadeEntrega" : cidadeEntrega,
+      "bairroEntrega" : bairroEntrega,
+      "ruaEntrega" : ruaEntrega,
+      "numeroEntrega" : numeroEntrega,
+      "nomeCliente" : nomeCliente,
+      "cnpjCliente" : cnpjCliente,
+      "emailCliente" : emailCliente,
+      "telefoneCliente" : telefoneCliente,
+      "pesoCarga" : pesoColeta,
+      "volumeCarga" : volumeColeta,
+      "valorCarga" : valorColeta,
+      "Ocorrencia_idOcorrencia" : 1,
+      "Motoristas_idMotorista" : 1
+    }
+    
+    api
+    .post("/createColeta", dataAuth)
+    .then((response) => setRegisterRespone(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
+  
+    console.log(registerRespone["mensagem"])
+    if (registerRespone["mensagem"] == "Cadastrado"){
+      console.log("ok");
+      toast.success("Veículo Cadastrado!");
+
+      setDataColeta(""); setHoraColeta(""); setEstadoColeta(""); setCidadeColeta(""); setBairroColeta(""); setRuaColeta(""); setNumeroColeta("");
+      setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
+      setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
+      setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
+      setValorError(false); setVolumeError(false); setPesoError(false);
+
+    } else {
+      console.log(registerRespone["mensagem"])
+      // <Link to="/home" />
+      
+    }
+    e.preventDefault();
   };
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
@@ -228,7 +284,7 @@ function Form() {
           variant="outlined" margin="dense" value={emailCliente} onChange={(event) => {setEmailCliente(event.target.value)}}/>
 
           <div fullWidth>
-        <Button className="btn-form" variant="contained" color="primary" onClick={notify}>
+        <Button className="btn-form" variant="contained" color="primary" onClick={cadastrarColeta}>
           Cadastrar
         </Button>
         <ToastContainer/>
