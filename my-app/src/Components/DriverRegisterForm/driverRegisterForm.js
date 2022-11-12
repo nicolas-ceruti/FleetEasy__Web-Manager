@@ -33,47 +33,36 @@ function Form() {
   
 
   const cadastrarMotorista = (e) => {
-    let dataAuth = {}
+    if ((CNHError == false) || (CPFError == false) || (RGError == false)){
+      let dataAuth = {}
 
-    dataAuth = {
-      "nomeCompleto" : nomeCompleto,
-      "senha" : senha,
-      "email" : email ,
-      "cpf" : cpf,
-      "rg" : rg,
-      "telefone" : telefone,
-      "latitude" : "",
-      "longitude" : "",
-      "cnh" : cnh
-    }
-    
-    api
-    .post("/createMotorista", dataAuth)
-    .then((response) => setRegisterRespone(response.data))
-    .catch(error => toast.error("ops! ocorreu um erro" + error));
-  
-    console.log(registerRespone["mensagem"])
-    if (registerRespone["mensagem"] == "Cadastrado"){
-      console.log("ok");
-      toast.success("Motorista Cadastrado!");
-
-      setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo("");
-
-    } else {
-      // <Link to="/home" />
+      dataAuth = {
+        "nomeCompleto" : nomeCompleto,
+        "senha" : senha,
+        "email" : email ,
+        "cpf" : cpf,
+        "rg" : rg,
+        "telefone" : telefone,
+        "latitude" : "",
+        "longitude" : "",
+        "cnh" : cnh
+      }
       
+      api
+      .post("/createMotorista", dataAuth)
+      .then((response) => setRegisterRespone(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error)); 
+      console.log(registerRespone["mensagem"])
+      if (registerRespone["mensagem"] == "Cadastrado"){
+        console.log("ok");
+        toast.success("Motorista Cadastrado!");
+        setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo(""); dataAuth = [];
+      } else {}  
+    }else{
+      toast.error("Ops! Parece que as informações não foram preenchidas corretamente!")
     }
     e.preventDefault();
   };
-
-
-
-
-
-
-
-
-    
 
   return (
     <Container maxWidth="sm" component="article" className="form">

@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import CollectCard from "../../Components/CollectCard/collectCard";
 import Mapa from "../../Components/Mapa/mapa";
-
-
+import { useNavigate, useParams } from "react-router-dom"
+import api from "../../services/api";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
-import { DivDeshboard, GraphList,  GraphContainer, GraphTitle, InfoCardsList, InfoCard, TitleCard} from "./profilee.js";
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import { GraphContainer, GraphTitle} from "./profilee.js";
 import { Chart } from 'react-google-charts';
 
 import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
@@ -28,6 +28,9 @@ function App() {
   const [veiculo, setVeiculo] = useState();
   const [cpf, setCpf] = useState();
   const [rg, setRg] = useState();
+  const [driversResponse, setDriversResponse] =  useState([])
+
+  const params = useParams();
 
   const SalesMonthdata = [
     ["Meses", "Faturamento(R$)"],
@@ -52,6 +55,19 @@ function App() {
     },
   };
 
+  var URL = "/motorista_profile/" + params["id"]
+  useEffect(() => {
+    api
+    .get(URL)
+    .then((response) =>  setDriversResponse(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
+    }, []);
+
+    // const result  = Array.from(driversResponse).map(motor =>(
+    //   <DriverCard name={motor.nomeCompleto}/>
+    // ))
+
+  console.log(driversResponse[0]["cnh"]);
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 

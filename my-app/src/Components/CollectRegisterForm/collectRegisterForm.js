@@ -47,54 +47,59 @@ function Form() {
   };
 
   const cadastrarColeta = (e) => {
-    let dataAuth = {}
+    if ((cnpjError == false) || (valorError == false) || (pesoError == false) || (volumeError == false)){
+      let dataAuth = {}
 
-    dataAuth = {
-      "dataColeta" : dataColeta,
-      "horaColeta" : horaColeta,
-      "estadoColeta" : estadoColeta,
-      "cidadeColeta" : cidadeColeta,
-      "bairroColeta" : bairroColeta,
-      "ruaColeta" : ruaColeta,
-      "numeroColeta" : numeroColeta,
-      "dataEntrega" : dataEntrega,
-      "horaEntrega" : horaEntrega,
-      "estadoEntrega" : estadoEntrega,
-      "cidadeEntrega" : cidadeEntrega,
-      "bairroEntrega" : bairroEntrega,
-      "ruaEntrega" : ruaEntrega,
-      "numeroEntrega" : numeroEntrega,
-      "nomeCliente" : nomeCliente,
-      "cnpjCliente" : cnpjCliente,
-      "emailCliente" : emailCliente,
-      "telefoneCliente" : telefoneCliente,
-      "pesoCarga" : pesoColeta,
-      "volumeCarga" : volumeColeta,
-      "valorCarga" : valorColeta,
-      "Ocorrencia_idOcorrencia" : 1,
-      "Motoristas_idMotorista" : 1
-    }
-    
-    api
-    .post("/createColeta", dataAuth)
-    .then((response) => setRegisterRespone(response.data))
-    .catch(error => toast.error("ops! ocorreu um erro" + error));
-  
-    console.log(registerRespone["mensagem"])
-    if (registerRespone["mensagem"] == "Cadastrado"){
-      console.log("ok");
-      toast.success("Veículo Cadastrado!");
-
-      setDataColeta(""); setHoraColeta(""); setEstadoColeta(""); setCidadeColeta(""); setBairroColeta(""); setRuaColeta(""); setNumeroColeta("");
-      setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
-      setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
-      setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
-      setValorError(false); setVolumeError(false); setPesoError(false);
-
-    } else {
-      console.log(registerRespone["mensagem"])
-      // <Link to="/home" />
+      dataAuth = {
+        "dataColeta" : dataColeta,
+        "horaColeta" : horaColeta,
+        "estadoColeta" : estadoColeta,
+        "cidadeColeta" : cidadeColeta,
+        "bairroColeta" : bairroColeta,
+        "ruaColeta" : ruaColeta,
+        "numeroColeta" : numeroColeta,
+        "dataEntrega" : dataEntrega,
+        "horaEntrega" : horaEntrega,
+        "estadoEntrega" : estadoEntrega,
+        "cidadeEntrega" : cidadeEntrega,
+        "bairroEntrega" : bairroEntrega,
+        "ruaEntrega" : ruaEntrega,
+        "numeroEntrega" : numeroEntrega,
+        "nomeCliente" : nomeCliente,
+        "cnpjCliente" : cnpjCliente,
+        "emailCliente" : emailCliente,
+        "telefoneCliente" : telefoneCliente,
+        "pesoCarga" : pesoColeta,
+        "volumeCarga" : volumeColeta,
+        "valorCarga" : valorColeta,
+        "Ocorrencia_idOcorrencia" : 1,
+        "Motoristas_idMotorista" : 1
+      }
       
+      api
+      .post("/createColeta", dataAuth)
+      .then((response) => setRegisterRespone(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error));
+    
+      console.log(registerRespone["mensagem"])
+      if (registerRespone["mensagem"] == "Cadastrado"){
+        console.log("ok");
+        toast.success("Coleta Cadastrado!");
+
+        setDataColeta(""); setHoraColeta(""); setEstadoColeta(""); setCidadeColeta(""); setBairroColeta(""); setRuaColeta(""); setNumeroColeta("");
+        setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
+        setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
+        setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
+        setValorError(false); setVolumeError(false); setPesoError(false); dataAuth = [];
+
+
+      } else {
+        console.log(registerRespone["mensagem"])
+        // <Link to="/home" />
+        
+      }
+    }else{
+      toast.error("Ops! Parece que as informações não foram preenchidas corretamente!")
     }
     e.preventDefault();
   };

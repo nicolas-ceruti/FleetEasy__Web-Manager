@@ -2,7 +2,7 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
+SET @@local.net_read_timeout=360;
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
@@ -10,14 +10,14 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `itracker` DEFAULT CHARACTER SET utf8 ;
-USE `itracker` ;
+CREATE SCHEMA IF NOT EXISTS `itrackerr` DEFAULT CHARACTER SET utf8 ;
+USE `itrackerr` ;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Motoristas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`Motoristas` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`Motoristas` (
   `idMotorista` INT NOT NULL AUTO_INCREMENT,
   `nomeCompleto` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `senha` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Veiculo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`Veiculo` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`Veiculo` (
   `idVeiculo` INT NOT NULL AUTO_INCREMENT,
   `placa` VARCHAR(7) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `cor` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
@@ -53,7 +53,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`tipoOcorrencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`tipoOcorrencia` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`tipoOcorrencia` (
   `idtipoOcorrencia` INT NOT NULL,
   `tipoOcorrencia` VARCHAR(45) NULL,
   PRIMARY KEY (`idtipoOcorrencia`))
@@ -63,7 +63,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Ocorrencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`Ocorrencia` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`Ocorrencia` (
   `id` INT NOT NULL,
   `hora` DATETIME NOT NULL,
   `tipoOcorrencia_idtipoOcorrencia` INT NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `itracker`.`Ocorrencia` (
   INDEX `fk_Ocorrencia_tipoOcorrencia1_idx` (`tipoOcorrencia_idtipoOcorrencia` ASC),
   CONSTRAINT `fk_Ocorrencia_tipoOcorrencia1`
     FOREIGN KEY (`tipoOcorrencia_idtipoOcorrencia`)
-    REFERENCES `itracker`.`tipoOcorrencia` (`idtipoOcorrencia`)
+    REFERENCES `itrackerr`.`tipoOcorrencia` (`idtipoOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -80,7 +80,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`RegistroColeta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`RegistroColeta` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`RegistroColeta` (
   `idRegistroColeta` INT NOT NULL,
   `dataColeta` VARCHAR(45) NOT NULL,
   `horaColeta` VARCHAR(45) NOT NULL,
@@ -103,19 +103,19 @@ CREATE TABLE IF NOT EXISTS `itracker`.`RegistroColeta` (
   `pesoCarga` VARCHAR(45) NOT NULL,
   `volumeCarga` VARCHAR(45) NOT NULL,
    `valorCarga` VARCHAR(45) NOT NULL,
-  `Ocorrencia_idOcorrencia` INT NOT NULL,
-  `Motoristas_idMotorista` INT NOT NULL,
+  `Ocorrencia_idOcorrencia` INT ,
+  `Motoristas_idMotorista` INT ,
   PRIMARY KEY (`idRegistroColeta`),
   INDEX `fk_RegistroColeta_Ocorrencia1_idx` (`Ocorrencia_idOcorrencia` ASC) ,
   INDEX `fk_RegistroColeta_Motoristas1_idx` (`Motoristas_idMotorista` ASC) ,
   CONSTRAINT `fk_RegistroColeta_Ocorrencia1`
     FOREIGN KEY (`Ocorrencia_idOcorrencia`)
-    REFERENCES `itracker`.`Ocorrencia` (`id`)
+    REFERENCES `itrackerr`.`Ocorrencia` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_RegistroColeta_Motoristas1`
     FOREIGN KEY (`Motoristas_idMotorista`)
-    REFERENCES `itracker`.`Motoristas` (`idMotorista`)
+    REFERENCES `itrackerr`.`Motoristas` (`idMotorista`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -123,7 +123,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Motoristas_Veiculo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`Motoristas_Veiculo` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`Motoristas_Veiculo` (
   `Motoristas_idMotorista` INT NOT NULL,
   `Veiculo_idveiculo` INT NOT NULL,
   PRIMARY KEY (`Motoristas_idMotorista`, `Veiculo_idveiculo`),
@@ -145,7 +145,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Admin`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itracker`.`usuario` (
+CREATE TABLE IF NOT EXISTS `itrackerr`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
@@ -172,7 +172,7 @@ INSERT INTO usuario (email, senha, nome) VALUES ("pedro@gmail.com", "12345", "pe
 INSERT INTO usuario (email, senha, nome) VALUES ("jose@gmail.com", "12345", "jose");
 INSERT INTO usuario (email, senha, nome) VALUES ("nicolas@gmail.com", "12345", "nicolas");
 
-SELECT * FROM user WHERE email="nicolas@gmail.com" AND senha="12345";
+SELECT * FROM usuario WHERE email="nicolas@gmail.com" AND senha="12345";
 
 INSERT INTO motoristas (nomeCompleto, senha, email, cpf, rg, telefone, latitude, longitude, cnh)
 	VALUES ("Nicolas Ceruti", "12345", "nicolas@gmail", "10610610656", "6506506", "47991915757", "", "", "12121213131");
@@ -197,3 +197,7 @@ INSERT INTO veiculo (placa, cor, ano, marca, tipo, modelo, chassi, capacidadePes
 	VALUES ("1034567", "amarelo", "2054", "PALIO", "cavalo", "FGH56", "12345670912345678", "303", "94"); 
     
 INSERT INTO motoristas_veiculo VALUES (1, 5);
+
+SELECT * FROM  ocorrencia;
+INSERT INTO ocorrencia (id, hora, tipoOcorrencia_idtipoOcorrencia)
+	VALUES (1, "1000-01-01 00:00:00", 0); 

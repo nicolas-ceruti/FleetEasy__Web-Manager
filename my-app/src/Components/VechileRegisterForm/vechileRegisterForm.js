@@ -30,39 +30,43 @@ function Form() {
 
 
   const cadastrarVeiculo = (e) => {
-    let dataAuth = {}
+    if ((chassiError == false) || (placaError == false) || (capacidadePesoError == false) || (capacidadeVolumetriaError == false)){
+      let dataAuth = {}
 
-    dataAuth = {
+      dataAuth = {
 
-        "placa" : placa,
-        "cor" : cor,
-        "ano" : ano,
-        "marca" : marca,
-        "tipo" : tipo,
-        "modelo" : modelo,
-        "chassi" : chassi,
-        "capacidadePeso" : capacidadePeso,
-        "capacidadeVolumetria" : capacidadeVolumetria 
+          "placa" : placa,
+          "cor" : cor,
+          "ano" : ano,
+          "marca" : marca,
+          "tipo" : tipo,
+          "modelo" : modelo,
+          "chassi" : chassi,
+          "capacidadePeso" : capacidadePeso,
+          "capacidadeVolumetria" : capacidadeVolumetria 
+        
+      }
       
-    }
+      api
+      .post("/createVeiculo", dataAuth)
+      .then((response) => setRegisterRespone(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error));
     
-    api
-    .post("/createVeiculo", dataAuth)
-    .then((response) => setRegisterRespone(response.data))
-    .catch(error => toast.error("ops! ocorreu um erro" + error));
-  
-    console.log(registerRespone["mensagem"])
-    if (registerRespone["mensagem"] == "Cadastrado"){
-      console.log("ok");
-      toast.success("Veículo Cadastrado!");
-
-      setPlaca(""); setCor(""); setAno(""); setMarca(""); setTipo(""); setModelo(""); setChassi(""); setCapacidadePeso(""); setCapacidadeVolumetria("");
-      setPlacaError(false); setCapacidadePesoError(false); setCapacidadeVolumetriaError(false); setChassiError(false);
-
-    } else {
       console.log(registerRespone["mensagem"])
-      // <Link to="/home" />
-      
+      if (registerRespone["mensagem"] == "Cadastrado"){
+        console.log("ok");
+        toast.success("Veículo Cadastrado!");
+
+        setPlaca(""); setCor(""); setAno(""); setMarca(""); setTipo(""); setModelo(""); setChassi(""); setCapacidadePeso(""); setCapacidadeVolumetria("");
+        setPlacaError(false); setCapacidadePesoError(false); setCapacidadeVolumetriaError(false); setChassiError(false);
+
+      } else {
+        console.log(registerRespone["mensagem"])
+        // <Link to="/home" />
+        
+      }
+    }else{
+      toast.error("Ops! Parece que as informações não foram preenchidas corretamente!")
     }
     e.preventDefault();
   };
