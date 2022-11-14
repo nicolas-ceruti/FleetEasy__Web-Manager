@@ -37,7 +37,7 @@ function DriverCard(props) {
       <CardActions>
       <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=554788220837&text=----------Itracker----------' + props.nome)}> WhatsApp</Button>
       
-      <Link to="/profile/:id"><Button size="small" className="details-button" >Detalhes</Button></Link>
+      <Link to="/profile/id"><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>
     </Card>
     </div>

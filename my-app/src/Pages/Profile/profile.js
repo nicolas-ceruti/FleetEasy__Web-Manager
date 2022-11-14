@@ -20,14 +20,14 @@ import ButtonBack from '../../Components/ButtonBack/buttonBack';
 
 function App() {
 
-  const [nomeCompleto, setNomecompleto] = useState('');
-  const [cnh, setCnh] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState();
-  const [veiculo, setVeiculo] = useState();
-  const [cpf, setCpf] = useState();
-  const [rg, setRg] = useState();
+  const [nomeCompleto, setNomecompleto] = useState("");
+  const [cnh, setCnh] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [veiculo, setVeiculo] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [rg, setRg] = useState("");
   const [driversResponse, setDriversResponse] =  useState([])
 
   const params = useParams();
@@ -53,7 +53,7 @@ function App() {
       title: "",
       subtitle: "",
     },
-  };
+    };
 
   var URL = "/motorista_profile/" + params["id"]
   useEffect(() => {
@@ -63,11 +63,32 @@ function App() {
     .catch(error => toast.error("ops! ocorreu um erro" + error));
     }, []);
 
+
+  // if (driversResponse){
+  //   setNomecompleto(String(driversResponse["nomeCompleto"]));
+  //   setCnh(String(driversResponse["cnh"])); setTelefone(String(driversResponse["telefone"]));
+  //   setEmail(String(driversResponse["email"])); setSenha(String(driversResponse["senha"]));
+  //   setVeiculo(String(driversResponse["veiculo"])); setCpf(String(driversResponse["cpf"])); setRg(String(driversResponse["rg"]))
+  // }
+
+
+    
+    
+  // setNomecompleto("wgsrggs");
+      // setCnh(driversResponse["cnh"]);
+      // setTelefone(driversResponse["telefone"]);
+      // setEmail(driversResponse["email"]);
+      // setSenha(driversResponse["senha"]);
+      // setVeiculo(driversResponse["veiculo"]);
+      // setCpf(driversResponse["cpf"]);
+      // setRg(driversResponse["rg"]);
+
+   
     // const result  = Array.from(driversResponse).map(motor =>(
     //   <DriverCard name={motor.nomeCompleto}/>
     // ))
 
-  console.log(driversResponse[0]["cnh"]);
+  // setCnh(driversResponse["nomeCompleto"]);
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
@@ -99,7 +120,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={nomeCompleto}
+          value={(String(driversResponse["nomeCompleto"]))}
           onChange={(event) => {setNomecompleto(event.target.value)}}
         />
         <TextField
@@ -109,7 +130,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={veiculo}
+          value={(String(driversResponse["veiculo"]))}
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
         <TextField
@@ -119,7 +140,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={cnh}
+          value={(String(driversResponse["cnh"]))}
           onChange={(event) => {setCnh(event.target.value)}}
         />
         <TextField
@@ -129,7 +150,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={cpf}
+          value={(String(driversResponse["cpf"]))}
           onChange={(event) => {setCpf(event.target.value)}}
         />
         <TextField
@@ -139,7 +160,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={rg}
+          value={(String(driversResponse["rg"]))}
           onChange={(event) => {setRg(event.target.value)}}
         />
         <TextField
@@ -149,7 +170,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={senha}
+          value={(String(driversResponse["senha"]))}
           onChange={(event) => {setSenha(event.target.value)}}
         />
         <TextField
@@ -159,7 +180,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={telefone}
+          value={(String(driversResponse["telefone"]))}
           onChange={(event) => {setTelefone(event.target.value)}}
         />
         <TextField
@@ -169,7 +190,7 @@ function App() {
           variant="outlined"
           margin="dense"
           fullWidth
-          value={email}
+          value={(String(driversResponse["email"]))}
           onChange={(event) => {setEmail(event.target.value)}}
         />     
           </TabPanel>
