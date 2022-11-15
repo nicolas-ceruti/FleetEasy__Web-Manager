@@ -65,7 +65,7 @@ function CollectCard(props) {
             subheader=""
             
         />
-        <Link to="/collect/:id"><Button size="small" className="goProfile-button" >Detalhes</Button></Link>
+        <Link to="/collectprofile/id"><Button size="small" className="goProfile-button" >Detalhes</Button></Link>
         </Card>
     );
     

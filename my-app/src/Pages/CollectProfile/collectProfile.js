@@ -1,26 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import ButtonBack from "../../Components/ButtonBack/buttonBack";
-
+import { useNavigate, useParams } from "react-router-dom"
+import api from "../../services/api";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-
+import { ToastContainer, toast, Flip } from 'react-toastify';
 import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
 
 import "./collectProfile.css"
 
 function App() {
 
-    const [motorista, setMotorista] = useState('');
-    const [veiculo, setVeiculo] = useState('');
-
-    const [dataColeta, setDataColeta] = useState();
-    const [horaColeta, setHoraColeta] = useState();
-    const [estadoColeta, setEstadoColeta] = useState();
-    const [cidadeColeta, setCidadeColeta] = useState();
-    const [bairroColeta, setBairroColeta] = useState();
-    const [ruaColeta, setRuaColeta] = useState();
-    const [numeroColeta, setNumeroColeta] = useState();
+  const [motorista, setMotorista] = useState('');
+  const [veiculo, setVeiculo] = useState('');
+  const [dataColeta, setDataColeta] = useState();
+  const [horaColeta, setHoraColeta] = useState();
+  const [estadoColeta, setEstadoColeta] = useState();
+  const [cidadeColeta, setCidadeColeta] = useState();
+  const [bairroColeta, setBairroColeta] = useState();
+  const [ruaColeta, setRuaColeta] = useState();
+  const [numeroColeta, setNumeroColeta] = useState();
 
     const [dataEntrega, setDataEntrega] = useState();
     const [horaEntrega, setHoraEntrega] = useState();
@@ -37,6 +37,17 @@ function App() {
     const [pesoColeta, setPesoColeta] = useState();
     const [volumeColeta, setVolumeColeta] = useState();
     const [valorColeta, setValorColeta] = useState();
+    const [driversResponse, setDriversResponse] =  useState([])
+
+    const params = useParams();
+
+  var URL = "/collect_profile/" + params["id"]
+  useEffect(() => {
+    api
+    .get(URL)
+    .then((response) =>  setDriversResponse(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
+    }, []);
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
@@ -59,7 +70,7 @@ function App() {
           <TabPanel>
   
           <TextField className="motorista" id="motorista" label="Motorista" 
-                variant="outlined" margin="dense" value={motorista}/> 
+                variant="outlined" margin="dense" value={(String(driversResponse["dataColeta"]))}/> 
                 <TextField className="veiculo" id="veiculo" label="Veículo" 
                 variant="outlined" margin="dense" value={veiculo} /> 
                 <div style={{"width" : "100%"}}/>  

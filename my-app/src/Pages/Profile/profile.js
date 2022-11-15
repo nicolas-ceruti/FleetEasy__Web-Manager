@@ -64,31 +64,6 @@ function App() {
     }, []);
 
 
-  // if (driversResponse){
-  //   setNomecompleto(String(driversResponse["nomeCompleto"]));
-  //   setCnh(String(driversResponse["cnh"])); setTelefone(String(driversResponse["telefone"]));
-  //   setEmail(String(driversResponse["email"])); setSenha(String(driversResponse["senha"]));
-  //   setVeiculo(String(driversResponse["veiculo"])); setCpf(String(driversResponse["cpf"])); setRg(String(driversResponse["rg"]))
-  // }
-
-
-    
-    
-  // setNomecompleto("wgsrggs");
-      // setCnh(driversResponse["cnh"]);
-      // setTelefone(driversResponse["telefone"]);
-      // setEmail(driversResponse["email"]);
-      // setSenha(driversResponse["senha"]);
-      // setVeiculo(driversResponse["veiculo"]);
-      // setCpf(driversResponse["cpf"]);
-      // setRg(driversResponse["rg"]);
-
-   
-    // const result  = Array.from(driversResponse).map(motor =>(
-    //   <DriverCard name={motor.nomeCompleto}/>
-    // ))
-
-  // setCnh(driversResponse["nomeCompleto"]);
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 

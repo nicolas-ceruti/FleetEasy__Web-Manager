@@ -24,7 +24,7 @@ function App() {
           <Route path='/vechile' element={ <Vechile/> }/>
           <Route path='/profile/:id' element={ <Profile/> }/>
           <Route path='/collect' element={ <Collects/> }/>
-          <Route path='/collect/id' element={ <CollectProfile/> }/>
+          <Route path='/collectprofile/:id' element={ <CollectProfile/> }/>
           <Route path="*" element={<p>404 - Página não encontrada</p>} />
         </Routes>
       </BrowserRouter>
