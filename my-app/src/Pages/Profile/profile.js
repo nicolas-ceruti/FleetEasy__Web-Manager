@@ -9,6 +9,8 @@ import 'react-tabs/style/react-tabs.css';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import { GraphContainer, GraphTitle} from "./profilee.js";
 import { Chart } from 'react-google-charts';
+import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import 'react-pro-sidebar/dist/css/styles.css';
 
 import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
 
@@ -20,6 +22,7 @@ import ButtonBack from '../../Components/ButtonBack/buttonBack';
 
 function App() {
 
+  
   const [nomeCompleto, setNomecompleto] = useState("");
   const [cnh, setCnh] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -29,7 +32,33 @@ function App() {
   const [cpf, setCpf] = useState("");
   const [rg, setRg] = useState("");
   const [driversResponse, setDriversResponse] =  useState([])
+  const [locationResponse, setLocationResponse] =  useState([])
+  
+  const [lat, setLat] = useState(-26.82541425863236);
+  const [long, setLong] = useState(-49.2724817183922);
+  
+  const position = [lat, long]
 
+
+  function setLocation(){
+    setLat(lat);
+    setLong(long);
+  }
+  
+  function updateLocation(){
+
+  
+    var URL = "/motorista_location/" + params["id"]
+      api
+      .get(URL)
+      .then((response) =>  setLocationResponse(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error));
+  
+      setLat(parseInt(locationResponse["latitude"]))
+      setLong(parseInt(locationResponse["longitude"]))
+    }  
+
+    setInterval(updateLocation, 10000)
   const params = useParams();
 
   const SalesMonthdata = [
@@ -181,9 +210,15 @@ function App() {
 
           <TabPanel>
             <Form>
-              <div className='map-container'>
-                <Mapa/>
-              </div>
+            <div className='entradas'>
+            <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={position} />
+            </MapContainer>
+            </div>
             </Form>
           </TabPanel>
 

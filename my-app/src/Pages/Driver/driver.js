@@ -7,6 +7,7 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import { Form } from 'react-router-dom';
 import api from "../../services/api";
 import { ToastContainer, toast, Flip } from 'react-toastify';
+import { AiFillPropertySafety } from 'react-icons/ai';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     }, []);
 
     const result  = Array.from(driversResponse).map(motor =>(
-      <DriverCard name={motor.nomeCompleto}/>
+      <DriverCard name={motor.nomeCompleto} id={motor.idMotorista} idURL={motor.idMotorista}  nomeCompleto={motor.nomeCompleto}  telefone={motor.telefone} />
     ))
     
   // useEffect(() => {

@@ -30,14 +30,12 @@ function DriverCard(props) {
         <Typography gutterBottom variant="h5" className="typolography" component="div">
           {props.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          ID: {props.id}, {props.situacao} no Momento
-        </Typography>
+        
       </CardContent>
       <CardActions>
-      <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=554788220837&text=----------Itracker----------' + props.nome)}> WhatsApp</Button>
+      <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=554788220837&textOlá' + props.nomeCompleto)}> WhatsApp</Button>
       
-      <Link to="/profile/id"><Button size="small" className="details-button" >Detalhes</Button></Link>
+      <Link to={"/profile/" + props.idURL} ><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>
     </Card>
     </div>
