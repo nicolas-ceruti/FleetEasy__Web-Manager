@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./collectRegisterForm.css"
-import {Container, Button, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
+import {Container, Button, TextField, Checkbox, FormControlLabel, Select, MenuItem} from "@material-ui/core";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,12 +39,34 @@ function Form() {
   const [volumeError, setVolumeError] = useState(false);
   const [cnpjError, setCNPJError] = useState(false);
   const [registerRespone, setRegisterRespone] = useState([]);
- 
+  const [driversResponse, setDriversResponse] = useState([]);
+
+
   const notify = () => {
     toast.success('Coleta Cadastrada!', {
         transition: toast.Flip, position: toast.POSITION.TOP_RIGHT
     });
   };
+
+  useEffect((e) => {
+    api
+    .get("/getNameMotoristas")
+    .then((response) =>  setDriversResponse(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error));
+    }, []);
+
+    const result  = Array.from(driversResponse).map(motor =>(
+     console.log(motor.nomeCompleto) 
+    ))
+    
+    // const result  = Array.from(driversResponse).map(motor =>(
+    //   driversResponse.concat(motor.Motoristas_idMotorista)
+    // ))
+
+ 
+
+
+
 
   const cadastrarColeta = (e) => {
     if ((cnpjError == false) || (valorError == false) || (pesoError == false) || (volumeError == false)){
@@ -73,8 +95,10 @@ function Form() {
         "volumeCarga" : volumeColeta,
         "valorCarga" : valorColeta,
         "Ocorrencia_idOcorrencia" : 1,
-        "Motoristas_idMotorista" : 1
+        "Motoristas_idMotorista" : motorista
       }
+
+      console.log(dataAuth)
       
       api
       .post("/createColeta", dataAuth)
@@ -114,8 +138,16 @@ function Form() {
         event.preventDefault();
       }}>
 
-        <TextField className="motorista_textFields" id="motorista" label="Motorista"
-          variant="outlined" margin="dense" value={motorista} onChange={(event) => {setMotorista(event.target.value)}}/>
+
+        <Select className="motorista_textFields" id="motorista" label="Motorista"
+          variant="outlined" margin="dense"  value={motorista} onChange={(event) => {setMotorista(event.target.value)}}>
+            <MenuItem disabled value="">
+            <em>Motorista</em>
+            </MenuItem>
+             {Array.from(driversResponse).map(motor =>(
+               <MenuItem value={motor.idMotorista}>{motor.nomeCompleto}</MenuItem>
+            ))}
+        </Select>
 
         <TextField className="veiculo_textFields" id="veiculo" label="Veículo"
           variant="outlined" margin="dense" value={veiculo} onChange={(event) => {setVeiculo(event.target.value)}}/>

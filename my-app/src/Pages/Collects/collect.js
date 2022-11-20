@@ -20,7 +20,7 @@ function App() {
     }, []);
 
     const result  = Array.from(collectRResponse).map(coleta =>(
-      <CollectCard nomeDoCliente={coleta.nomeDoCliente} idColeta={coleta.idRegistroColeta}/>
+      <CollectCard nomeCliente={coleta.nomeCliente} idColeta={coleta.idRegistroColeta}/>
     ))
   
 

@@ -33,32 +33,18 @@ function App() {
   const [rg, setRg] = useState("");
   const [driversResponse, setDriversResponse] =  useState([])
   const [locationResponse, setLocationResponse] =  useState([])
+  const [collectResponse, setCollectResponse] =  useState([])
   
   const [lat, setLat] = useState(-26.82541425863236);
   const [long, setLong] = useState(-49.2724817183922);
   
   const position = [lat, long]
 
-
   function setLocation(){
     setLat(lat);
     setLong(long);
   }
-  
-  function updateLocation(){
 
-  
-    var URL = "/motorista_location/" + params["id"]
-      api
-      .get(URL)
-      .then((response) =>  setLocationResponse(response.data))
-      .catch(error => toast.error("ops! ocorreu um erro" + error));
-  
-      setLat(parseInt(locationResponse["latitude"]))
-      setLong(parseInt(locationResponse["longitude"]))
-    }  
-
-    setInterval(updateLocation, 10000)
   const params = useParams();
 
   const SalesMonthdata = [
@@ -84,17 +70,26 @@ function App() {
     },
     };
 
-  var URL = "/motorista_profile/" + params["id"]
-  useEffect(() => {
-    api
-    .get(URL)
-    .then((response) =>  setDriversResponse(response.data))
-    .catch(error => toast.error("ops! ocorreu um erro" + error));
-    }, []);
+
+    var URLcoleta = "/getColetas_idMotorista/" +  + params["id"]
+    useEffect(() => {
+      api
+      .get(URLcoleta)
+      .then((response) =>  setCollectResponse(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error));
+      }, []);
+
+    var URL = "/motorista_profile/" + params["id"]
+    useEffect(() => {
+      api
+      .get(URL)
+      .then((response) =>  setDriversResponse(response.data))
+      .catch(error => toast.error("ops! ocorreu um erro" + error));
+      }, []);
 
 
 
-  var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
+    var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
 
   return(
     <>  
@@ -201,10 +196,9 @@ function App() {
 
           <TabPanel>
             <Form>
-            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
-            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
-            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
-            <CollectCard cliente="CEDUP" dataInicio="11/10/2022" horaInicio="17:30"/>
+            {Array.from(collectResponse).map(motor =>(
+              <CollectCard  nomeDoCLiente={motor.nomeCLiente} idColeta={motor.idRegistroColeta}/>
+            ))}
             </Form>
           </TabPanel>
 
