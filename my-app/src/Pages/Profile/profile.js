@@ -31,6 +31,7 @@ function App() {
   const [veiculo, setVeiculo] = useState("");
   const [cpf, setCpf] = useState("");
   const [rg, setRg] = useState("");
+  const [textview, setTextview] = useState("disabled");
   const [driversResponse, setDriversResponse] =  useState([])
   const [locationResponse, setLocationResponse] =  useState([])
   const [collectResponse, setCollectResponse] =  useState([])
@@ -138,6 +139,7 @@ function App() {
           <TabPanel>
   
           <TextField
+          disabled
           className="nomeCompleto_textField"
           icon={<BsPinMap />}
           id="nomeCompleto"
@@ -149,6 +151,7 @@ function App() {
           onChange={(event) => {setNomecompleto(event.target.value)}}
         />
         <TextField
+          disabled
           className="veiculo_textField"
           id="veiculo"
           label="Veículo"
@@ -159,6 +162,7 @@ function App() {
           onChange={(event) => {setVeiculo(event.target.value)}}
         />
         <TextField
+          disabled
           className="CNH_textField"
           id="cnh"
           label="CNH"
@@ -169,6 +173,7 @@ function App() {
           onChange={(event) => {setCnh(event.target.value)}}
         />
         <TextField
+          disabled
           className="cpf_textField"
           id="cpf"
           label="CPF"
@@ -179,6 +184,7 @@ function App() {
           onChange={(event) => {setCpf(event.target.value)}}
         />
         <TextField
+          disabled
           className="rg_textField"
           id="rg"
           label="RG"
@@ -189,6 +195,7 @@ function App() {
           onChange={(event) => {setRg(event.target.value)}}
         />
         <TextField
+          disabled
           className="senha_textField"
           id="senha"
           label="Senha do Usuário"
@@ -199,6 +206,7 @@ function App() {
           onChange={(event) => {setSenha(event.target.value)}}
         />
         <TextField
+          disabled
           className="telefone_textField"
           id="telefone"
           label="Telefone"
@@ -209,6 +217,7 @@ function App() {
           onChange={(event) => {setTelefone(event.target.value)}}
         />
         <TextField
+          disabled
           className="email_textField"
           id="email"
           label="Email"

@@ -13,6 +13,9 @@
     box-shadow: 4px 0px 35px -19px black;
 }
 
+.MuiInputBase-input.Mui-disabled {
+  color: black;
+}
 
 .nomeCompleto_textField{
     margin-top: 15px !important;
