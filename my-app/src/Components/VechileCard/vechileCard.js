@@ -26,6 +26,7 @@ function VechileCard(props) {
         marginRight: "2%",
         display: "inline-block",
         width: "45%",
+        backgroundColor: "whitesmoke",
 
     },
     media: {

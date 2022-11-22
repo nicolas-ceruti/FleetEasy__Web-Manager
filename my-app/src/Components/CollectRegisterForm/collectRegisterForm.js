@@ -131,7 +131,6 @@ function Form() {
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
   return (
     <>
-
     <Container maxWidth="sm" component="article" className="form">
       <h1 className="hr">Cadastro de Coletas<hr style={{"width" : "35%"}}></hr></h1>
       <form onSubmit={(event) => {
