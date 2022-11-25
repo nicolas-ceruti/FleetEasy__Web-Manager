@@ -12,10 +12,10 @@ import { Chart } from 'react-google-charts';
 import {MapContainer, TileLayer, Marker} from 'react-leaflet';
 import 'react-pro-sidebar/dist/css/styles.css';
 
-import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
+import { Container, TextField, Checkbox, FormControlLabel, Button} from "@material-ui/core";
 
 import {BsPinMap} from "react-icons/bs";
-import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillTrashFill, BsFileEarmarkPdf } from "react-icons/bs";
 import { Form, ContainerForm} from "./profilee.js";
 import "./profile.css"
 import ButtonBack from '../../Components/ButtonBack/buttonBack';
@@ -47,7 +47,7 @@ function App() {
   }
 
   const params = useParams();
-  const paramsId = params["id"];
+  const paramsId = parseInt(params["id"]);
 
   const SalesMonthdata = [
     ["Meses", "Faturamento(R$)"],
@@ -95,21 +95,33 @@ function App() {
     };
 
 
-    // var URLcoleta = "/getColetas_idMotorista/"  + paramsId     //COLETAS PELO ID
-    // useEffect(() => {
-    //   api
-    //   .get(URLcoleta)
-    //   .then((response) =>  setCollectResponse(response.data))
-    //   .catch(error => toast.error("ops! ocorreu um erro" + error));
-    //   }, []);
-
     var URL = "/motorista_profile/" + paramsId
     useEffect(() => {
       api
       .get(URL)
       .then((response) =>  setDriversResponse(response.data))
+      .catch(error => toast.error("ops! aaa ocorreu um erro" + error));
+      }, []);
+
+    var URLcoleta = "/getColetas_idMotorista/"  + paramsId     //COLETAS PELO ID
+    useEffect(() => {
+      api
+      .get(URLcoleta)
+      .then((response) =>  setCollectResponse(response.data))
       .catch(error => toast.error("ops! ocorreu um erro" + error));
       }, []);
+
+        function listarColetas(){
+          if (collectResponse)
+            return(
+            Array.from(collectResponse).map(coletaPerfil =>(
+              <CollectCard  nomeDoCLiente={coletaPerfil.nomeCLiente} idColeta={coletaPerfil.idRegistroColeta}/>
+            )))
+          else
+            console.log(collectResponse)
+        }
+
+    
 
 
 
@@ -118,8 +130,6 @@ function App() {
   return(
     <>  
     <ToastContainer/>
-    <button className="editButton"> <BsFillPencilFill/></button> 
-    <button className="deleteButton"  onClick={deletarMotorista}> <BsFillTrashFill/></button> 
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
@@ -226,14 +236,17 @@ function App() {
           fullWidth
           value={(String(driversResponse["email"]))}
           onChange={(event) => {setEmail(event.target.value)}}
-        />     
+        />   
+
+        <Button className="editButton"> Editar</Button> 
+        <Button className="deleteButton" onClick={deletarMotorista}>  <BsFillTrashFill/> Excluir</Button> 
+        <Button className="imprimirButton">  <BsFileEarmarkPdf/> PDF</Button>   
           </TabPanel>
 
           <TabPanel>
             <Form>
-            {Array.from(collectResponse).map(motor =>(
-              <CollectCard  nomeDoCLiente={motor.nomeCLiente} idColeta={motor.idRegistroColeta}/>
-            ))}
+            {listarColetas()}
+            
             </Form>
           </TabPanel>
 

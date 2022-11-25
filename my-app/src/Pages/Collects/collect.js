@@ -20,7 +20,7 @@ function App() {
     }, []);
 
     const result  = Array.from(collectRResponse).map(coleta =>(
-      <CollectCard nomeCliente={coleta.nomeCliente} idColeta={coleta.idRegistroColeta}/>
+      <CollectCard nomeCliente={coleta.nomeCliente} emailCliente={coleta.emailCliente} idColeta={coleta.idRegistroColeta}/>
     ))
   
 
@@ -30,7 +30,7 @@ function App() {
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">Coletas<hr></hr></h1>
+      <h1 className="hr">Coletas<hr  style={{"width" : "13%"}}></hr></h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();

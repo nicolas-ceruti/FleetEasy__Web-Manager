@@ -26,28 +26,15 @@ function CollectCard(props) {
     const useStyles = makeStyles((theme) => ({
     root: {
         width: "45%",
+        height: "100px",
+        alignContent: "center",
         display: "inline-block",
-        marginRight: "5%",
+        marginLeft: "2%",
+        marginRight: "3%",
         marginBottom: "20px"
 
     },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
+    
     }));
 
     
@@ -57,15 +44,16 @@ function CollectCard(props) {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+    
 
     return (
         <Card className={classes.root}>
         <CardHeader
-            title= "Coleta"
-            subheader=""
+            title= {<Typography style={{"fontSize" : "20px"}}>{props.nomeCliente}</Typography>}
+            subheader={<Typography>{props.emailCliente}</Typography>}
             
         />
-        <Link to={"/collectprofile/" + props.idColeta }><Button size="small" className="goProfile-button" >Detalhes</Button></Link>
+        <Link to={"/collectprofile/" + props.idColeta }><Button size="small" className="goProfile-button"   >Detalhes</Button></Link>
         </Card>
     );
     

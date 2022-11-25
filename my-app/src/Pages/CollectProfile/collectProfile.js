@@ -6,8 +6,8 @@ import api from "../../services/api";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { ToastContainer, toast, Flip } from 'react-toastify';
-import { Container, TextField, Checkbox, FormControlLabel} from "@material-ui/core";
-import { BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
+import { Container, TextField, Checkbox, FormControlLabel, Button} from "@material-ui/core";
+import { BsFillPencilFill, BsFillTrashFill, BsFileEarmarkPdf } from "react-icons/bs";
 
 import "./collectProfile.css"
 
@@ -78,16 +78,19 @@ function App() {
   return(
     <> 
     <ToastContainer/>
-    <button className="editButton"> <BsFillPencilFill/></button> 
-    <button className="deleteButton" onClick={deletarColeta}> <BsFillTrashFill/></button> 
+    
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Coleta<hr style={{"width" : "12%"}}></hr></h1>
+      <h1 className="hr">Coleta<hr style={{"width" : "25%"}}></hr></h1>
       <form onSubmit={(event) => {
         event.preventDefault();
-      }}>
+
+      }
+      
+      }>
     
+      
         <Tabs>
           <TabList>
             <Tab>Dados</Tab>
@@ -95,6 +98,8 @@ function App() {
           </TabList>
 
           <TabPanel>
+
+            
   
           <TextField disabled className="motorista" id="motorista" label="Motorista" 
                 variant="outlined" margin="dense" value={(String(driversResponse["motorista"]))}/> 
@@ -157,8 +162,10 @@ function App() {
                   variant="outlined" margin="dense" value={(String(driversResponse["telefoneCliente"]))}/>
                 <TextField disabled className="emailDoCLiente_textFields" id="emailDoCLiente" label="Email"
                   variant="outlined" margin="dense" value={(String(driversResponse["emailCliente"]))}/>
-
-
+                <Button className="editButton"> <BsFillPencilFill/> Editar</Button> 
+                <Button className="deleteButton" onClick={deletarColeta}>  <BsFillTrashFill/> Excluir</Button> 
+                <Button className="imprimirButton">  <BsFileEarmarkPdf/> PDF</Button> 
+                
           </TabPanel>
         </Tabs>
   

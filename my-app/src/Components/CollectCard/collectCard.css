@@ -4,12 +4,17 @@
 }
 
 .goProfile-button{
-    color: #fff !important;
-    background-color: #1b567e !important;
-    width: 20% !important;
-    height: 50% !important;
-    margin-left: 75% !important;
-    display: inline-block;
-    margin-top: -10% !important;
+    color:  #1973bd;
+    background-color: #ffffff !important;
+    font-size: 15px;
+    border-radius: 10px;
+
+    border: 1px solid  #1973bd !important;
+    width: 165px !important;
+    height: 45px !important;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important; 
+    position: absolute;
+    bottom: 60px !important; 
+    left: 70%;
 
 }

@@ -17,6 +17,11 @@
   color: black;
 }
 
+.hrProfile{
+  margin-bottom: 50px !important;
+  font-size: 3rem;
+}
+
 .nomeCompleto_textField{
     margin-top: 15px !important;
     height: 50px !important;  

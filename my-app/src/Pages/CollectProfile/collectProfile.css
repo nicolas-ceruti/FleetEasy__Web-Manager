@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
 .textFields{
     margin-top: 15px !important;
     height: 50px !important;
@@ -7,61 +9,82 @@
 
 .editButton{
 
-    background-color: #003172;
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 30px;
-    border: none;
-    position: absolute;
-    top: 80px;
-    right: 10px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0px 0px 8px 0px #3e3e407d;
-    cursor: pointer;
+    background-color: #ffffff !important;
+    color: #1b7e35 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid  #1b7e35 !important;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important;
+    margin-right: 20px !important; 
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important; 
     
-    @media (max-width: 1180px) {
-        bottom: 10px;
-        position: fixed;
-        top: auto;
-        z-index: 10000;
-    }
-    
+}
+.editButton:hover{
+
+    color: #ffffff !important;
+    background-color: #1b7e35 !important;
+    border-radius: 10px;
+    border: 1px solid  #1b7e35;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important; 
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
 .deleteButton{
 
-    background-color: #003172;
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 30px;
-    border: none;
-    position: absolute;
-    top: 150px;
-    right: 10px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0px 0px 8px 0px #3e3e407d;
-    cursor: pointer;
-    
-    @media (max-width: 1180px) {
-        bottom: 10px;
-        position: fixed;
-        top: auto;
-        z-index: 10000;
-    }
-    
+    background-color: #ffffff !important;
+    color: #a12904 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid  #a12904 !important;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important;
+    margin-right: 20px !important; 
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important;  
 }
+.deleteButton:hover{
+
+    color: #ffffff !important;
+    background-color: #a12904 !important;
+    border-radius: 10px;
+    border: 1px solid #a12904;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important; 
+}
+
+.imprimirButton{
+
+    background-color: #ffffff !important;
+    color: #1973bd !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid  #1973bd !important;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important;  
+}
+.imprimirButton:hover{
+
+    color: #ffffff !important;
+    background-color: #1973bd !important;
+    border-radius: 10px;
+    border: 1px solid  #1973bd;
+    width: 165px !important;
+    height: 45px !important;
+    margin-top: 15px !important; 
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15) !important; 
+}
+
 
 .hr{
     margin-top: 20px !important;
@@ -134,6 +157,7 @@
 
 .cnpjDoCLiente_textFields{
     width: 25% !important;
+    margin-bottom: 15px !important;
 }
 
 .telefoneDoCLiente_textFields{
