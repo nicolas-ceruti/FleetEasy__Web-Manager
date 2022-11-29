@@ -66,7 +66,7 @@ function Form() {
 
   return (
     <Container maxWidth="sm" component="article" className="form">
-      <h1>Cadastro de Motoristas<hr style={{"width" : "40%"}}></hr></h1>
+      <h1>Cadastro de Motoristas</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>

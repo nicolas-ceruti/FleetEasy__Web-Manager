@@ -31,6 +31,7 @@ function CollectCard(props) {
         display: "inline-block",
         marginLeft: "2%",
         marginRight: "3%",
+        marginTop: "5px",
         marginBottom: "20px"
 
     },

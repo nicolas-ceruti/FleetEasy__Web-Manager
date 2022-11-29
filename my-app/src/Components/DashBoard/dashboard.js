@@ -57,7 +57,7 @@ const Dashboard = (  ) => {
   return (
     <>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Estatísticas<hr style={{"width" : "20%"}}></hr></h1>
+      <h1 className="hr">Estatísticas</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}></form>
@@ -80,7 +80,7 @@ const Dashboard = (  ) => {
         
         <GraphList>
           <GraphContainer>
-            <GraphTitle PaddBottom={40}>Faturamento 2022</GraphTitle>
+            <GraphTitle PaddBottom={40}> Faturamento 2022</GraphTitle>
             <Chart
               chartType="Bar"
               width="100%"

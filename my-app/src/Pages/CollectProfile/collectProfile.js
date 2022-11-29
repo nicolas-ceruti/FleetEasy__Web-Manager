@@ -10,6 +10,9 @@ import { Container, TextField, Checkbox, FormControlLabel, Button} from "@materi
 import { BsFillPencilFill, BsFillTrashFill, BsFileEarmarkPdf } from "react-icons/bs";
 
 import "./collectProfile.css"
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+</style>
 
 function App() {
 
@@ -82,7 +85,7 @@ function App() {
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Coleta<hr style={{"width" : "25%"}}></hr></h1>
+      <h1 className="hr"> Coleta</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
 

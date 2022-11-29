@@ -9,7 +9,7 @@ import 'react-tabs/style/react-tabs.css';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import { GraphContainer, GraphTitle} from "./profilee.js";
 import { Chart } from 'react-google-charts';
-import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import 'react-pro-sidebar/dist/css/styles.css';
 
 import { Container, TextField, Checkbox, FormControlLabel, Button} from "@material-ui/core";
@@ -39,12 +39,8 @@ function App() {
   const [lat, setLat] = useState(-26.82541425863236);
   const [long, setLong] = useState(-49.2724817183922);
   
-  const position = [lat, long]
+  const [position, setPosition] = useState([-26.82541425863236, -49.2724817183922] )
 
-  function setLocation(){
-    setLat(lat);
-    setLong(long);
-  }
 
   const params = useParams();
   const paramsId = parseInt(params["id"]);
@@ -111,12 +107,30 @@ function App() {
       .catch(error => toast.error("ops! ocorreu um erro" + error));
       }, []);
 
+      function updateLocation() {
+        var URLlocation = "/motorista_location/"  + paramsId     //Localização
+          api
+          .get(URLlocation)
+          .then((response) =>  console.log(response.data))
+          .catch(error => toast.error("ops! ocorreu um erro" + error));  
+          
+          setLat(parseFloat(locationResponse["latitude"]))
+          setLong(parseFloat(locationResponse["longitude"]))
+
+          position[0] = parseFloat(locationResponse["latitude"])
+          position[1] = parseFloat(locationResponse["longitude"])
+         
+       
+      }
+
+        setInterval(updateLocation, 20000);
+
         function listarColetas(){
           if (collectResponse)
             return(
-            Array.from(collectResponse).map(coletaPerfil =>(
-              <CollectCard  nomeDoCLiente={coletaPerfil.nomeCLiente} idColeta={coletaPerfil.idRegistroColeta}/>
-            )))
+              Array.from(collectResponse).map(coleta =>(
+                <CollectCard nomeCliente={coleta.nomeCliente} emailCliente={coleta.emailCliente} idColeta={coleta.idRegistroColeta}/>
+              )))
           else
             console.log(collectResponse)
         }
@@ -133,7 +147,7 @@ function App() {
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
-      <h1 className="hr">Perfil do Motorista<hr style={{"width" : "30%"}}></hr></h1>
+      <h1 className="hr">Perfil do Motorista</h1>
       <form onSubmit={(event) => {
         event.preventDefault();
       }}>
@@ -258,7 +272,8 @@ function App() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={position} />
+              <Marker position={position}>
+              <Popup>You are here</Popup></Marker> 
             </MapContainer>
             </div>
             </Form>
@@ -267,7 +282,7 @@ function App() {
           <TabPanel>
             <Form>
               <GraphContainer>
-                <GraphTitle PaddBottom={40}>Faturamento 2022</GraphTitle>
+                <GraphTitle PaddBottom={40} >Faturamento 2022</GraphTitle>
                 <Chart
                   chartType="Bar"
                   width="100%"

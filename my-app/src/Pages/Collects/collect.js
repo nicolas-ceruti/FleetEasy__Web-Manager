@@ -30,7 +30,7 @@ function App() {
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">
 
-      <h1 className="hr">Coletas<hr  style={{"width" : "13%"}}></hr></h1>
+      <h1 className="hr">Coletas</h1>
 
         <form onSubmit={(event) => {
           event.preventDefault();

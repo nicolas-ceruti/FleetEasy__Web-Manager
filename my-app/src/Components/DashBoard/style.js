@@ -1,4 +1,6 @@
+
 import styled from "styled-components"
+
 
 export const Container = styled.div`
     width: 85%;
@@ -43,6 +45,9 @@ export const GraphTitle = styled.h1`
     text-align: left;
     font-size: 20px;
     margin-bottom: 0px;
+    background-color: white !important;
+    background: white !important;
+    color: #8b8b8bd4 !important;
     font-weight: 200;
     padding: 15px;
     padding-bottom: ${props => `${props.PaddBottom}`}px;

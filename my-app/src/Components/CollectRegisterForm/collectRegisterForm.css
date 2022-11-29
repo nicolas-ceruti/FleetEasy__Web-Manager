@@ -24,14 +24,25 @@
 
 
 .form h1 {
+    background: radial-gradient(at bottom right, #b4b4b4 0, #b4b4b4 8px, rgba(180,180,180,0.2) 8px, rgba(180,180,180,0.2) 16px, rgba(180,180,180,0.75) 16px, rgba(180,180,180,0.75) 24px, rgba(180,180,180,0.25) 24px, rgba(180,180,180,0.25) 32px, rgba(180,180,180,0.3) 32px, rgba(180,180,180,0.3) 40px, rgba(180,180,180,0.75) 40px, rgba(180,180,180,0.75) 48px, rgba(180,180,180,0.2) 48px, rgba(180,180,180,0.2) 56px, transparent 56px, transparent 64px), radial-gradient(at top left, transparent 0, transparent 8px, rgba(180,180,180,0.2) 8px, rgba(180,180,180,0.2) 16px, rgba(180,180,180,0.75) 16px, rgba(180,180,180,0.75) 24px, rgba(180,180,180,0.3) 24px, rgba(180,180,180,0.3) 32px, rgba(180,180,180,0.25) 32px, rgba(180,180,180,0.25) 40px, rgba(180,180,180,0.75) 40px, rgba(180,180,180,0.75) 48px, rgba(180,180,180,0.2) 48px, rgba(180,180,180,0.2) 56px, #b4b4b4 56px, #b4b4b4 64px, transparent 64px, transparent 160px);
+    background-blend-mode: multiply;
+    background-size: 64px 64px, 64px 64px;
+    background-color: #ffffff;
+
+
+    border: 1px solid rgba(255,255,255,0.325);
     font-family: Nunito, sans-serif;
     font-size: 30px;
-    color: rgba(105, 105, 105, 0.514);
+    color: rgb(221, 221, 221);
+    padding: 10px 10px;
+    font-family : Roboto;
+    background-color :#1b1b1bd1 ;
+    border-radius : 5px;
 }
 
-.form h1:hover{
+/* .form h1:hover{
     color: rgba(40, 70, 167, 0.952);   
-}
+} */
 
 .hr-title{
     color: rgba(148, 148, 148, 0.075) !important;
@@ -41,6 +52,7 @@
     margin-top: 15px;
     margin-bottom: 20px;
 }
+
 
 .form .checkboxes {
     margin: 1rem 0.4rem;
