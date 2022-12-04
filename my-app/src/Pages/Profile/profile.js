@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import CollectCard from "../../Components/CollectCard/collectCard";
+import Chat from "../../Components/ChatBot/chat.js";
 import Mapa from "../../Components/Mapa/mapa";
 import { useNavigate, useParams } from "react-router-dom"
 import api from "../../services/api";
@@ -139,6 +140,7 @@ function App() {
 
   return(
     <>  
+    <Chat/>
     <ToastContainer/>
     <MenuLateral/>
     <ButtonBack/>
