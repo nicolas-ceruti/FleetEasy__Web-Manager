@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import VechileCard from "../../Components/VechileCard/vechileCard";
+import Chat from "../../Components/ChatBot/chat.js";
 import {Container} from "@material-ui/core";
 import 'react-pro-sidebar/dist/css/styles.css';
 import { Form } from 'react-router-dom';
@@ -23,6 +24,7 @@ function App() {
   return(
     <>
     <MenuLateral/>
+    <Chat/>
   
     <Container maxWidth="sm" component="article" className="form">
 

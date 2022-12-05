@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import DriverCard from "../../Components/DriverCard/driverCard";
+import Chat from "../../Components/ChatBot/chat.js";
 import ButtonBack from "../../Components/ButtonBack/buttonBack";
 import {Container} from "@material-ui/core";
 import 'react-pro-sidebar/dist/css/styles.css';
@@ -27,6 +28,7 @@ function App() {
     
   return(
     <>
+    <Chat/>
     <MenuLateral/>
     <ButtonBack/>
     <Container maxWidth="sm" component="article" className="form">

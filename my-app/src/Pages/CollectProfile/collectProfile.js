@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import ButtonBack from "../../Components/ButtonBack/buttonBack";
+import Chat from "../../Components/ChatBot/chat.js";
 import { useNavigate, useParams } from "react-router-dom"
 import api from "../../services/api";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -80,6 +81,7 @@ function App() {
 
   return(
     <> 
+    <Chat/>
     <ToastContainer/>
     
     <MenuLateral/>

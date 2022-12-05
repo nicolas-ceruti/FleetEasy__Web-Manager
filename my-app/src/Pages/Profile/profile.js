@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MenuLateral from "../../Components/MenuLateral/menu";
 import CollectCard from "../../Components/CollectCard/collectCard";
+import Chat from "../../Components/ChatBot/chat.js";
 import Mapa from "../../Components/Mapa/mapa";
 import { useNavigate, useParams } from "react-router-dom"
 import api from "../../services/api";
@@ -40,7 +41,6 @@ function App() {
   const [long, setLong] = useState(-49.2724817183922);
   
   const [position, setPosition] = useState([-26.82541425863236, -49.2724817183922] )
-
 
   const params = useParams();
   const paramsId = parseInt(params["id"]);
@@ -107,23 +107,20 @@ function App() {
       .catch(error => toast.error("ops! ocorreu um erro" + error));
       }, []);
 
-      function updateLocation() {
-        var URLlocation = "/motorista_location/"  + paramsId     //Localização
-          api
-          .get(URLlocation)
-          .then((response) =>  console.log(response.data))
-          .catch(error => toast.error("ops! ocorreu um erro" + error));  
-          
-          setLat(parseFloat(locationResponse["latitude"]))
-          setLong(parseFloat(locationResponse["longitude"]))
+    useEffect(() => {
+      var URLlocation = "/motorista_location/"  + paramsId     //Localização
+        api
+        .get(URLlocation)
+        .then((response) =>  setLocationResponse(response.data))
+        .catch(error => toast.error("ops! ocorreu um erro" + error));  
+        
+        setLat(parseFloat(locationResponse["latitude"]))
+        setLong(parseFloat(locationResponse["longitude"]))}, []);
 
-          position[0] = parseFloat(locationResponse["latitude"])
-          position[1] = parseFloat(locationResponse["longitude"])
-         
-       
-      }
-
-        setInterval(updateLocation, 20000);
+        position[0] = (parseFloat(locationResponse["latitude"]))
+        position[1] = (parseFloat(locationResponse["longitude"]))
+        console.log(locationResponse)
+        // setInterval(updateLocation(), 20000);
 
         function listarColetas(){
           if (collectResponse)
@@ -143,6 +140,7 @@ function App() {
 
   return(
     <>  
+    <Chat/>
     <ToastContainer/>
     <MenuLateral/>
     <ButtonBack/>
@@ -273,7 +271,8 @@ function App() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               <Marker position={position}>
-              <Popup>You are here</Popup></Marker> 
+              <Popup>{(String(driversResponse["nomeCompleto"]))}</Popup></Marker> 
+              
             </MapContainer>
             </div>
             </Form>
@@ -304,7 +303,6 @@ function App() {
 
   );
 
-}
-
+    }
 export default App;
 
