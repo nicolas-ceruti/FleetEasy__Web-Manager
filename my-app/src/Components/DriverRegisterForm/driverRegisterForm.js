@@ -32,8 +32,8 @@ function Form() {
 
   
 
-  const cadastrarMotorista = (e) => {
-    if ((CNHError == false) || (CPFError == false) || (RGError == false)){
+  function cadastrarMotorista(e) {
+   
       let dataAuth = {}
 
       dataAuth = {
@@ -53,14 +53,12 @@ function Form() {
       .then((response) => setRegisterRespone(response.data))
       .catch(error => toast.error("ops! ocorreu um erro" + error)); 
       console.log(registerRespone["mensagem"])
+      setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo(""); 
       if (registerRespone["mensagem"] == "Cadastrado"){
         console.log("ok");
         toast.success("Motorista Cadastrado!");
-        setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo(""); dataAuth = [];
+        
       } else {}  
-    }else{
-      toast.error("Ops! Parece que as informações não foram preenchidas corretamente!")
-    }
     e.preventDefault();
   };
 

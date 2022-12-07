@@ -41,7 +41,7 @@ function Chat(props) {
   <ChatBot  
       // width="50px"
       cache="true"
-      headerTitle="Eliene"
+      headerTitle="Gaia"
       floating="true"
       bubbleOptionStyle={{ backgroundColor: "white", color: "black" }}
       floatingStyle={{color : "blue", backgroundColor: "rgba(17,53,77,1)"}}
@@ -49,7 +49,7 @@ function Chat(props) {
       steps={[
         {
           id: '1',
-          message: 'Olá, sou a Eliene e estarei te ajudando durante sua navegação!',
+          message: 'Olá, sou a Gaia e estarei te ajudando durante sua navegação!',
           trigger: '2',
         },
         {

@@ -25,6 +25,7 @@ function App() {
     const result  = Array.from(driversResponse).map(motor =>(
       <DriverCard name={motor.nomeCompleto} id={motor.idMotorista} idURL={motor.idMotorista}  nomeCompleto={motor.nomeCompleto}  telefone={motor.telefone} />
     ))
+    console.log(driversResponse)
     
   return(
     <>

@@ -116,7 +116,7 @@ function App() {
         
         setLat(parseFloat(locationResponse["latitude"]))
         setLong(parseFloat(locationResponse["longitude"]))}, []);
-
+        
         position[0] = (parseFloat(locationResponse["latitude"]))
         position[1] = (parseFloat(locationResponse["longitude"]))
         console.log(locationResponse)
