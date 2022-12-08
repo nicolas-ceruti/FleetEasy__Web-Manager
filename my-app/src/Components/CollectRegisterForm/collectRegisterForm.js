@@ -68,8 +68,9 @@ function Form() {
 
 
 
-  const cadastrarColeta = (e) => {
-    if ((cnpjError == false) || (valorError == false) || (pesoError == false) || (volumeError == false)){
+  
+    function cadastrarColeta(e) {
+   
       let dataAuth = {}
 
       dataAuth = {
@@ -114,17 +115,13 @@ function Form() {
         setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
         setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
         setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
-        setValorError(false); setVolumeError(false); setPesoError(false); dataAuth = [];
+        setValorError(false); setVolumeError(false); setPesoError(false);
 
 
       } else {
         console.log(registerRespone["mensagem"])
-        // <Link to="/home" />
-        
+        // <Link to="/home" /
       }
-    }else{
-      toast.error("Ops! Parece que as informações não foram preenchidas corretamente!")
-    }
     e.preventDefault();
   };
 
