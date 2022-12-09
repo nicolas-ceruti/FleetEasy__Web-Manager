@@ -48,25 +48,25 @@ function App() {
   const params = useParams();
 
   const deletarColeta = (e) => {
-    toast.error("Não foi possível realizar a ação")
     
-  //   let dataAuth = {}
+    
 
-  //   dataAuth = {
-  //     "id" : parseI(params["id"]),
-  //   }
+    let dataAuth = parseInt(params["id"])
+    let urlDelete = "/delete/" + dataAuth
     
-  //   api
-  //   .delete("/delete", dataAuth)
-  //   .then((response) => setDeleteResponse(response.data))
-  //   .catch(error => toast.error("ops! ocorreu um erro" + error)); 
-  //   console.log(deleteResponse["mensagem"])
-  //   if (deleteResponse["mensagem"] == "Deletada"){
-  //     console.log("ok");
-  //     toast.success("Coleta Deletada!");
-  //     dataAuth = [];
-  //   } else {}  
-  // e.preventDefault();
+    api
+    .delete(urlDelete)
+    .then((response) => setDeleteResponse(response.data))
+    .catch(error => toast.error("ops! ocorreu um erro" + error)); 
+    console.log(deleteResponse["mensagem"])
+    if (deleteResponse["mensagem"] == "Deletada"){
+      console.log("ok");
+      toast.success("Coleta Deletada!");
+      dataAuth = [];
+    } else {
+      toast.error("Não foi possível realizar a ação")
+    }  
+  e.preventDefault();
   };
 
   var URL = "/collect_profile/" + params["id"]
