@@ -110,19 +110,16 @@ function Form() {
       if (registerRespone["mensagem"] == "Cadastrado"){
         console.log("ok");
         toast.success("Coleta Cadastrado!");
-
-        setDataColeta(""); setHoraColeta(""); setEstadoColeta(""); setCidadeColeta(""); setBairroColeta(""); setRuaColeta(""); setNumeroColeta("");
-        setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
-        setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
-        setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
-        setValorError(false); setVolumeError(false); setPesoError(false);
-
-
       } else {
         console.log(registerRespone["mensagem"])
         // <Link to="/home" /
       }
-    e.preventDefault();
+      setDataColeta(""); setHoraColeta(""); setEstadoColeta(""); setCidadeColeta(""); setBairroColeta(""); setRuaColeta(""); setNumeroColeta("");
+        setDataEntrega(""); setHoraEntrega(""); setEstadoEntrega(""); setCidadeEntrega(""); setBairroEntrega(""); setRuaEntrega(""); setNumeroEntrega("");
+        setNomeCliente(""); setCnpjCliente(""); setEmailCliente(""); setTelefoneCliente("");
+        setPesoColeta(""); setVolumeColeta(""); setValorColeta("");
+        setValorError(false); setVolumeError(false); setPesoError(false);
+  
   };
 
   var regex = /(([a-z]+[A-Z]+|[A-Z]+[a-z]+|[a-z]|[A-Z])|([0-9]+[A-Za-z]+)|([a-zA-Z]+[0-9])+|([\W]))/;
