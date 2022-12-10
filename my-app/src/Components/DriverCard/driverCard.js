@@ -33,7 +33,7 @@ function DriverCard(props) {
         
       </CardContent>
       <CardActions>
-      <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone=554788220837&textOlá' + props.name)}> WhatsApp</Button>
+      <Button className="whatsapp-button" size="small" onClick={() => openInNewTab('https://api.whatsapp.com/send?phone='+ (props.telefone ? (props.telefone) : "47991915757") + '&textOlá' + props.name)}> WhatsApp</Button>
       
       <Link to={"/profile/" + props.idURL} ><Button size="small" className="details-button" >Detalhes</Button></Link>
       </CardActions>

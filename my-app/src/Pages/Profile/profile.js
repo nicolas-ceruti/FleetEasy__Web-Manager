@@ -16,7 +16,7 @@ import 'react-pro-sidebar/dist/css/styles.css';
 import { Container, TextField, Checkbox, FormControlLabel, Button} from "@material-ui/core";
 
 import {BsPinMap} from "react-icons/bs";
-import { BsFillPencilFill, BsFillTrashFill, BsFileEarmarkPdf } from "react-icons/bs";
+import {BsFillTrashFill, BsFileEarmarkPdf } from "react-icons/bs";
 import { Form, ContainerForm} from "./profilee.js";
 import "./profile.css"
 import ButtonBack from '../../Components/ButtonBack/buttonBack';
@@ -70,24 +70,6 @@ function App() {
 
     const deletarMotorista = (e) => {
       toast.error("Não foi possível realizar a ação")
-      
-    //   let dataAuth = {}
-  
-    //   dataAuth = {
-    //     "id" : parseI(params["id"]),
-    //   }
-      
-    //   api
-    //   .delete("/delete", dataAuth)
-    //   .then((response) => setDeleteResponse(response.data))
-    //   .catch(error => toast.error("ops! ocorreu um erro" + error)); 
-    //   console.log(deleteResponse["mensagem"])
-    //   if (deleteResponse["mensagem"] == "Deletada"){
-    //     console.log("ok");
-    //     toast.success("Coleta Deletada!");
-    //     dataAuth = [];
-    //   } else {}  
-    // e.preventDefault();
     };
 
 
@@ -270,6 +252,7 @@ function App() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
+
               <Marker position={position}>
               <Popup>{(String(driversResponse["nomeCompleto"]))}</Popup></Marker> 
               

@@ -51,7 +51,7 @@ function Form() {
       api
       .post("/createMotorista", dataAuth)
       .then((response) => setRegisterRespone(response.data))
-      .catch(error => toast.error("ops! ocorreu um erro" + error)); 
+      .catch(error => console.log("ops! ocorreu um erro" + error)); 
       console.log(registerRespone["mensagem"])
       setNomecompleto(""); setSenha(""); setEmail(""); setCpf(""); setRg(""); setTelefone(""); setCnh(""); setVeiculo(""); 
       if (registerRespone["mensagem"] == "Cadastrado"){

@@ -104,7 +104,7 @@ function Form() {
       api
       .post("/createColeta", dataAuth)
       .then((response) => setRegisterRespone(response.data))
-      .catch(error => toast.error("ops! ocorreu um erro" + error));
+      .catch(error => console.log("ops! ocorreu um erro" + error));
     
       console.log(registerRespone["mensagem"])
       if (registerRespone["mensagem"] == "Cadastrado"){

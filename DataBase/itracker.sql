@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`RegistroColeta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `itrackerr`.`RegistroColeta` (
-  `idRegistroColeta` INT NOT NULL,
+  `idRegistroColeta` INT AUTO_INCREMENT NOT NULL,
   `dataColeta` VARCHAR(45) NOT NULL,
   `horaColeta` VARCHAR(45) NOT NULL,
   `estadoColeta` VARCHAR(45) NOT NULL,
@@ -194,10 +194,21 @@ INSERT INTO veiculo (placa, cor, ano, marca, tipo, modelo, chassi, capacidadePes
 INSERT INTO veiculo (placa, cor, ano, marca, tipo, modelo, chassi, capacidadePeso, capacidadeVolumetria)
 	VALUES ("1534567", "azul", "2045", "JJ", "Bi Trucado", "123", "02345678912345678", "202", "693"); 
 INSERT INTO veiculo (placa, cor, ano, marca, tipo, modelo, chassi, capacidadePeso, capacidadeVolumetria)
-	VALUES ("1034567", "amarelo", "2054", "PALIO", "cavalo", "FGH56", "12345670912345678", "303", "94"); 
+	VALUES ("1034567"
+    , "amarelo", "2054", "PALIO", "cavalo", "FGH56", "12345670912345678", "303", "94"); 
     
 INSERT INTO motoristas_veiculo VALUES (1, 5);
 
-SELECT * FROM  ocorrencia;
+SELECT * FROM  motoristas;
+DELETE FROM registrocoleta WHERE idRegistroColeta=13;
+SELECT * FROM  registrocoleta;
+
 INSERT INTO ocorrencia (id, hora, tipoOcorrencia_idtipoOcorrencia)
-	VALUES (1, "1000-01-01 00:00:00", 0); 
+	VALUES (1, "1000-01-01 00:00:00", 1); 
+    
+SELECT A.idRegistroColeta, A.dataColeta, A.horaColeta, A.estadoColeta, A.cidadeColeta, A.bairroColeta, A.ruaColeta, A.numeroColeta,
+            A.dataEntrega, A.horaEntrega, A.estadoEntrega, A.cidadeEntrega, A.bairroEntrega, A.ruaEntrega, A.numeroEntrega,
+            A.nomeCliente, A.cnpjCliente, A.emailCliente, A.telefoneCliente, A.pesoCarga, A.volumeCarga, A.valorCarga, A.Ocorrencia_idOcorrencia, B.nomeCompleto
+            FROM registrocoleta AS A
+            LEFT JOIN motoristas AS B ON A.Motoristas_idMotorista = B.idMotorista WHERE idRegistroColeta = 1;
+    
