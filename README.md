@@ -3,6 +3,6 @@
 
 Software developed in React for fleet management and vehicle monitoring
 
-You can see more details in : https://nicolasceruti.com/ITracker/home/
+You can see more details in : https://nicolasceruti.com/ITracker/overview
 
 
