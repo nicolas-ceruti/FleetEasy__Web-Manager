@@ -3,7 +3,7 @@
 
 Software developed in React for fleet management and vehicle monitoring
 
-You can see more details in : https://nicolasceruti.com/ITracker/overview
+You can see more details in : https://www.youtube.com/watch?v=2HniuYgYjwk
 
 ## :gear: Functionalities
 
