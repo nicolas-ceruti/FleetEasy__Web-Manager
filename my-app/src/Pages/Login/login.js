@@ -15,7 +15,7 @@ function App() {
 
   const go = useCallback(() => navigate('/home', {replace: true}), [navigate]);
 
-  document.title = "Itracker | Login"
+  document.title = "FleetEasy | Login"
 
 
   const teste = (e) => {
